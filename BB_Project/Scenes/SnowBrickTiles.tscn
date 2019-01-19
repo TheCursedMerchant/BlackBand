@@ -11,7 +11,6 @@ extents = Vector2( 8, 8 )
 
 [node name="0" type="Sprite" parent="." index="0"]
 
-editor/display_folded = true
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
@@ -23,7 +22,6 @@ __meta__ = {
 
 [node name="StaticBody2D" type="StaticBody2D" parent="0" index="0"]
 
-editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
