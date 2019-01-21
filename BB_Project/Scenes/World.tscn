@@ -30,13 +30,31 @@ _sections_unfolded = [ "Cell" ]
 [node name="Player" parent="." index="1" instance=ExtResource( 2 )]
 
 position = Vector2( 112, 80 )
+maxHealth = 10
+maxSpeed = 150
+jumpHeight = -200
+gravityMultiplier = 2.5
+gravity = 10
+acceleration = 50
 
 [node name="Slime" parent="." index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 176, 120 )
+maxHealth = 10
+maxSpeed = 150
+jumpHeight = -200
+gravityMultiplier = 2.5
+gravity = 10
+acceleration = 50
 
 [node name="Slime2" parent="." index="3" instance=ExtResource( 3 )]
 
 position = Vector2( 72, 120 )
+maxHealth = 10
+maxSpeed = 150
+jumpHeight = -200
+gravityMultiplier = 2.5
+gravity = 10
+acceleration = 50
 
 

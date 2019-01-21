@@ -26,7 +26,11 @@ func _on_Projectile_area_entered(area):
 
 func _on_Projectile_body_entered(body):
 	if(body != creator):
-		if(body.get("TYPE") == "ENEMY"):
-			body.currentHealth -= damage
-			print(str(body.currentHealth))
+		match body.get("type"):
+			"ENEMY":
+				body.currentHealth -= damage
+				print(str(body.currentHealth))
+			"PLAYER":
+				body.currentHealth -= damage
+				print(str(body.currentHealth))
 		queue_free()

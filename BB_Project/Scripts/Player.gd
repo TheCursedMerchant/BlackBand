@@ -1,12 +1,6 @@
-extends KinematicBody2D
+extends "res://Scripts/engine/entity.gd"
 
 #Statistics
-const MAX_SPEED = 150
-const JUMP_HEIGHT = -200
-const GRAVITY_MULTIPLIER = 2.5 
-const GRAVITY = 10
-const UP = Vector2(0,-1)
-const ACCELERATION = 50
 const PROJECTILE_SPEED = 200
 
 #Projectile
@@ -15,9 +9,6 @@ var timer = null
 var cooldown = .5
 var can_shoot = true
 
-#Properties
-var motion = Vector2()
-
 func _ready():
 	timer = Timer.new()
 	timer.set_one_shot(true)
@@ -25,13 +16,10 @@ func _ready():
 	timer.connect("timeout", self, "on_timeout_complete")
 	add_child(timer)
 	
-	set_process_input(true)
-	set_process(true)
-	
 func _physics_process(delta):
 	
 	#Gravity
-	motion.y += GRAVITY
+	motion.y += gravity
 	
 	#Fricion
 	var friction = false
@@ -40,11 +28,11 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_right"):
 		$Sprite.flip_h = false
 		$Sprite.play("Run")
-		motion.x = min(motion.x + ACCELERATION, MAX_SPEED)
+		motion = move(motion, acceleration, maxSpeed, dir.right)
 	elif Input.is_action_pressed("ui_left"):
 		$Sprite.flip_h = true
 		$Sprite.play("Run")
-		motion.x = max(motion.x - ACCELERATION, -MAX_SPEED)
+		motion = move(motion, acceleration, maxSpeed, dir.left)
 	else:
 		$Sprite.play("Idle")
 		friction = true
@@ -52,7 +40,7 @@ func _physics_process(delta):
 	#Jump and Apply Friction
 	if is_on_floor():
 		if Input.is_action_pressed("ui_up"):
-			motion.y = JUMP_HEIGHT
+			motion.y = jumpHeight
 		if friction == true:
 				motion.x = lerp(motion.x, 0, 0.2)
 	else:
@@ -62,15 +50,15 @@ func _physics_process(delta):
 			#motion.y += GRAVITY * GRAVITY_MULTIPLIER * delta 
 		else:
 			$Sprite.play("Jump")
-			if friction == true:
-				motion.x = lerp(motion.x, 0, 0.05)
-	
+		if friction == true:
+			motion.x = lerp(motion.x, 0, 0.05)
+				
 	#Apply Motion changes
-	motion = move_and_slide(motion, UP)
+	motion = move_and_slide(motion, dir.up)
 	
 	#Shooting logic 
 	if Input.is_action_just_pressed("ui_accept") && can_shoot:
-		_shoot()
+		shoot()
 		can_shoot = false
 		timer.start()
 	
@@ -80,7 +68,7 @@ func _physics_process(delta):
 	pass
 
 #Shooting 
-func _shoot():
+func shoot():
 	
 		#Add the projectile to the scene 
 		var projectile = PROJECTILE_SCENE.instance(0)
@@ -96,9 +84,10 @@ func _shoot():
 		#Sets projectile position relative to the global position not the parent position 
 		projectile.position = get_node("Position2D").global_position
 		
-		
-
 #When wait time is completed do this
 func on_timeout_complete():
 	can_shoot = true
-
+	
+func jump(var motion, var height):
+	motion.y = height
+	return motion
