@@ -15,7 +15,7 @@ var currentHealth = maxHealth
 var motion = Vector2()
 
 #Default loop to check for death 
-func _physics_process(delta):
+func _process(delta):
 	checkDeath()
 
 #Change the entities' motion

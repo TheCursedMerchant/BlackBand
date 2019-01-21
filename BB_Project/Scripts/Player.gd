@@ -16,6 +16,12 @@ func _ready():
 	timer.connect("timeout", self, "on_timeout_complete")
 	add_child(timer)
 	
+	
+func _process(delta):
+	#Get Input
+	controls.getInput()
+	checkDeath()
+	
 func _physics_process(delta):
 	
 	#Gravity
@@ -25,11 +31,11 @@ func _physics_process(delta):
 	var friction = false
 	
 	#Movement
-	if Input.is_action_pressed("ui_right"):
+	if controls.RIGHT:
 		$Sprite.flip_h = false
 		$Sprite.play("Run")
 		motion = move(motion, acceleration, maxSpeed, dir.right)
-	elif Input.is_action_pressed("ui_left"):
+	elif controls.LEFT:
 		$Sprite.flip_h = true
 		$Sprite.play("Run")
 		motion = move(motion, acceleration, maxSpeed, dir.left)
@@ -39,7 +45,7 @@ func _physics_process(delta):
 	
 	#Jump and Apply Friction
 	if is_on_floor():
-		if Input.is_action_pressed("ui_up"):
+		if controls.UP:
 			motion.y = jumpHeight
 		if friction == true:
 				motion.x = lerp(motion.x, 0, 0.2)
@@ -57,7 +63,7 @@ func _physics_process(delta):
 	motion = move_and_slide(motion, dir.up)
 	
 	#Shooting logic 
-	if Input.is_action_just_pressed("ui_accept") && can_shoot:
+	if controls.ATTACK && can_shoot:
 		shoot()
 		can_shoot = false
 		timer.start()
