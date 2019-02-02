@@ -1,32 +1,28 @@
+#Abstract class for all "living" beings 
 extends KinematicBody2D
 
-#Exposed Properties 
-export var maxHealth = 10
-export var maxSpeed = 150
-export var jumpHeight = -200
-export var gravityMultiplier = 2.5 
-export var gravity = 10
-export var acceleration = 50
-
-var type = "ENTITY"
-
-#Hidden Properties 
-var currentHealth = maxHealth
+#Properties all objects that live will have 
+export var health = 1
+export var gravity = 10 
+export var acceleration = 20
+export var maxSpeed = 200
+export var jumpHeight = 250
+ 
+#State Variables 
 var motion = Vector2()
+var facingDir = dir.right
 
-#Default loop to check for death 
-func _process(delta):
-	checkDeath()
+#All entities can move 
+func move(motion, acceleration, maxSpeed, moveDir):
+	
+	#Move in the correct direction 
+	if(moveDir == dir.right):
+		motion.x = min(motion.x + acceleration, maxSpeed)
+	elif(moveDir == dir.left):
+		motion.x = max(motion.x - acceleration, -maxSpeed)
+	
+	#Apply and store that motion
+	return move_and_slide(motion, dir.up)
+	
 
-#Change the entities' motion
-func move(var motion, var acceleration, var speed, var direction):
-	if direction == dir.right:
-		motion.x = min(motion.x + acceleration, speed)
-	elif direction == dir.left:
-		motion.x = max(motion.x - acceleration, -speed)
-	return motion
 
-#Check if entity has no more health and kill it if it does 
-func checkDeath():
-	if(currentHealth <= 0):
-		queue_free()

@@ -1,4 +1,4 @@
-extends "res://Scripts/engine/entity.gd"
+extends "res://Scripts/entities/entity.gd"
 
 #Statistics
 const PROJECTILE_SPEED = 200
@@ -6,8 +6,12 @@ const PROJECTILE_SPEED = 200
 #Projectile
 const PROJECTILE_SCENE = preload("res://Scenes/projectile_scene.tscn") 
 var timer = null
-var cooldown = .5
-var can_shoot = true
+export var cooldown = .5
+export var can_shoot = true
+export var jumpHeight = -200
+var isHitstun = false 
+
+var anim = "Idle"
 
 func _ready():
 	timer = Timer.new()
@@ -15,7 +19,6 @@ func _ready():
 	timer.set_wait_time(cooldown)
 	timer.connect("timeout", self, "on_timeout_complete")
 	add_child(timer)
-	
 	
 func _process(delta):
 	#Get Input
@@ -67,13 +70,8 @@ func _physics_process(delta):
 		shoot()
 		can_shoot = false
 		timer.start()
-	
-	#print(str(timer.get_time_left()))
-	
-	#Read documentation on GD functions
-	pass
 
-#Shooting 
+#---------------------- Shooting ---------------------------------------------
 func shoot():
 	
 		#Add the projectile to the scene 
@@ -90,10 +88,9 @@ func shoot():
 		#Sets projectile position relative to the global position not the parent position 
 		projectile.position = get_node("Position2D").global_position
 		
-#When wait time is completed do this
+#--------- Shooting Cooldown ---------------------------------
 func on_timeout_complete():
 	can_shoot = true
 	
-func jump(var motion, var height):
-	motion.y = height
-	return motion
+# --------------------- States ------------------------------------------>
+
