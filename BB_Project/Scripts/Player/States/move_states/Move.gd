@@ -23,7 +23,8 @@ func handle_input(event):
 		entity.facingDir = dir.left
 	else:
 		entity.set_state(entity.idleState)
-			
+	
+	#Jumping 
 	if(Input.is_action_pressed('ui_up')):
 		entity.set_state(entity.jumpState)
 		

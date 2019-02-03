@@ -27,7 +27,3 @@ func update(delta):
 			entity.set_state(entity.moveState)
 		else:
 			entity.set_state(entity.idleState)
-		
-
-
-

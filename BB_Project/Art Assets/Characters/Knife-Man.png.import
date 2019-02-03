@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/test_projectile.png-094b2d83c9a76f40c2d8035b00d07476.stex"
+path="res://.import/Knife-Man.png-40d2baa674a03720620c56a8649decaa.stex"
 
 [deps]
 
-source_file="res://Art Assets/test_projectile.png"
-dest_files=[ "res://.import/test_projectile.png-094b2d83c9a76f40c2d8035b00d07476.stex" ]
+source_file="res://Art Assets/Characters/Knife-Man.png"
+dest_files=[ "res://.import/Knife-Man.png-40d2baa674a03720620c56a8649decaa.stex" ]
 
 [params]
 

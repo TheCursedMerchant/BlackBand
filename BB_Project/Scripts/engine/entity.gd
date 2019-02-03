@@ -25,6 +25,3 @@ func move(motion, acceleration, maxSpeed, moveDir):
 	
 	#Apply and store that motion
 	return move_and_slide(motion, dir.up)
-	
-
-
