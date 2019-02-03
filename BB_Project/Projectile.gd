@@ -4,7 +4,7 @@ var speed = 200
 var damage = 5
 var creator = null
 	
-func _process(delta):
+func _physics_process(delta):
 	var speed_x = 1
 	var speed_y = 0
 	var motion = Vector2(speed_x, speed_y) * speed
@@ -22,7 +22,6 @@ func _on_VisibilityNotifier2D_screen_exited():
 func _on_Projectile_area_entered(area):
 	queue_free()
 	area.queue_free()
-
 
 func _on_Projectile_body_entered(body):
 	if(body != creator):

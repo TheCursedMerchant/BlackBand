@@ -1,96 +1,56 @@
-extends "res://Scripts/entities/entity.gd"
+extends "../engine/entity.gd"
 
-#Statistics
-const PROJECTILE_SPEED = 200
+#Player States 
+var idleState
+var moveState
+var jumpState
+var fallState 
 
-#Projectile
-const PROJECTILE_SCENE = preload("res://Scenes/projectile_scene.tscn") 
-var timer = null
-export var cooldown = .5
-export var can_shoot = true
-export var jumpHeight = -200
-var isHitstun = false 
+#Store our current State
+var currentState
 
-var anim = "Idle"
+#Flag if checks for if out player is grounded 
+onready var grounded = is_grounded()
+onready var anim_player = $Player_Anim
 
+#Initialize our state
 func _ready():
-	timer = Timer.new()
-	timer.set_one_shot(true)
-	timer.set_wait_time(cooldown)
-	timer.connect("timeout", self, "on_timeout_complete")
-	add_child(timer)
 	
-func _process(delta):
-	#Get Input
-	controls.getInput()
-	checkDeath()
+	#Set entity type 
+	type = 'PLAYER'
 	
+	#Static States
+	idleState = $States/Idle
+	moveState = $States/Move
+	jumpState = $States/Jump
+	fallState = $States/Fall
+	
+	#Start player off in Idle state
+	set_state(idleState)
+
+#Defer physics process to our state
 func _physics_process(delta):
-	
-	#Gravity
-	motion.y += gravity
-	
-	#Fricion
-	var friction = false
-	
-	#Movement
-	if controls.RIGHT:
-		$Sprite.flip_h = false
-		$Sprite.play("Run")
-		motion = move(motion, acceleration, maxSpeed, dir.right)
-	elif controls.LEFT:
-		$Sprite.flip_h = true
-		$Sprite.play("Run")
-		motion = move(motion, acceleration, maxSpeed, dir.left)
-	else:
-		$Sprite.play("Idle")
-		friction = true
-	
-	#Jump and Apply Friction
-	if is_on_floor():
-		if controls.UP:
-			motion.y = jumpHeight
-		if friction == true:
-				motion.x = lerp(motion.x, 0, 0.2)
-	else:
-		#Checks if character is falling 
-		if motion.y > 0:
-			$Sprite.play("Fall")
-			#motion.y += GRAVITY * GRAVITY_MULTIPLIER * delta 
-		else:
-			$Sprite.play("Jump")
-		if friction == true:
-			motion.x = lerp(motion.x, 0, 0.05)
-				
-	#Apply Motion changes
-	motion = move_and_slide(motion, dir.up)
-	
-	#Shooting logic 
-	if controls.ATTACK && can_shoot:
-		shoot()
-		can_shoot = false
-		timer.start()
+	is_grounded()
+	currentState.update(delta)
+	anim_player.play(currentState.get_name())
 
-#---------------------- Shooting ---------------------------------------------
-func shoot():
-	
-		#Add the projectile to the scene 
-		var projectile = PROJECTILE_SCENE.instance(0)
-		projectile.creator = self
-		get_parent().add_child(projectile)
-		
-		#Setting projectile direction based on facing direction 
-		if($Sprite.flip_h):
-			projectile.set_speed(-PROJECTILE_SPEED)
-		else:
-			projectile.set_speed(PROJECTILE_SPEED)
-		
-		#Sets projectile position relative to the global position not the parent position 
-		projectile.position = get_node("Position2D").global_position
-		
-#--------- Shooting Cooldown ---------------------------------
-func on_timeout_complete():
-	can_shoot = true
-	
-# --------------------- States ------------------------------------------>
+#Defer input to our state
+func _input(event):
+	currentState.handle_input(event)
+	$"shoot-point".handle_input(event) 
 
+#Handle exiting and entering new state
+func set_state(newState):
+	if(currentState != null && currentState.has_method('exit')):
+		currentState.exit()
+	currentState = newState
+	currentState.enter()
+	#print(currentState.get_name())
+	#print(motion)
+	
+#Check if player is on the ground 
+func is_grounded():
+	if($front_ray.is_colliding() || $back_ray.is_colliding()):
+		grounded = true
+	else:
+		grounded = false

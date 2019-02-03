@@ -11,6 +11,8 @@ export var jumpHeight = 250
 #State Variables 
 var motion = Vector2()
 var facingDir = dir.right
+var type = 'entity'
+onready var currentHealth = health
 
 #All entities can move 
 func move(motion, acceleration, maxSpeed, moveDir):
