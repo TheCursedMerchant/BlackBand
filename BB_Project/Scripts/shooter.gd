@@ -19,7 +19,6 @@ func _ready():
 	timer.set_wait_time(cooldown)
 	timer.connect("timeout", self, "on_timeout_complete")
 	add_child(timer)
-	pass 
 	
 #--------- Shooting Cooldown ---------------------------------
 func on_timeout_complete():
