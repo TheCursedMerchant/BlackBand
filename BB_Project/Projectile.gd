@@ -1,7 +1,7 @@
 extends Area2D
 
-var speed = 200
-var damage = 5
+export var speed = 200
+export var damage = 5
 var creator = null
 	
 func _physics_process(delta):
@@ -27,9 +27,9 @@ func _on_Projectile_body_entered(body):
 	if(body != creator):
 		match body.get("type"):
 			"ENEMY":
-				body.currentHealth -= damage
+				body.takeDamage(damage)
 				print(str(body.currentHealth))
 			"PLAYER":
-				body.currentHealth -= damage
+				body.takeDamage(damage)
 				print(str(body.currentHealth))
 		queue_free()

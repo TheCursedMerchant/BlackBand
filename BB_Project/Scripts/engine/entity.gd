@@ -2,7 +2,7 @@
 extends KinematicBody2D
 
 #Properties all objects that live will have 
-export var health = 1
+export var health = 3
 export var gravity = 10 
 export var acceleration = 20
 export var maxSpeed = 200
@@ -25,3 +25,7 @@ func move(motion, acceleration, maxSpeed, moveDir):
 	
 	#Apply and store that motion
 	return move_and_slide(motion, dir.up)
+	
+#Debug function 
+func takeDamage():
+	currentHealth -= 1

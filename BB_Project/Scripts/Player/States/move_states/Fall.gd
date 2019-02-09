@@ -21,6 +21,10 @@ func update(delta):
 	#Apply motion change  
 	entity.motion = entity.move_and_slide(entity.motion, dir.up)
 	
+	#Character swapping 
+	if(Input.is_action_just_pressed('ui_down')):
+		entity.get_child(6).swap(entity.partyIndex, true)
+	
 	#Check if I hit the ground 
 	if(entity.grounded):
 		if(Input.is_action_pressed('ui_right') || Input.is_action_pressed('ui_left')):

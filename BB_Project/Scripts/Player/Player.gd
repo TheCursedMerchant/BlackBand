@@ -1,10 +1,15 @@
 extends "../engine/entity.gd"
 
+#Party Properties 
+var partyIndex
+var initial = true
+
 #Player States 
 var idleState
 var moveState
 var jumpState
 var fallState 
+var swapState
 
 #Store our current State
 var currentState
@@ -19,14 +24,18 @@ func _ready():
 	#Set entity type 
 	type = 'PLAYER'
 	
-	#Static States
-	idleState = $States/Idle
-	moveState = $States/Move
-	jumpState = $States/Jump
-	fallState = $States/Fall
+	#Set our position in the party 
+	partyIndex = 0
 	
-	#Start player off in Idle state
-	set_state(idleState)
+	#Initialize our player 
+	initializePlayer()
+	
+	#Enter idle state
+	if(currentState == null):
+		set_state(idleState)
+	else:
+		set_state(currentState)
+	
 
 #Defer physics process to our state
 func _physics_process(delta):
@@ -54,3 +63,13 @@ func is_grounded():
 		grounded = true
 	else:
 		grounded = false
+		
+func initializePlayer():
+	
+	#Static States
+	idleState = $States/Idle
+	moveState = $States/Move
+	jumpState = $States/Jump
+	fallState = $States/Fall
+	swapState = $States/Swap
+	

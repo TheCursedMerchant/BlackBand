@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scripts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Art Assets/Dummy-Animations/dummy-walk-cycle1.png" type="Texture" id=2]
@@ -10,16 +10,18 @@
 [ext_resource path="res://Art Assets/Dummy-Animations/dummy-walk-cycle7.png" type="Texture" id=8]
 [ext_resource path="res://Art Assets/Dummy-Animations/dummy-walk-cycle8.png" type="Texture" id=9]
 [ext_resource path="res://Art Assets/Dummy-Animations/dummy-character.png" type="Texture" id=10]
-[ext_resource path="res://Art Assets/Dummy-Animations/dummy-jump2.png" type="Texture" id=11]
-[ext_resource path="res://Art Assets/Dummy-Animations/dummy-jump3.png" type="Texture" id=12]
-[ext_resource path="res://Art Assets/Dummy-Animations/dummy-jump4.png" type="Texture" id=13]
-[ext_resource path="res://Art Assets/Dummy-Animations/dummy-jump5.png" type="Texture" id=14]
-[ext_resource path="res://Scripts/Player/States/move_states/Idle.gd" type="Script" id=15]
-[ext_resource path="res://Scripts/Player/States/move_states/Move.gd" type="Script" id=16]
-[ext_resource path="res://Scripts/Player/States/move_states/Jump.gd" type="Script" id=17]
-[ext_resource path="res://Scripts/Player/States/move_states/Fall.gd" type="Script" id=18]
-[ext_resource path="res://Scripts/shooter.gd" type="Script" id=19]
-[ext_resource path="res://Scenes/projectile_scene.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Art Assets/Dummy-Animations/dummy-jump4.png" type="Texture" id=11]
+[ext_resource path="res://Art Assets/Dummy-Animations/dummy-jump5.png" type="Texture" id=12]
+[ext_resource path="res://Art Assets/Dummy-Animations/dummy-jump2.png" type="Texture" id=13]
+[ext_resource path="res://Art Assets/Dummy-Animations/dummy-jump3.png" type="Texture" id=14]
+[ext_resource path="res://Scripts/shooter.gd" type="Script" id=15]
+[ext_resource path="res://Scenes/projectile_scene.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scripts/Player/States/move_states/Idle.gd" type="Script" id=17]
+[ext_resource path="res://Scripts/Player/States/move_states/Move.gd" type="Script" id=18]
+[ext_resource path="res://Scripts/Player/States/move_states/Jump.gd" type="Script" id=19]
+[ext_resource path="res://Scripts/Player/States/move_states/Fall.gd" type="Script" id=20]
+[ext_resource path="res://Scripts/Player/States/SwapState.gd" type="Script" id=21]
+[ext_resource path="res://Scripts/Player/Party.gd" type="Script" id=22]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -36,12 +38,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
 "loop": false,
-"name": "Jump",
+"name": "Fall",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ), ExtResource( 14 ) ],
 "loop": false,
-"name": "Fall",
+"name": "Jump",
 "speed": 5.0
 } ]
 
@@ -51,7 +53,7 @@ custom_solver_bias = 0.0
 radius = 4.0
 height = 20.0
 
-[node name="Player_v2" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -59,11 +61,11 @@ collision_mask = 1
 collision/safe_margin = 0.001
 script = ExtResource( 1 )
 _sections_unfolded = [ "collision" ]
-health = 1
+health = 5
 gravity = 10
-acceleration = 20
-maxSpeed = 200
-jumpHeight = 250
+acceleration = 15
+maxSpeed = 150
+jumpHeight = 150
 
 [node name="Player_Anim" type="AnimatedSprite" parent="." index="0"]
 
@@ -106,27 +108,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="States" type="Node" parent="." index="4"]
-
-editor/display_folded = true
-
-[node name="Idle" type="Node" parent="States" index="0"]
-
-script = ExtResource( 15 )
-
-[node name="Move" type="Node" parent="States" index="1"]
-
-script = ExtResource( 16 )
-
-[node name="Jump" type="Node" parent="States" index="2"]
-
-script = ExtResource( 17 )
-
-[node name="Fall" type="Node" parent="States" index="3"]
-
-script = ExtResource( 18 )
-
-[node name="shoot-point" type="Area2D" parent="." index="5"]
+[node name="shoot-point" type="Area2D" parent="." index="4"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -135,13 +117,41 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 19 )
+script = ExtResource( 15 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
-projectile_scene = ExtResource( 20 )
+projectile_scene = ExtResource( 16 )
 cooldown = 0.5
 projectile_speed = 400
+
+[node name="States" type="Node" parent="." index="5"]
+
+editor/display_folded = true
+
+[node name="Idle" type="Node" parent="States" index="0"]
+
+script = ExtResource( 17 )
+
+[node name="Move" type="Node" parent="States" index="1"]
+
+script = ExtResource( 18 )
+
+[node name="Jump" type="Node" parent="States" index="2"]
+
+script = ExtResource( 19 )
+
+[node name="Fall" type="Node" parent="States" index="3"]
+
+script = ExtResource( 20 )
+
+[node name="Swap" type="Node" parent="States" index="4"]
+
+script = ExtResource( 21 )
+
+[node name="Party" type="Node" parent="." index="6"]
+
+script = ExtResource( 22 )
 
 

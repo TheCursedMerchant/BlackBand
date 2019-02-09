@@ -22,5 +22,9 @@ func update(delta):
 	#Move 	
 	entity.motion = entity.move_and_slide(entity.motion, dir.up)
 	
+	#Character swapping 
+	if(Input.is_action_just_pressed('ui_down')):
+		entity.get_child(6).swap(entity.partyIndex, true)
+	
 	if(Input.is_action_just_released('ui_up') || entity.is_on_ceiling() || entity.motion.y == -entity.jumpHeight):
 		entity.set_state(entity.fallState) 	

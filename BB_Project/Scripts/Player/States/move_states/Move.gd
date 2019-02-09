@@ -27,6 +27,9 @@ func handle_input(event):
 	#Jumping 
 	if(Input.is_action_pressed('ui_up')):
 		entity.set_state(entity.jumpState)
+	
+	if(Input.is_action_pressed('ui_down')):
+		entity.get_child(6).swap(entity.partyIndex, true)
 		
 		
 
