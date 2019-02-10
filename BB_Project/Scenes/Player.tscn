@@ -45,6 +45,11 @@ animations = [ {
 "loop": false,
 "name": "Jump",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": false,
+"name": "Damage",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -53,7 +58,7 @@ custom_solver_bias = 0.0
 radius = 4.0
 height = 20.0
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
