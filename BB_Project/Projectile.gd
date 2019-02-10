@@ -26,9 +26,9 @@ func _on_Projectile_area_entered(area):
 
 func _on_Projectile_body_entered(body):
 	if(body != creator):
-		if(body.currentState != body.damageState):
-			match body.get("type"):
-				"ENEMY":
+		match body.get("type"):
+			"ENEMY":
+				if(body.currentState != body.damageState):
 					body.currentDamage += damage
 					body.knockback = knock_back
 					#Check which direction we we're hit from 
@@ -38,7 +38,8 @@ func _on_Projectile_body_entered(body):
 						body.knockbackDir = 1
 						
 					body.set_state(body.damageState)
-				"PLAYER":
+			"PLAYER":
+				if(body.currentState != body.damageState):
 					body.currentDamage += damage
 					body.knockback = knock_back
 					#Check which direction we we're hit from 

@@ -6,8 +6,6 @@ func get_name():
 	return 'Damage'
 
 func enter():
-	entity.takeDamage(entity.currentDamage)
-	print(entity.currentHealth)
 	timer = Timer.new()
 	timer.set_one_shot(true)
 	timer.set_wait_time(entity.damageTime)
@@ -22,6 +20,8 @@ func update(delta):
 	
 #Reduce stored damage
 func exit():
+	entity.takeDamage(entity.currentDamage)
+	print(entity.currentHealth)
 	entity.currentDamage = 0
 	
 func on_timeout_complete():

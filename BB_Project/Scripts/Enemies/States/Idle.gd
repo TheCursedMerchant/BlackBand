@@ -5,5 +5,9 @@ func get_name():
 	
 func enter():
 	entity.motion = Vector2()
+	
+func update(delta):
+	if(!entity.grounded):
+		entity.set_state(entity.fallState)
 
 

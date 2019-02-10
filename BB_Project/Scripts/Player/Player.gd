@@ -21,23 +21,18 @@ onready var anim_player = $Player_Anim
 
 #Initialize our state
 func _ready():
-	
 	#Set entity type 
 	type = 'PLAYER'
-	
 	#Set our position in the party 
 	partyIndex = 0
-	
 	#Initialize our player 
 	initializePlayer()
-	
 	#Enter idle state
 	if(currentState == null):
 		set_state(idleState)
 	else:
 		set_state(currentState)
 	
-
 #Defer physics process to our state
 func _physics_process(delta):
 	is_grounded()
