@@ -1,4 +1,4 @@
-extends '../State.gd'
+extends '../../../State.gd'
 		
 		
 #Return state name

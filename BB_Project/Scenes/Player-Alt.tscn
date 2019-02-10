@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scripts/Player/Player-Alt.gd" type="Script" id=1]
 [ext_resource path="res://Art Assets/Alternate Dummy Animations/alternate-dummy-walk-cycle1.png" type="Texture" id=2]
@@ -21,8 +21,7 @@
 [ext_resource path="res://Scripts/Player/States/move_states/Move.gd" type="Script" id=19]
 [ext_resource path="res://Scripts/Player/States/move_states/Jump.gd" type="Script" id=20]
 [ext_resource path="res://Scripts/Player/States/move_states/Fall.gd" type="Script" id=21]
-[ext_resource path="res://Scripts/Player/States/SwapState.gd" type="Script" id=22]
-[ext_resource path="res://Scripts/Player/Party.gd" type="Script" id=23]
+[ext_resource path="res://Scripts/Player/Party.gd" type="Script" id=22]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -54,7 +53,7 @@ custom_solver_bias = 0.0
 radius = 4.0
 height = 20.0
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -145,12 +144,8 @@ script = ExtResource( 20 )
 
 script = ExtResource( 21 )
 
-[node name="Swap" type="Node" parent="States" index="4"]
-
-script = ExtResource( 22 )
-
 [node name="Party" type="Node" parent="." index="6"]
 
-script = ExtResource( 23 )
+script = ExtResource( 22 )
 
 

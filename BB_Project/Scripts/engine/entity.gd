@@ -14,6 +14,12 @@ var facingDir = dir.right
 var type = 'entity'
 onready var currentHealth = health
 
+#Damage Variables
+var knockback = 0
+var knockbackDir = 1
+var currentDamage = 0
+var damageTime = .1
+
 #All entities can move 
 func move(motion, acceleration, maxSpeed, moveDir):
 	
@@ -27,5 +33,8 @@ func move(motion, acceleration, maxSpeed, moveDir):
 	return move_and_slide(motion, dir.up)
 	
 #Debug function 
-func takeDamage():
-	currentHealth -= 1
+func takeDamage(dam):
+	#Apply Damage and check for death 
+	currentHealth -= dam 
+	if(currentHealth <= 0):
+		queue_free()

@@ -20,7 +20,7 @@
 [ext_resource path="res://Scripts/Player/States/move_states/Move.gd" type="Script" id=18]
 [ext_resource path="res://Scripts/Player/States/move_states/Jump.gd" type="Script" id=19]
 [ext_resource path="res://Scripts/Player/States/move_states/Fall.gd" type="Script" id=20]
-[ext_resource path="res://Scripts/Player/States/SwapState.gd" type="Script" id=21]
+[ext_resource path="res://Scripts/Player/States/DamageState.gd" type="Script" id=21]
 [ext_resource path="res://Scripts/Player/Party.gd" type="Script" id=22]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -128,8 +128,6 @@ projectile_speed = 400
 
 [node name="States" type="Node" parent="." index="5"]
 
-editor/display_folded = true
-
 [node name="Idle" type="Node" parent="States" index="0"]
 
 script = ExtResource( 17 )
@@ -146,7 +144,7 @@ script = ExtResource( 19 )
 
 script = ExtResource( 20 )
 
-[node name="Swap" type="Node" parent="States" index="4"]
+[node name="Damage" type="Node" parent="States" index="4"]
 
 script = ExtResource( 21 )
 

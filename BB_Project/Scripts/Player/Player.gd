@@ -10,6 +10,7 @@ var moveState
 var jumpState
 var fallState 
 var swapState
+var damageState
 
 #Store our current State
 var currentState
@@ -65,11 +66,10 @@ func is_grounded():
 		grounded = false
 		
 func initializePlayer():
-	
 	#Static States
 	idleState = $States/Idle
 	moveState = $States/Move
 	jumpState = $States/Jump
 	fallState = $States/Fall
-	swapState = $States/Swap
+	damageState = $States/Damage
 	
