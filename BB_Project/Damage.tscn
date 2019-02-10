@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Damage.gd" type="Script" id=1]
+
+[node name="Damage" type="Area2D"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+damage = 5
+knock_back = 20
+
+[connection signal="area_entered" from="." to="." method="_on_Damage_area_entered"]
+
+[connection signal="body_entered" from="." to="." method="_on_Damage_body_entered"]
+
+
