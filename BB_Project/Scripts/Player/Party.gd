@@ -44,6 +44,7 @@ func swap(index, forward):
 					
 			#Add next character to the scene 
 			nextChar = party[newIndex].instance(0)
+			get_node("../../MainCamera").player = nextChar
 			nextChar.currentHealth = get_parent().currentHealth
 			nextChar.motion = get_parent().motion
 			nextChar.facingDir = get_parent().facingDir

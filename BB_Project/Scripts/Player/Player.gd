@@ -32,6 +32,9 @@ func _ready():
 		set_state(idleState)
 	else:
 		set_state(currentState)
+	#Set the main camera 
+	if(get_node("../MainCamera").player == null):
+		get_node("../MainCamera").player = self
 	
 #Defer physics process to our state
 func _physics_process(delta):
