@@ -11,5 +11,6 @@ func enter():
 		entity.anim_player.position.x += 10 
 		
 func _on_Player_Anim_animation_finished():
-	entity.set_state(entity.idleState)
+	if(entity.get_child(0).animation == 'Attack'):
+		entity.set_state(entity.idleState)
 	

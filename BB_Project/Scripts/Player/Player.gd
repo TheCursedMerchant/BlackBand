@@ -3,11 +3,11 @@ extends "../engine/entity.gd"
 #Party Properties 
 var partyIndex
 var initial = true
-var canAttack = true 
+var canAttack = false 
 
 #Damage Properties 
-export var meleeDamage = 5 
-export var meleeKnockback = 10 
+export var meleeDamage = 10 
+export var meleeKnockback = 40 
 
 #Player States 
 var idleState

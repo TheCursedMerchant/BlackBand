@@ -12,6 +12,9 @@ func _ready():
 	#Turn off Shooter 
 	$"shoot-point".can_shoot = false
 	
+	#Turn on melee attack 
+	canAttack = true
+	
 	#Initialize Player
 	initializePlayer()
 	

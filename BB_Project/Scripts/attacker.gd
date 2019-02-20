@@ -1,13 +1,11 @@
 extends Position2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-
 var timer = null
 var cooldown = .4
 var swordBox = preload('res://Scenes/Sword-Box.tscn')
 var direction = 1
+
+export var x_offset = 15
 
 func _ready():
 	timer = Timer.new()
@@ -35,4 +33,4 @@ func attack():
 			direction = 1
 		
 		#Sets projectile position relative to the global position not the parent position 
-		hitBox.position = self.global_position + Vector2(20 * direction, 0)
+		hitBox.position = self.global_position + Vector2(x_offset * direction, 0)

@@ -22,7 +22,6 @@ var damageTime = .1
 
 #All entities can move 
 func move(motion, acceleration, maxSpeed, moveDir):
-	
 	#Move in the correct direction 
 	if(moveDir == dir.right):
 		motion.x = min(motion.x + acceleration, maxSpeed)
