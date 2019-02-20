@@ -8,6 +8,7 @@ func get_name():
 #This stops storing motion before jumping 
 func enter():
 	entity.motion = Vector2()
+	entity.anim_player.position.x = 0
 	
 #Check if entity is falling 
 func update(delta):
@@ -29,5 +30,9 @@ func handle_input(event):
 	
 	if(Input.is_action_just_pressed('ui_down')):
 		entity.get_child(6).swap(entity.partyIndex, true)
+		
+	if(Input.is_action_just_pressed('ui_melee') && entity.canAttack):
+		entity.canAttack = false 
+		entity.set_state(entity.attackState)
 		
 		

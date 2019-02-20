@@ -1,35 +1,30 @@
 extends Area2D
 
-export var speed = 200
-export var damage = 5
-export var knock_back = 20 
-var creator = null
+var damage 
+var knockback 
+var knockbackDir
+var creator
+var timer = null 
+var lifeTime = .5
+
+func _ready():
+	timer = Timer.new()
+	timer.set_one_shot(true)
+	timer.set_wait_time(lifeTime)
+	timer.connect("timeout", self, "on_timeout_complete")
+	add_child(timer)
+	timer.start()
 	
-func _physics_process(delta):
-	var speed_x = 1
-	var speed_y = 0
-	var motion = Vector2(speed_x, speed_y) * speed
-	position += motion * delta
+func on_timeout_complete():
+	queue_free() 
 
-func get_speed():
-	return speed
-	
-func set_speed(var s):
-	speed = s
-
-func _on_VisibilityNotifier2D_screen_exited():
-	queue_free()
-
-func _on_Projectile_area_entered(area):
-	queue_free()
-
-func _on_Projectile_body_entered(body):
+func _on_SwordBox_body_entered(body):
 	if(body != creator):
 		match body.get("type"):
 			"ENEMY":
 				if(body.currentState != body.damageState):
 					body.currentDamage += damage
-					body.knockback = knock_back
+					body.knockback = knockback
 					#Check which direction we we're hit from 
 					if(body.position.x < self.position.x):
 						body.knockbackDir = -1
@@ -40,7 +35,7 @@ func _on_Projectile_body_entered(body):
 			"PLAYER":
 				if(body.currentState != body.damageState):
 					body.currentDamage += damage
-					body.knockback = knock_back
+					body.knockback = knockback
 					#Check which direction we we're hit from 
 					if(body.position.x < self.position.x):
 						body.knockbackDir = 1

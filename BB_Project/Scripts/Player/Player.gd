@@ -3,6 +3,11 @@ extends "../engine/entity.gd"
 #Party Properties 
 var partyIndex
 var initial = true
+var canAttack = true 
+
+#Damage Properties 
+export var meleeDamage = 5 
+export var meleeKnockback = 10 
 
 #Player States 
 var idleState
@@ -11,6 +16,7 @@ var jumpState
 var fallState 
 var swapState
 var damageState
+var attackState 
 
 #Store our current State
 var currentState
@@ -53,7 +59,7 @@ func set_state(newState):
 		currentState.exit()
 	currentState = newState
 	currentState.enter()
-	#print(currentState.get_name())
+	print(currentState.get_name())
 	#print(motion)
 	
 #Check if player is on the ground 
@@ -70,4 +76,5 @@ func initializePlayer():
 	jumpState = $States/Jump
 	fallState = $States/Fall
 	damageState = $States/Damage
+	attackState = $States/Attack 
 	

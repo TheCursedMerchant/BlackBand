@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 2, 2 )
 
-[node name="Projectile" type="Area2D" index="0"]
+[node name="Projectile" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -22,6 +22,7 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
 speed = 200
 damage = 5
+knock_back = 20
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

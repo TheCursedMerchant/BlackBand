@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scripts/Weapons/Dummy-Sword/Sword.gd" type="Script" id=1]
+[ext_resource path="res://Art Assets/Attacks/Sword-Attack-01.png" type="Texture" id=2]
+[ext_resource path="res://Art Assets/Attacks/Sword-Attack-02.png" type="Texture" id=3]
+[ext_resource path="res://Art Assets/Attacks/Sword-Attack-03.png" type="Texture" id=4]
+[ext_resource path="res://Art Assets/Attacks/Sword-Attack-04.png" type="Texture" id=5]
+[ext_resource path="res://Art Assets/Attacks/Sword-Attack-05.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/Weapons/Dummy-Sword/States/Sword_IdleState.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/Weapons/Dummy-Sword/States/Sword_AttackState.gd" type="Script" id=8]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": false,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": false,
+"name": "Attack",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
+[node name="Sword" type="Area2D" index="0"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 3
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
+power = 10
+knockback = 10
+
+[node name="Sword-Anim" type="AnimatedSprite" parent="." index="0"]
+
+frames = SubResource( 1 )
+animation = "Idle"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Hitbox" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 4, 9.71556e-006 )
+scale = Vector2( 1, 1.53846 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="States" type="Node" parent="." index="2"]
+
+[node name="Idle" type="Node" parent="States" index="0"]
+
+script = ExtResource( 7 )
+
+[node name="Attack" type="Node" parent="States" index="1"]
+
+script = ExtResource( 8 )
+
+[connection signal="body_entered" from="." to="." method="_on_Sword_body_entered"]
+
+
