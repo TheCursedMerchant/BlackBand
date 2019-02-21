@@ -37,3 +37,4 @@ func takeDamage(dam):
 	currentHealth -= dam 
 	if(currentHealth <= 0):
 		queue_free()
+		

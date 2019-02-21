@@ -33,7 +33,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 8, 8 )
 
-[node name="Slime" type="KinematicBody2D"]
+[node name="Slime" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 3
@@ -47,7 +47,7 @@ acceleration = 20
 maxSpeed = 200
 jumpHeight = 250
 
-[node name="Sprite" type="AnimatedSprite" parent="." index="0"]
+[node name="Anim_Player" type="AnimatedSprite" parent="." index="0"]
 
 frames = SubResource( 1 )
 animation = "Idle"

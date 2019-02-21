@@ -1,6 +1,6 @@
 extends "../engine/entity.gd"
 
-onready var anim_player = $Sprite
+onready var anim_player = $Anim_Player
 
 #States
 var previousState 
@@ -52,3 +52,4 @@ func is_grounded():
 		grounded = true
 	else:
 		grounded = false
+		

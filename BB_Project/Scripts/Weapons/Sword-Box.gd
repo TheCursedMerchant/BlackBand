@@ -28,8 +28,10 @@ func _on_SwordBox_body_entered(body):
 					#Check which direction we we're hit from 
 					if(body.position.x < self.position.x):
 						body.knockbackDir = -1
+						body.anim_player.flip_h = false
 					else:
 						body.knockbackDir = 1
+						body.anim_player.flip_h = true
 						
 					body.knockback = Vector2(h_knockback * body.knockbackDir, v_knockback)
 						
@@ -40,10 +42,13 @@ func _on_SwordBox_body_entered(body):
 					#Check which direction we we're hit from 
 					if(body.position.x < self.position.x):
 						body.knockbackDir = 1
+						body.anim_player.flip_h = false
 					else:
 						body.knockbackDir = -1
+						body.anim_player.flip_h = true
 						
 					body.knockback = Vector2(h_knockback * knockbackDir, v_knockback)
 					
 					body.set_state(body.damageState)
 		queue_free()
+	
