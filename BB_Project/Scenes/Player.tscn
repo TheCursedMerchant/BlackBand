@@ -47,14 +47,14 @@ animations = [ {
 "name": "Fall",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ) ],
-"loop": false,
-"name": "Damage",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 13 ), ExtResource( 14 ) ],
 "loop": false,
 "name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": false,
+"name": "Damage",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
@@ -83,7 +83,8 @@ acceleration = 15
 maxSpeed = 150
 jumpHeight = 150
 meleeDamage = 5
-meleeKnockback = 10
+h_meleeKnockback = 40
+v_meleeKnockback = -20
 
 [node name="Player_Anim" type="AnimatedSprite" parent="." index="0"]
 

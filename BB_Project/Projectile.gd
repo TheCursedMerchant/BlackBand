@@ -2,7 +2,10 @@ extends Area2D
 
 export var speed = 200
 export var damage = 5
-export var knock_back = 20 
+export var h_knockback = 20 
+export var v_knockback = 0 
+
+var knockbackDir
 var creator = null
 	
 func _physics_process(delta):
@@ -29,22 +32,25 @@ func _on_Projectile_body_entered(body):
 			"ENEMY":
 				if(body.currentState != body.damageState):
 					body.currentDamage += damage
-					body.knockback = knock_back
+				
 					#Check which direction we we're hit from 
 					if(body.position.x < self.position.x):
 						body.knockbackDir = -1
 					else:
 						body.knockbackDir = 1
 						
+					body.knockback = Vector2(h_knockback * body.knockbackDir, v_knockback)
+					
 					body.set_state(body.damageState)
 			"PLAYER":
 				if(body.currentState != body.damageState):
 					body.currentDamage += damage
-					body.knockback = knock_back
 					#Check which direction we we're hit from 
 					if(body.position.x < self.position.x):
 						body.knockbackDir = 1
 					else:
 						body.knockbackDir = -1
+						
+					body.knockback = Vector2(h_knockback * knockbackDir, v_knockback)
 					body.set_state(body.damageState)
 		queue_free()

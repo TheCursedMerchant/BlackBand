@@ -9,16 +9,16 @@ export var maxSpeed = 200
 export var jumpHeight = 250
  
 #State Variables 
-var motion = Vector2()
+var motion = Vector2(0, 0)
 var facingDir = dir.right
 var type = 'entity'
 onready var currentHealth = health
 
 #Damage Variables
-var knockback = 0
+var knockback = Vector2(0, 0) 
 var knockbackDir = 1
 var currentDamage = 0
-var damageTime = .1
+var damageTime = .2
 
 #All entities can move 
 func move(motion, acceleration, maxSpeed, moveDir):

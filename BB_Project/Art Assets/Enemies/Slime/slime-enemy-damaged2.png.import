@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/slime-enemy.png-710280985887044bac97a533e169986c.stex"
+path="res://.import/slime-enemy-damaged2.png-8ce6b5b78086d568502faa70b746a335.stex"
 
 [deps]
 
-source_file="res://Art Assets/Enemies/slime-enemy.png"
-dest_files=[ "res://.import/slime-enemy.png-710280985887044bac97a533e169986c.stex" ]
+source_file="res://Art Assets/Enemies/Slime/slime-enemy-damaged2.png"
+dest_files=[ "res://.import/slime-enemy-damaged2.png-8ce6b5b78086d568502faa70b746a335.stex" ]
 
 [params]
 

@@ -1,0 +1,29 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/slime-enemy-damaged3.png-f394e43455f4453e667629c9b255d84c.stex"
+
+[deps]
+
+source_file="res://Art Assets/Enemies/Slime/slime-enemy-damaged3.png"
+dest_files=[ "res://.import/slime-enemy-damaged3.png-f394e43455f4453e667629c9b255d84c.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

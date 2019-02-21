@@ -1,7 +1,7 @@
 extends 'res://Scripts/State.gd'
 
 func get_name():
-	return 'Fall'
+	return "Fall"
 	
 func update(delta):
 	

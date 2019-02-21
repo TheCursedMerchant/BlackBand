@@ -1,7 +1,8 @@
 extends Area2D
 
 var damage 
-var knockback 
+var h_knockback 
+var v_knockback
 var knockbackDir
 var creator
 var timer = null 
@@ -24,22 +25,25 @@ func _on_SwordBox_body_entered(body):
 			"ENEMY":
 				if(body.currentState != body.damageState):
 					body.currentDamage += damage
-					body.knockback = knockback
 					#Check which direction we we're hit from 
 					if(body.position.x < self.position.x):
 						body.knockbackDir = -1
 					else:
 						body.knockbackDir = 1
 						
+					body.knockback = Vector2(h_knockback * body.knockbackDir, v_knockback)
+						
 					body.set_state(body.damageState)
 			"PLAYER":
 				if(body.currentState != body.damageState):
 					body.currentDamage += damage
-					body.knockback = knockback
 					#Check which direction we we're hit from 
 					if(body.position.x < self.position.x):
 						body.knockbackDir = 1
 					else:
 						body.knockbackDir = -1
+						
+					body.knockback = Vector2(h_knockback * knockbackDir, v_knockback)
+					
 					body.set_state(body.damageState)
 		queue_free()

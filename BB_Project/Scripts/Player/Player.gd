@@ -7,7 +7,8 @@ var canAttack = false
 
 #Damage Properties 
 export var meleeDamage = 10 
-export var meleeKnockback = 40 
+export var h_meleeKnockback = 40
+export var v_meleeKnockback = -20
 
 #Player States 
 var idleState
@@ -19,6 +20,7 @@ var damageState
 var attackState 
 
 #Store our current State
+var previousState 
 var currentState
 
 #Flag if checks for if out player is grounded 
@@ -57,6 +59,7 @@ func _input(event):
 func set_state(newState):
 	if(currentState != null && currentState.has_method('exit')):
 		currentState.exit()
+	previousState = currentState 
 	currentState = newState
 	currentState.enter()
 	print(currentState.get_name())

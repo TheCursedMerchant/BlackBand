@@ -40,11 +40,12 @@ __meta__ = {
 
 position = Vector2( 69.7792, 48.7272 )
 meleeDamage = 10
-meleeKnockback = 40
+h_meleeKnockback = 40
+v_meleeKnockback = -20
 
 [node name="Slime" parent="." index="2" instance=ExtResource( 4 )]
 
-position = Vector2( 239.024, 120.354 )
+position = Vector2( 210.345, 120.354 )
 health = 20
 
 [node name="MainCamera" type="Camera2D" parent="." index="3"]

@@ -15,16 +15,17 @@ func enter():
 	
 func update(delta):
 	#Apply knockback 
-	entity.motion.x += entity.knockback * entity.knockbackDir
+	entity.motion = entity.knockback 
 	entity.move_and_slide(entity.motion, dir.up) 
 	
 #Reduce stored damage
 func exit():
+	entity.motion = Vector2(0, 0) 
 	entity.takeDamage(entity.currentDamage)
 	print(entity.currentHealth)
 	entity.currentDamage = 0
 	
 func on_timeout_complete():
-	entity.set_state(entity.idleState)
+	entity.set_state(entity.previousState)
 	
 
