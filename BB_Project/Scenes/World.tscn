@@ -43,7 +43,7 @@ meleeDamage = 10
 
 [node name="Slime" parent="." index="2" instance=ExtResource( 4 )]
 
-position = Vector2( 210.345, 120.354 )
+position = Vector2( 239.024, 120.354 )
 health = 20
 
 [node name="MainCamera" type="Camera2D" parent="." index="3"]
