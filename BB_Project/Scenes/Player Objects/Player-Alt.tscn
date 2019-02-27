@@ -15,12 +15,12 @@
 [ext_resource path="res://Art Assets/Alternate Dummy Animations/alternate-jump-animation1.png" type="Texture" id=13]
 [ext_resource path="res://Art Assets/Alternate Dummy Animations/alternate-jump-animation2.png" type="Texture" id=14]
 [ext_resource path="res://Art Assets/Alternate Dummy Animations/alternate-jump-animation3.png" type="Texture" id=15]
-[ext_resource path="res://Art Assets/dummy-attack-animation2.png" type="Texture" id=16]
-[ext_resource path="res://Art Assets/dummy-attack-animation3.png" type="Texture" id=17]
-[ext_resource path="res://Art Assets/dummy-attack-animation4.png" type="Texture" id=18]
-[ext_resource path="res://Art Assets/dummy-attack-animation5.png" type="Texture" id=19]
+[ext_resource path="res://Art Assets/Attacks/dummy-attack-animation2.png" type="Texture" id=16]
+[ext_resource path="res://Art Assets/Attacks/dummy-attack-animation3.png" type="Texture" id=17]
+[ext_resource path="res://Art Assets/Attacks/dummy-attack-animation4.png" type="Texture" id=18]
+[ext_resource path="res://Art Assets/Attacks/dummy-attack-animation5.png" type="Texture" id=19]
 [ext_resource path="res://Scripts/shooter.gd" type="Script" id=20]
-[ext_resource path="res://Scenes/projectile_scene.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Scenes/Player Objects/projectile_scene.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scripts/Player/States/move_states/Idle.gd" type="Script" id=22]
 [ext_resource path="res://Scripts/Player/States/move_states/Move.gd" type="Script" id=23]
 [ext_resource path="res://Scripts/Player/States/move_states/Jump.gd" type="Script" id=24]
@@ -29,6 +29,8 @@
 [ext_resource path="res://Scripts/Player/States/move_states/AttackState.gd" type="Script" id=27]
 [ext_resource path="res://Scripts/Player/Party.gd" type="Script" id=28]
 [ext_resource path="res://Scripts/attacker.gd" type="Script" id=29]
+
+
 
 [sub_resource type="SpriteFrames" id=1]
 

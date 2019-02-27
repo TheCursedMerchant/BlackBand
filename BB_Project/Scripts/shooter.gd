@@ -5,7 +5,7 @@
 extends Area2D
 
 #Projectile Options 
-export var projectile_scene = preload("res://Scenes/projectile_scene.tscn") 
+export var projectile_scene = preload("res://Scenes/Player Objects/projectile_scene.tscn") 
 export var cooldown = .5
 export var projectile_speed = 400
 

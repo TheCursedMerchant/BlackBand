@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dummy-attack-animation5.png-62282d451585916ecd7a284111f8e61f.stex"
+path="res://.import/mana-meter.png-8c3622422e5166672f8aceacc2187a2c.stex"
 
 [deps]
 
-source_file="res://Art Assets/dummy-attack-animation5.png"
-dest_files=[ "res://.import/dummy-attack-animation5.png-62282d451585916ecd7a284111f8e61f.stex" ]
+source_file="res://Art Assets/GUI/mana-meter.png"
+dest_files=[ "res://.import/mana-meter.png-8c3622422e5166672f8aceacc2187a2c.stex" ]
 
 [params]
 

@@ -2,7 +2,7 @@ extends Position2D
 
 var timer = null
 var cooldown = .4
-var swordBox = preload('res://Scenes/Sword-Box.tscn')
+var swordBox = preload('res://Scenes/Player Objects/Sword-Box.tscn')
 var direction = 1
 
 export var x_offset = 15

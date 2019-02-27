@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dummy-attack-animation2.png-a95ac81e47f4a174555147f8a64890f2.stex"
+path="res://.import/dummy-attack-animation4.png-1dd2df66e21e855c1c07bcb5425b71ca.stex"
 
 [deps]
 
-source_file="res://Art Assets/dummy-attack-animation2.png"
-dest_files=[ "res://.import/dummy-attack-animation2.png-a95ac81e47f4a174555147f8a64890f2.stex" ]
+source_file="res://Art Assets/Attacks/dummy-attack-animation4.png"
+dest_files=[ "res://.import/dummy-attack-animation4.png-1dd2df66e21e855c1c07bcb5425b71ca.stex" ]
 
 [params]
 

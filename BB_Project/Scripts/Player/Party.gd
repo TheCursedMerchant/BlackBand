@@ -9,8 +9,8 @@ var canSwap = true
 
 #Initialize the party
 func _ready():
-	party.append(load('res://Scenes/Player.tscn'))
-	party.append(load('res://Scenes/Player-Alt.tscn'))
+	party.append(load('res://Scenes/Player Objects/Player.tscn'))
+	party.append(load('res://Scenes/Player Objects/Player-Alt.tscn'))
 	timer = Timer.new()
 	timer.set_one_shot(true)
 	timer.set_wait_time(cooldown)
