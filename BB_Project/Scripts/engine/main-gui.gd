@@ -1,15 +1,16 @@
 extends Control
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+var player = null
+onready var healthbar = $Meters/health
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
+	if(player != null):
+		var current = player.currentHealth * 1.0
+		var total = player.health * 1.0
+		healthbar.value = (current / total) * 100.00 
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+func _on_Player_playerDamaged():
+	if(player != null):
+		var current = player.currentHealth * 1.0
+		var total = player.health * 1.0
+		healthbar.value = (current / total) * 100.00 

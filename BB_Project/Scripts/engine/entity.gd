@@ -14,6 +14,9 @@ var facingDir = dir.right
 var type = 'entity'
 onready var currentHealth = health
 
+#Signals
+signal playerDamaged 
+
 #Damage Variables
 var knockback = Vector2(0, 0) 
 var knockbackDir = 1
@@ -37,4 +40,8 @@ func takeDamage(dam):
 	currentHealth -= dam 
 	if(currentHealth <= 0):
 		queue_free()
+	print(currentHealth)
+	if(type == 'PLAYER'):
+		emit_signal('playerDamaged')
+		print("Signal Emmitted!")
 		

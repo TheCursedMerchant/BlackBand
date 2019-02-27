@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/engine/main-gui.gd" type="Script" id=1]
-[ext_resource path="res://Art Assets/GUI/healthbar-slots.png" type="Texture" id=2]
+[ext_resource path="res://Art Assets/GUI/health-slot.png" type="Texture" id=2]
 [ext_resource path="res://Art Assets/GUI/health-meter.png" type="Texture" id=3]
-[ext_resource path="res://Art Assets/GUI/mana-meter.png" type="Texture" id=4]
-[ext_resource path="res://Art Assets/GUI/portrait-slot.png" type="Texture" id=5]
+[ext_resource path="res://Art Assets/GUI/mana-slot.png" type="Texture" id=4]
+[ext_resource path="res://Art Assets/GUI/mana-meter.png" type="Texture" id=5]
+[ext_resource path="res://Art Assets/GUI/portrait-slot.png" type="Texture" id=6]
 
-[node name="Main_GUI" type="Control"]
+[node name="Main_GUI" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -20,9 +21,8 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
 
-[node name="Healthbar" type="Control" parent="." index="0"]
+[node name="Meters" type="Control" parent="." index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -36,30 +36,72 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="health-slots" type="Sprite" parent="Healthbar" index="0"]
+[node name="health" type="TextureProgress" parent="Meters" index="0"]
 
-texture = ExtResource( 2 )
-centered = false
-offset = Vector2( 20, 10 )
-_sections_unfolded = [ "Offset" ]
+anchor_left = 0.0
+anchor_top = 0.5
+anchor_right = 0.0
+anchor_bottom = 0.5
+margin_left = 16.0
+margin_top = -13.0
+margin_right = 119.0
+margin_bottom = -7.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 100.0
+exp_edit = false
+rounded = false
+texture_under = ExtResource( 2 )
+texture_over = null
+texture_progress = ExtResource( 3 )
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = false
+_sections_unfolded = [ "Anchor", "Margin" ]
 
-[node name="health-meter" type="Sprite" parent="Healthbar" index="1"]
+[node name="mana" type="TextureProgress" parent="Meters" index="1"]
 
-texture = ExtResource( 3 )
-centered = false
-offset = Vector2( 22, 15 )
-_sections_unfolded = [ "Offset" ]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 18.0
+margin_top = 13.0
+margin_right = 78.0
+margin_bottom = 53.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 100.0
+exp_edit = false
+rounded = false
+texture_under = ExtResource( 4 )
+texture_over = null
+texture_progress = ExtResource( 5 )
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = false
+_sections_unfolded = [ "Textures" ]
 
-[node name="mana-meter" type="Sprite" parent="Healthbar" index="2"]
+[node name="portrait" type="Sprite" parent="Meters" index="2"]
 
-texture = ExtResource( 4 )
-centered = false
-offset = Vector2( 22, 20 )
-_sections_unfolded = [ "Offset" ]
-
-[node name="portrait" type="Sprite" parent="Healthbar" index="3"]
-
-texture = ExtResource( 5 )
+position = Vector2( -9.61535, -4.72026 )
+texture = ExtResource( 6 )
 centered = false
 offset = Vector2( 10, 5 )
 _sections_unfolded = [ "Offset" ]

@@ -2,6 +2,8 @@ extends Node
 
 #This is our singleton game object script 
 
+onready var player = get_child(0)
+
 func _ready():
 	set_process_input(true) 
 	pass
@@ -14,6 +16,9 @@ func _input(event):
 		quit()
 	elif(event.is_action_pressed('ui_restart')):
 		restart()
+	elif(event.is_action_pressed('ui_damage')):
+		player.takeDamage(1)
+	
 	
 func quit():
 	#TODO: Quit the game 

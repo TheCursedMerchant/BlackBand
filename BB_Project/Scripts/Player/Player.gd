@@ -43,6 +43,10 @@ func _ready():
 	#Set the main camera 
 	if(get_node("../MainCamera").player == null):
 		get_node("../MainCamera").player = self
+		
+	#Set me as the healthbar's player 
+	if(get_node("../MainCamera/HUD/Main_GUI").player == null):
+		get_node("../MainCamera/HUD/Main_GUI").player = self
 	
 #Defer physics process to our state
 func _physics_process(delta):

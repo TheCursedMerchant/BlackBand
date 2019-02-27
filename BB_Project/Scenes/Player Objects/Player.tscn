@@ -29,8 +29,6 @@
 [ext_resource path="res://Scripts/Player/Party.gd" type="Script" id=27]
 [ext_resource path="res://Scripts/attacker.gd" type="Script" id=28]
 
-
-
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
