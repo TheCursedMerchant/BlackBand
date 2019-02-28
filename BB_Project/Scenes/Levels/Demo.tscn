@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenes/Enemies/Slime.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Test Blocks/TestBlock_1x1.tscn" type="PackedScene" id=6]
 
-[node name="Game" type="Node" index="0"]
+[node name="Game" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -18,6 +18,7 @@ _sections_unfolded = [ "Collision", "Transform", "collision" ]
 
 [node name="MainCamera" type="Camera2D" parent="." index="1"]
 
+editor/display_folded = true
 position = Vector2( 1.19165, -3.97215 )
 anchor_mode = 1
 rotating = false
@@ -46,6 +47,7 @@ _sections_unfolded = [ "Smoothing" ]
 
 [node name="HUD" type="CanvasLayer" parent="MainCamera" index="0"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -63,13 +65,11 @@ _sections_unfolded = [ "Anchor" ]
 
 [node name="Slime" parent="." index="2" instance=ExtResource( 5 )]
 
-position = Vector2( 143.548, 49.657 )
+position = Vector2( 141.967, 55.4544 )
 health = 20
 maxSpeed = 40
 
 [node name="Geometry" type="Node" parent="." index="3"]
-
-editor/display_folded = true
 
 [node name="TestBlock_1x1" parent="Geometry" index="0" instance=ExtResource( 6 )]
 
