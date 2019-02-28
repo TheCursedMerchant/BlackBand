@@ -12,4 +12,4 @@ func update(delta):
 	entity.motion = entity.move_and_slide(entity.motion, dir.up)
 	
 	if(entity.grounded):
-		entity.set_state(entity.idleState)
+		entity.set_state(entity.previousState)

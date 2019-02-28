@@ -5,24 +5,21 @@ onready var anim_player = $Anim_Player
 #States
 var previousState 
 var currentState
-var idleState
 var damageState 
 var fallState
+var roamState
+var waitState
 
 #State variables
-var grounded = true
+onready var grounded = is_grounded()
 
 #Initialize Slime Enemy 
 func _ready():
 	currentHealth = health
 	type = 'ENEMY'
 	initializeEnemy()
-	
 	#Enter idle state
-	if(currentState == null):
-		set_state(idleState)
-	else:
-		set_state(currentState)
+	set_state(waitState)
 	
 #Defer physics process to our state
 func _physics_process(delta):
@@ -37,14 +34,17 @@ func set_state(newState):
 	previousState = currentState
 	currentState = newState
 	currentState.enter()
+	print(currentState.get_name())
 	#print(currentState.get_name())
 	#print(motion)
 	
 func initializeEnemy():
 	#Static States
-	idleState = $States/Idle
+	roamState = $States/Roam
 	damageState = $States/Damage
 	fallState = $States/Fall
+	waitState = $States/Wait
+	
 	
 #Check if enemy is on the ground 
 func is_grounded():

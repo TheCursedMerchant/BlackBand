@@ -10,7 +10,7 @@ export var jumpHeight = 250
  
 #State Variables 
 var motion = Vector2(0, 0)
-var facingDir = dir.right
+var facingDir = dir.left
 var type = 'entity'
 onready var currentHealth = health
 

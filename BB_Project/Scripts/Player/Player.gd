@@ -66,7 +66,6 @@ func set_state(newState):
 	previousState = currentState 
 	currentState = newState
 	currentState.enter()
-	print(currentState.get_name())
 	#print(motion)
 	
 #Check if player is on the ground 
