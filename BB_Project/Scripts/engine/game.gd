@@ -19,7 +19,6 @@ func _input(event):
 	elif(event.is_action_pressed('ui_damage')):
 		player.takeDamage(1)
 	
-	
 func quit():
 	#TODO: Quit the game 
 	get_tree().quit() 

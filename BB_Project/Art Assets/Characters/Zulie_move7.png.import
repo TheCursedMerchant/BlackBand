@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fixed_dummy_melee_attack5.png-24094bff46887c9052b010fd0bfc720e.stex"
+path="res://.import/Zulie_move7.png-f28c68f5a9529965b9b2065a1d6abcc7.stex"
 
 [deps]
 
-source_file="res://Art Assets/Alternate Dummy Animations/fixed_dummy_melee_attack5.png"
-dest_files=[ "res://.import/fixed_dummy_melee_attack5.png-24094bff46887c9052b010fd0bfc720e.stex" ]
+source_file="res://Art Assets/Characters/Zulie_move7.png"
+dest_files=[ "res://.import/Zulie_move7.png-f28c68f5a9529965b9b2065a1d6abcc7.stex" ]
 
 [params]
 
