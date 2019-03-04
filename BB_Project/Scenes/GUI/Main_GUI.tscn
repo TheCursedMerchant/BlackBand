@@ -65,7 +65,7 @@ texture_progress = ExtResource( 3 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
-_sections_unfolded = [ "Anchor", "Margin" ]
+_sections_unfolded = [ "Anchor", "Margin", "Textures" ]
 
 [node name="mana" type="TextureProgress" parent="Meters" index="1"]
 
