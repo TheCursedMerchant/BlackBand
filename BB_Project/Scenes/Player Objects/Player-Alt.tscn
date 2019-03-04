@@ -10,13 +10,13 @@
 [ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_walk_cycle8.png" type="Texture" id=8]
 [ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_walk_cycle9.png" type="Texture" id=9]
 [ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_walk_cycle1.png" type="Texture" id=10]
-[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_jump3.png" type="Texture" id=11]
-[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_jump4.png" type="Texture" id=12]
-[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_jump1.png" type="Texture" id=13]
-[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_melee_attack1.png" type="Texture" id=14]
-[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_melee_attack3.png" type="Texture" id=15]
-[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_melee_attack4.png" type="Texture" id=16]
-[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_jump2.png" type="Texture" id=17]
+[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_jump1.png" type="Texture" id=11]
+[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_jump2.png" type="Texture" id=12]
+[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_melee_attack1.png" type="Texture" id=13]
+[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_melee_attack3.png" type="Texture" id=14]
+[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_melee_attack4.png" type="Texture" id=15]
+[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_jump3.png" type="Texture" id=16]
+[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_jump4.png" type="Texture" id=17]
 [ext_resource path="res://Scripts/shooter.gd" type="Script" id=18]
 [ext_resource path="res://Scenes/Player Objects/projectile_scene.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scripts/Player/States/move_states/Idle.gd" type="Script" id=20]
@@ -28,12 +28,12 @@
 [ext_resource path="res://Scripts/Player/Party.gd" type="Script" id=26]
 [ext_resource path="res://Scripts/attacker.gd" type="Script" id=27]
 
-[sub_resource type="StreamTexture" id=3]
+[sub_resource type="StreamTexture" id=1]
 
 flags = 0
 load_path = "res://.import/fixed_dummy_melee_attack2.png-bf162d932c2a8c02eac9902c86c9d9f2.stex"
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
@@ -46,28 +46,28 @@ animations = [ {
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "Fall",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "Damage",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ), SubResource( 3 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), SubResource( 1 ), ExtResource( 14 ), ExtResource( 15 ) ],
 "loop": false,
 "name": "Attack",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 17 ) ],
+"frames": [ ExtResource( 16 ), ExtResource( 17 ) ],
 "loop": true,
-"name": "Jump",
+"name": "Fall",
 "speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=3]
 
 custom_solver_bias = 0.0
 radius = 4.0
@@ -94,7 +94,7 @@ v_meleeKnockback = -20
 
 [node name="Player_Anim" type="AnimatedSprite" parent="." index="0"]
 
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "Idle"
 __meta__ = {
 "_edit_lock_": true
@@ -103,7 +103,7 @@ __meta__ = {
 [node name="Hitbox" type="CollisionShape2D" parent="." index="1"]
 
 position = Vector2( 0, 2 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
