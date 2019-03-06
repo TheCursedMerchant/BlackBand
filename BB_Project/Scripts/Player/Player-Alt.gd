@@ -3,6 +3,9 @@ extends 'res://Scripts/Player/Player.gd'
 #Initialize our state
 func _ready():
 	
+	#Set my camera 
+	camera = get_node('../MainCamera')
+	
 	#Set entity type 
 	type = 'PLAYER'
 	

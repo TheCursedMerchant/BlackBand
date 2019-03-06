@@ -23,6 +23,10 @@ func _on_SwordBox_body_entered(body):
 	if(body != creator):
 		match body.get("type"):
 			"ENEMY":
+				
+				#Shake screen
+				body.camera.shake(0.2, 15, 8)
+				
 				if(body.currentState != body.damageState):
 					body.currentDamage += damage
 					#Check which direction we we're hit from 
@@ -37,6 +41,10 @@ func _on_SwordBox_body_entered(body):
 						
 					body.set_state(body.damageState)
 			"PLAYER":
+				
+				#Shake screen
+				body.camera.shake(0.4, 18, 10)
+				
 				if(body.currentState != body.damageState):
 					body.currentDamage += damage
 					#Check which direction we we're hit from 

@@ -15,6 +15,8 @@ onready var grounded = is_grounded()
 
 #Initialize Slime Enemy 
 func _ready():
+	#Set my camera 
+	camera = get_node('../MainCamera')
 	currentHealth = health
 	type = 'ENEMY'
 	initializeEnemy()

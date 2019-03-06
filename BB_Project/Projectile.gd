@@ -30,6 +30,10 @@ func _on_Projectile_body_entered(body):
 	if(body != creator):
 		match body.get("type"):
 			"ENEMY":
+				
+				#Shake screen
+				body.camera.shake(0.2, 15, 8)
+				
 				if(body.currentState != body.damageState):
 					body.currentDamage += damage
 				
@@ -46,6 +50,10 @@ func _on_Projectile_body_entered(body):
 					body.set_state(body.damageState)
 			"PLAYER":
 				if(body.currentState != body.damageState):
+					
+					#Shake screen
+					body.camera.shake(0.2, 15, 8)
+					
 					body.currentDamage += damage
 					#Check which direction we we're hit from 
 					if(body.position.x < self.position.x):

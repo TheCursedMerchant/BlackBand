@@ -29,6 +29,8 @@ onready var anim_player = $Player_Anim
 
 #Initialize our state
 func _ready():
+	#Set my camera 
+	camera = get_node('../MainCamera')
 	#Set entity type 
 	type = 'PLAYER'
 	#Set our position in the party 

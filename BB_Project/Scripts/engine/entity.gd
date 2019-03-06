@@ -13,9 +13,11 @@ var motion = Vector2(0, 0)
 var facingDir = dir.left
 var type = 'entity'
 onready var currentHealth = health
+var camera = null
 
 #Signals
 signal playerDamaged 
+signal enemyDamaged
 
 #Damage Variables
 var knockback = Vector2(0, 0) 
@@ -44,4 +46,8 @@ func takeDamage(dam):
 	if(type == 'PLAYER'):
 		emit_signal('playerDamaged')
 		print("Signal Emmitted!")
+	else:
+		emit_signal("enemyDamaged")
+		
+	#Apply screen shake
 		
