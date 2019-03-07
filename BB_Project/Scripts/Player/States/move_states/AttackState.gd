@@ -5,6 +5,9 @@ func get_name():
 	
 func enter():
 	entity.get_child(7).attack()
+	
+func exit():
+	entity.motion = Vector2()
 		
 func _on_Player_Anim_animation_finished():
 	if(entity.get_child(0).animation == 'Attack'):
