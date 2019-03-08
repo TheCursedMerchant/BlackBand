@@ -4,9 +4,9 @@ var damage
 var h_knockback 
 var v_knockback
 var knockbackDir
-var creator
+var creatorType
 var timer = null 
-var lifeTime = .5
+var lifeTime = .1
 
 func _ready():
 	timer = Timer.new()
@@ -20,7 +20,7 @@ func on_timeout_complete():
 	queue_free() 
 
 func _on_SwordBox_body_entered(body):
-	if(body != creator):
+	if(body.get("type") != creatorType):
 		match body.get("type"):
 			"ENEMY":
 				
@@ -41,7 +41,6 @@ func _on_SwordBox_body_entered(body):
 						
 					body.set_state(body.damageState)
 			"PLAYER":
-				
 				#Shake screen
 				body.camera.shake(0.4, 18, 10)
 				

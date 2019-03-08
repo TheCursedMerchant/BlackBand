@@ -73,7 +73,7 @@ custom_solver_bias = 0.0
 radius = 4.0
 height = 20.0
 
-[node name="Player" type="KinematicBody2D" index="0" groups=[
+[node name="Player" type="KinematicBody2D" groups=[
 "Player",
 ]]
 
@@ -153,6 +153,8 @@ cooldown = 0.5
 projectile_speed = 400
 
 [node name="States" type="Node" parent="." index="5"]
+
+editor/display_folded = true
 
 [node name="Idle" type="Node" parent="States" index="0"]
 

@@ -22,7 +22,7 @@ func attack():
 		timer.start()
 		#Add the projectile to the scene 
 		var hitBox = swordBox.instance(0)
-		hitBox.creator = creator
+		hitBox.creatorType = creator.get("type")
 		hitBox.damage = creator.meleeDamage
 		hitBox.h_knockback = creator.h_meleeKnockback
 		hitBox.v_knockback = creator.v_meleeKnockback

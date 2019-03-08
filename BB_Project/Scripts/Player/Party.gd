@@ -3,7 +3,7 @@
 extends Node
 
 var party = []
-var cooldown = .5 
+var cooldown = 1 
 var timer = null
 var canSwap = true 
 
