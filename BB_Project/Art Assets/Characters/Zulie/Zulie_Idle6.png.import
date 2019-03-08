@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Zulie_move2.png-bec0c6d6fdee069cea0608843524ecab.stex"
+path="res://.import/Zulie_Idle6.png-90fba120f5cb4ae75cd6c005922cb7c9.stex"
 
 [deps]
 
-source_file="res://Art Assets/Characters/Zulie_move2.png"
-dest_files=[ "res://.import/Zulie_move2.png-bec0c6d6fdee069cea0608843524ecab.stex" ]
+source_file="res://Art Assets/Characters/Zulie/Zulie_Idle6.png"
+dest_files=[ "res://.import/Zulie_Idle6.png-90fba120f5cb4ae75cd6c005922cb7c9.stex" ]
 
 [params]
 

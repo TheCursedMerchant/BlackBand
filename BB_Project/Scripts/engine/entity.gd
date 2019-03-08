@@ -6,7 +6,8 @@ export var health = 3
 export var gravity = 10 
 export var acceleration = 20
 export var maxSpeed = 200
-export var jumpHeight = 250
+export var jumpHeight = 300
+export var jumpSpeed = 10
  
 #State Variables 
 var motion = Vector2(0, 0)
@@ -48,6 +49,4 @@ func takeDamage(dam):
 		print("Signal Emmitted!")
 	else:
 		emit_signal("enemyDamaged")
-		
-	#Apply screen shake
 		

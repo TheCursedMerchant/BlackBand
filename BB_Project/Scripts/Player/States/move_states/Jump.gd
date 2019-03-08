@@ -26,5 +26,5 @@ func update(delta):
 	if(Input.is_action_just_pressed('ui_down')):
 		entity.get_child(6).swap(entity.partyIndex, true)
 	
-	if(Input.is_action_just_released('ui_up') || entity.is_on_ceiling() || entity.motion.y == -entity.jumpHeight):
+	if(Input.is_action_just_released('ui_up') || entity.is_on_ceiling()  || entity.motion.y == -entity.jumpHeight):
 		entity.set_state(entity.fallState) 	
