@@ -9,6 +9,7 @@ var damageState
 var fallState
 var roamState
 var waitState
+var deathState
 
 #State variables
 onready var grounded = is_grounded()
@@ -46,6 +47,7 @@ func initializeEnemy():
 	damageState = $States/Damage
 	fallState = $States/Fall
 	waitState = $States/Wait
+	deathState = $States/Death
 	
 	
 #Check if enemy is on the ground 

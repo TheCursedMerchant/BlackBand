@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Enemies/E_Slime.gd" type="Script" id=1]
 [ext_resource path="res://Art Assets/Enemies/Slime/slime-enemy.png" type="Texture" id=2]
@@ -8,10 +8,16 @@
 [ext_resource path="res://Scripts/Player/States/DamageState.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/Enemies/States/Fall.gd" type="Script" id=7]
 [ext_resource path="res://Scripts/Enemies/States/Wait.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/Enemies/States/Death.gd" type="Script" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": false,
+"name": "Death",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "Fall",
@@ -23,13 +29,13 @@ animations = [ {
 "speed": 20.0
 }, {
 "frames": [ ExtResource( 2 ) ],
-"loop": false,
-"name": "Roam",
+"loop": true,
+"name": "Wait",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "Wait",
+"loop": false,
+"name": "Roam",
 "speed": 5.0
 } ]
 
@@ -38,7 +44,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 8, 8 )
 
-[node name="Slime" type="KinematicBody2D"]
+[node name="Slime" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 3
@@ -86,5 +92,9 @@ script = ExtResource( 7 )
 [node name="Wait" type="Node" parent="States" index="3"]
 
 script = ExtResource( 8 )
+
+[node name="Death" type="Node" parent="States" index="4"]
+
+script = ExtResource( 9 )
 
 
