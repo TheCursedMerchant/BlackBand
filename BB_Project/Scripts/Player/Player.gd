@@ -19,6 +19,7 @@ var fallState
 var swapState
 var damageState
 var attackState 
+var deathState
 
 #Store our current State
 var previousState 
@@ -85,4 +86,11 @@ func initializePlayer():
 	fallState = $States/Fall
 	damageState = $States/Damage
 	attackState = $States/Attack 
+	deathState = $States/Death
+	
+	#Debug function 
+func takeDamage(dam):
+	#Apply Damage and check for death 
+	currentHealth -= dam 
+	emit_signal('playerDamaged')
 	

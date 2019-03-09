@@ -17,7 +17,9 @@ func _input(event):
 	elif(event.is_action_pressed('ui_restart')):
 		restart()
 	elif(event.is_action_pressed('ui_damage')):
-		player.takeDamage(1)
+		player.currentDamage = 1; 
+		player.knockback = Vector2(-20, -25)
+		player.set_state(player.damageState)
 	
 func quit():
 	#TODO: Quit the game 
