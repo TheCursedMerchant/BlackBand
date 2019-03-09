@@ -5,9 +5,9 @@
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 10.0
+radius = 15.8637
 
-[node name="Sword-Box" type="Area2D"]
+[node name="Sword-Box" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
