@@ -11,7 +11,6 @@ export var projectile_speed = 400
 
 #Logic Variables 
 var timer = null
-var can_shoot = true
 
 func _ready():
 	timer = Timer.new()
@@ -22,17 +21,12 @@ func _ready():
 	
 #--------- Shooting Cooldown ---------------------------------
 func on_timeout_complete():
-	can_shoot = true
-	
-func handle_input(event):
-	if(Input.is_action_pressed('ui_accept') && can_shoot):
-		shoot()
-		can_shoot = false
-		timer.start()
+	get_parent().canAttack = true
 		
 #---------------------- Shooting ---------------------------------------------
 func shoot():
 	
+		timer.start()
 		#Add the projectile to the scene 
 		var projectile = projectile_scene.instance(0)
 		projectile.creator = get_parent()

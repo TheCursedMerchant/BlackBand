@@ -12,9 +12,6 @@ func _ready():
 	#Set Party Index 
 	partyIndex = 1
 	
-	#Turn off Shooter 
-	$"shoot-point".can_shoot = false
-	
 	#Turn on melee attack 
 	canAttack = true
 	

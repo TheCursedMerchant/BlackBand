@@ -4,7 +4,11 @@ func get_name():
 	return "Attack"
 	
 func enter():
-	entity.get_child(7).attack()
+	entity.canAttack = false
+	if(entity.attackType == 'melee'):
+		entity.get_node('melee-point').attack()
+	elif(entity.attackType == 'ranged'):
+		entity.get_node('shoot-point').shoot()
 	
 func exit():
 	entity.motion = Vector2()

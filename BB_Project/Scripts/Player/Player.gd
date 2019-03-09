@@ -3,12 +3,13 @@ extends "../engine/entity.gd"
 #Party Properties 
 var partyIndex
 var initial = true
-var canAttack = false 
+var canAttack = true 
 
 #Damage Properties 
 export var meleeDamage = 10 
 export var h_meleeKnockback = 40
 export var v_meleeKnockback = -20
+export var attackType = 'ranged'
 
 #Player States 
 var idleState
@@ -59,7 +60,6 @@ func _physics_process(delta):
 #Defer input to our state
 func _input(event):
 	currentState.handle_input(event)
-	$"shoot-point".handle_input(event) 
 
 #Handle exiting and entering new state
 func set_state(newState):
