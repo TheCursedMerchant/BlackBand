@@ -4,7 +4,7 @@ extends "res://Scripts/engine/entity.gd"
 const PROJECTILE_SPEED = 200
 
 #Projectile
-const PROJECTILE_SCENE = preload("res://Scenes/projectile_scene.tscn") 
+const PROJECTILE_SCENE = preload("res://Scenes/Player Objects/projectile_scene.tscn") 
 var timer = null
 export var cooldown = .5
 export var can_shoot = true
