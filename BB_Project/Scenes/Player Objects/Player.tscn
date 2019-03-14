@@ -1,204 +1,154 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Scripts/Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_move2.png" type="Texture" id=2]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_move3.png" type="Texture" id=3]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_move4.png" type="Texture" id=4]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_move5.png" type="Texture" id=5]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_move6.png" type="Texture" id=6]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_move7.png" type="Texture" id=7]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle1.png" type="Texture" id=8]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle2.png" type="Texture" id=9]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle3.png" type="Texture" id=10]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle4.png" type="Texture" id=11]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle5.png" type="Texture" id=12]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle6.png" type="Texture" id=13]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle7.png" type="Texture" id=14]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle8.png" type="Texture" id=15]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_jump2.png" type="Texture" id=16]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_jump3.png" type="Texture" id=17]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_jump4.png" type="Texture" id=18]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_jump5.png" type="Texture" id=19]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_attack_one2.png" type="Texture" id=20]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_attack_one3.png" type="Texture" id=21]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_attack_one4.png" type="Texture" id=22]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_attack_one5.png" type="Texture" id=23]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_attack_one6.png" type="Texture" id=24]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_damage1.png" type="Texture" id=25]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_damage2.png" type="Texture" id=26]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_jump2.png" type="Texture" id=2]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_jump3.png" type="Texture" id=3]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_move2.png" type="Texture" id=4]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_move3.png" type="Texture" id=5]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_move4.png" type="Texture" id=6]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_move5.png" type="Texture" id=7]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_move6.png" type="Texture" id=8]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_move7.png" type="Texture" id=9]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_damage1.png" type="Texture" id=10]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_damage2.png" type="Texture" id=11]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_attack_one2.png" type="Texture" id=12]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_attack_one3.png" type="Texture" id=13]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_attack_one4.png" type="Texture" id=14]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_attack_one5.png" type="Texture" id=15]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_attack_one6.png" type="Texture" id=16]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_jump4.png" type="Texture" id=17]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_jump5.png" type="Texture" id=18]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle1.png" type="Texture" id=19]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle2.png" type="Texture" id=20]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle3.png" type="Texture" id=21]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle4.png" type="Texture" id=22]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle5.png" type="Texture" id=23]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle6.png" type="Texture" id=24]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle7.png" type="Texture" id=25]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle8.png" type="Texture" id=26]
 [ext_resource path="res://Scripts/shooter.gd" type="Script" id=27]
-[ext_resource path="res://Scenes/Player Objects/projectile_scene.tscn" type="PackedScene" id=28]
-[ext_resource path="res://Scripts/Player/States/move_states/Idle.gd" type="Script" id=29]
-[ext_resource path="res://Scripts/Player/States/move_states/Move.gd" type="Script" id=30]
-[ext_resource path="res://Scripts/Player/States/move_states/Jump.gd" type="Script" id=31]
-[ext_resource path="res://Scripts/Player/States/move_states/Fall.gd" type="Script" id=32]
-[ext_resource path="res://Scripts/Player/States/DamageState.gd" type="Script" id=33]
-[ext_resource path="res://Scripts/Player/States/move_states/AttackState.gd" type="Script" id=34]
-[ext_resource path="res://Scripts/Player/States/DeathState.gd" type="Script" id=35]
-[ext_resource path="res://Scripts/Player/Party.gd" type="Script" id=36]
-[ext_resource path="res://Scripts/attacker.gd" type="Script" id=37]
+[ext_resource path="res://Scripts/Player/States/move_states/Idle.gd" type="Script" id=28]
+[ext_resource path="res://Scripts/Player/States/move_states/Move.gd" type="Script" id=29]
+[ext_resource path="res://Scripts/Player/States/move_states/Jump.gd" type="Script" id=30]
+[ext_resource path="res://Scripts/Player/States/move_states/Fall.gd" type="Script" id=31]
+[ext_resource path="res://Scripts/Player/States/DamageState.gd" type="Script" id=32]
+[ext_resource path="res://Scripts/Player/States/move_states/AttackState.gd" type="Script" id=33]
+[ext_resource path="res://Scripts/Player/States/DeathState.gd" type="Script" id=34]
+[ext_resource path="res://Scripts/Player/Party.gd" type="Script" id=35]
+[ext_resource path="res://Scripts/attacker.gd" type="Script" id=36]
 
 [sub_resource type="SpriteFrames" id=1]
-
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "Move",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 16 ) ],
-"loop": false,
-"name": "Death",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": false,
 "name": "Jump",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 18 ), ExtResource( 19 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
-"name": "Fall",
-"speed": 10.0
+"name": "Move",
+"speed": 15.0
 }, {
-"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "Damage",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
 "loop": true,
 "name": "Attack",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 25 ), ExtResource( 26 ) ],
+"frames": [ ExtResource( 17 ), ExtResource( 18 ) ],
 "loop": true,
-"name": "Damage",
-"speed": 20.0
+"name": "Fall",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": false,
+"name": "Death",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-
-custom_solver_bias = 0.0
 radius = 4.0
-height = 20.0
 
-[node name="Player" type="KinematicBody2D" index="0"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
+[node name="Player" type="KinematicBody2D"]
 collision/safe_margin = 0.001
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform", "collision" ]
 health = 5
-gravity = 10
 acceleration = 15
 maxSpeed = 150
 jumpHeight = 150
-jumpSpeed = 10
 meleeDamage = 5
-h_meleeKnockback = 40
-v_meleeKnockback = -20
-attackType = "ranged"
 
-[node name="Player_Anim" type="AnimatedSprite" parent="." index="0"]
-
+[node name="Player_Anim" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "Idle"
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Hitbox" type="CollisionShape2D" parent="." index="1"]
-
+[node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 2 )
 shape = SubResource( 2 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="front_ray" type="RayCast2D" parent="." index="2"]
-
+[node name="front_ray" type="RayCast2D" parent="."]
 visible = false
 position = Vector2( 3, 0 )
 enabled = true
-exclude_parent = true
 cast_to = Vector2( 0, 17 )
-collision_mask = 1
-_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="back_ray" type="RayCast2D" parent="." index="3"]
-
+[node name="back_ray" type="RayCast2D" parent="."]
 visible = false
 position = Vector2( -3, 0 )
 enabled = true
-exclude_parent = true
 cast_to = Vector2( 0, 17 )
-collision_mask = 1
-_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="shoot-point" type="Area2D" parent="." index="4"]
-
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
+[node name="shoot-point" type="Area2D" parent="."]
 script = ExtResource( 27 )
-_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
-projectile_scene = ExtResource( 28 )
-cooldown = 0.5
-projectile_speed = 400
 
-[node name="States" type="Node" parent="." index="5"]
+[node name="States" type="Node" parent="."]
 
-[node name="Idle" type="Node" parent="States" index="0"]
+[node name="Idle" type="Node" parent="States"]
+script = ExtResource( 28 )
 
+[node name="Move" type="Node" parent="States"]
 script = ExtResource( 29 )
 
-[node name="Move" type="Node" parent="States" index="1"]
-
+[node name="Jump" type="Node" parent="States"]
 script = ExtResource( 30 )
 
-[node name="Jump" type="Node" parent="States" index="2"]
-
+[node name="Fall" type="Node" parent="States"]
 script = ExtResource( 31 )
 
-[node name="Fall" type="Node" parent="States" index="3"]
-
+[node name="Damage" type="Node" parent="States"]
 script = ExtResource( 32 )
 
-[node name="Damage" type="Node" parent="States" index="4"]
-
+[node name="Attack" type="Node" parent="States"]
 script = ExtResource( 33 )
 
-[node name="Attack" type="Node" parent="States" index="5"]
-
+[node name="Death" type="Node" parent="States"]
 script = ExtResource( 34 )
 
-[node name="Death" type="Node" parent="States" index="6"]
-
+[node name="Party" type="Node" parent="."]
 script = ExtResource( 35 )
 
-[node name="Party" type="Node" parent="." index="6"]
-
+[node name="melee-point" type="Position2D" parent="."]
 script = ExtResource( 36 )
 
-[node name="melee-point" type="Position2D" parent="." index="7"]
-
-script = ExtResource( 37 )
-x_offset = 15
-
 [connection signal="animation_finished" from="Player_Anim" to="States/Attack" method="_on_Player_Anim_animation_finished"]
-
-

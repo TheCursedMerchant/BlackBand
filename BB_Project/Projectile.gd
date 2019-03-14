@@ -7,10 +7,15 @@ export var v_knockback = 0
 
 var knockbackDir
 var creator = null
+var speed_x = 1
+var speed_y = 0
+
+var currentAnim : String = 'move'
+	
+func _process(delta):
+	$Sprite.play(currentAnim)
 	
 func _physics_process(delta):
-	var speed_x = 1
-	var speed_y = 0
 	var motion = Vector2(speed_x, speed_y) * speed
 	position += motion * delta
 
@@ -65,4 +70,9 @@ func _on_Projectile_body_entered(body):
 						
 					body.knockback = Vector2(h_knockback * knockbackDir, v_knockback)
 					body.set_state(body.damageState)
-		queue_free()
+		speed_x = 0
+		currentAnim = 'destroy'
+
+
+func _on_Sprite_animation_finished():
+	queue_free()
