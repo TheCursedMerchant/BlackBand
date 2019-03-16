@@ -16,6 +16,7 @@ var type = 'entity'
 onready var currentHealth = health
 onready var global = get_node("/root/global")
 var camera = null
+var mainGUI = null
 
 #Signals
 signal playerDamaged 

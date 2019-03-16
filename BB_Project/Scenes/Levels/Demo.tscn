@@ -21,7 +21,6 @@ smoothing_enabled = true
 script = ExtResource( 3 )
 
 [node name="HUD" type="CanvasLayer" parent="MainCamera"]
-editor/display_folded = true
 
 [node name="Main_GUI" parent="MainCamera/HUD" instance=ExtResource( 4 )]
 anchor_right = 0.0
@@ -77,4 +76,3 @@ position = Vector2( 184, 120 )
 [node name="WarpPoint" parent="." instance=ExtResource( 7 )]
 position = Vector2( 208.708, 82.2182 )
 
-[connection signal="playerDamaged" from="Player" to="MainCamera/HUD/Main_GUI" method="_on_Player_playerDamaged"]

@@ -33,6 +33,7 @@ onready var anim_player = $Player_Anim
 func _ready():
 	#Set my camera 
 	camera = get_node('../MainCamera')
+	mainGUI = get_node("../MainCamera/HUD/Main_GUI")
 	#Set entity type 
 	type = 'PLAYER'
 	#Set our position in the party 
@@ -45,12 +46,13 @@ func _ready():
 	else:
 		set_state(currentState)
 	#Set the main camera 
-	if(get_node("../MainCamera").player == null):
-		get_node("../MainCamera").player = self
+	if(camera.player == null):
+		camera.player = self
+		
 		
 	#Set me as the healthbar's player 
-	if(get_node("../MainCamera/HUD/Main_GUI").player == null):
-		get_node("../MainCamera/HUD/Main_GUI").player = self
+	if(mainGUI.player == null):
+		mainGUI.player = self
 	
 #Defer physics process to our state
 func _physics_process(delta):
