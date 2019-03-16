@@ -34,6 +34,7 @@ func shoot():
 		
 		#Setting projectile direction based on facing direction 
 		if(creator.anim_player.flip_h):
+			projectile.get_node('Sprite').flip_h = true
 			projectile.set_speed(-projectile_speed)
 		else:
 			projectile.set_speed(projectile_speed)
