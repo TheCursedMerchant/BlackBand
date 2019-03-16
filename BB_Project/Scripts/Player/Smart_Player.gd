@@ -97,7 +97,9 @@ func initializePlayer():
 	damageState = $States/Damage
 	attackState = $States/Attack 
 	deathState = $States/Death
-	
+
+	#Player animation 
+	anim_player = anim_players.get_child(global.partyIndex)
 	anim_player.visible = true
 	
 	#Initialize health and motion 

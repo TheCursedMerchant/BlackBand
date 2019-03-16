@@ -136,6 +136,7 @@ animations = [ {
 } ]
 
 [node name="Player" type="KinematicBody2D"]
+editor/display_folded = true
 script = ExtResource( 1 )
 health = 5
 acceleration = 15

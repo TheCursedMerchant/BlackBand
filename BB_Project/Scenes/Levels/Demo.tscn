@@ -15,6 +15,7 @@ script = ExtResource( 1 )
 position = Vector2( 73.5838, 61.8859 )
 
 [node name="MainCamera" type="Camera2D" parent="."]
+editor/display_folded = true
 position = Vector2( 1.19165, -3.97215 )
 current = true
 smoothing_enabled = true
