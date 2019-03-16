@@ -22,7 +22,7 @@ func quit():
 	get_tree().quit() 
 
 func restart():
-	get_tree().change_scene((get_tree().get_current_scene().get_filename()))
+	global.goto_scene((get_tree().get_current_scene().get_filename()))
 	
 	
 	
