@@ -6,5 +6,5 @@ func get_name():
 	
 func enter():
 	#For now just quit the game
-	get_tree().change_scene('res://Scenes/Menus/Game Over Menu.tscn')
+	global.goto_scene('res://Scenes/Menus/Game Over Menu.tscn')
 	

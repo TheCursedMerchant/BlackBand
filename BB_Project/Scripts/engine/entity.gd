@@ -47,7 +47,9 @@ func takeDamage(dam):
 	print(currentHealth)
 	if(type == 'PLAYER'):
 		emit_signal('playerDamaged')
-		print("Signal Emmitted!")
+		print("PLAYER HURT")
+		#print(currentHealth)
+		print(health)
 	else:
 		emit_signal("enemyDamaged")
 		
