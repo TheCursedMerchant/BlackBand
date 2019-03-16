@@ -73,7 +73,7 @@ func loadCharacterInfo(character):
 class Zulie:
 	var partyIndex = 0
 	var health = 5
-	var currentHealth = 5
+	var currentHealth = global.zulieHealth
 	var attackType = 'ranged'
 	var gravity = 10
 	var acceleration = 15
@@ -87,7 +87,7 @@ class Zulie:
 class Astro:
 	var partyIndex = 1
 	var health = 5
-	var currentHealth = 5
+	var currentHealth = global.astroHealth
 	var attackType = 'melee'
 	var gravity = 10
 	var acceleration = 15

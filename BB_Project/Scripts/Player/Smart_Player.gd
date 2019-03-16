@@ -101,11 +101,18 @@ func initializePlayer():
 	anim_player.visible = true
 	
 	#Initialize health and motion 
+	currentHealth = global.playerCurrentHealth
 	
 	#Debug function 
 func takeDamage(dam):
 	#Apply Damage and check for death 
 	party.party[partyIndex].currentHealth -= dam 
 	currentHealth = party.party[partyIndex].currentHealth
+	global.playerCurrentHealth = currentHealth
+	match partyIndex:
+		0:
+			global.zulieHealth = currentHealth
+		1: 
+			global.astroHealth = currentHealth 
 	emit_signal('playerDamaged')
 

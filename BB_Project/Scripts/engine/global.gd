@@ -7,7 +7,9 @@ var current_scene = null
 #Global player variables 
 var playerCurrentHealth = 5 
 var playerCurrentState = null
-var partyIndex = 0  
+var partyIndex = 0 
+var zulieHealth = 5
+var astroHealth = 5
 
 func _ready():
 	var root = get_tree().get_root()
