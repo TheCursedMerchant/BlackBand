@@ -21,6 +21,7 @@ smoothing_enabled = true
 script = ExtResource( 3 )
 
 [node name="HUD" type="CanvasLayer" parent="MainCamera"]
+editor/display_folded = true
 
 [node name="Main_GUI" parent="MainCamera/HUD" instance=ExtResource( 4 )]
 anchor_right = 0.0
