@@ -1,7 +1,7 @@
 extends Node
 
 #This is our singleton game object script 
-onready var player = get_child(0)
+onready var player = get_node('Player')
 
 func _ready():
 	set_process_input(true) 

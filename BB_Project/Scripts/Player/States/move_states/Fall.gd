@@ -23,7 +23,7 @@ func update(delta):
 	
 	#Character swapping 
 	if(Input.is_action_just_pressed('ui_down')):
-		entity.get_child(6).swap(entity.partyIndex, true)
+		entity.party.swap(entity.party.currentIndex, true)
 	
 	#Check if I hit the ground 
 	if(entity.grounded):

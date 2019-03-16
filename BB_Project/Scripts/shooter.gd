@@ -25,7 +25,7 @@ func on_timeout_complete():
 		
 #---------------------- Shooting ---------------------------------------------
 func shoot():
-	
+		var creator = get_parent()
 		timer.start()
 		#Add the projectile to the scene 
 		var projectile = projectile_scene.instance(0)
@@ -33,7 +33,7 @@ func shoot():
 		get_parent().get_parent().add_child(projectile)
 		
 		#Setting projectile direction based on facing direction 
-		if(get_parent().anim_player.flip_h):
+		if(creator.anim_player.flip_h):
 			projectile.set_speed(-projectile_speed)
 		else:
 			projectile.set_speed(projectile_speed)

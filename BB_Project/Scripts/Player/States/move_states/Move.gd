@@ -28,8 +28,8 @@ func handle_input(event):
 	if(Input.is_action_pressed('ui_up')):
 		entity.set_state(entity.jumpState)
 	
-	if(Input.is_action_pressed('ui_down')):
-		entity.get_child(6).swap(entity.partyIndex, true)
+	if(Input.is_action_just_pressed('ui_down')):
+		entity.party.swap(entity.party.currentIndex, true)
 		
 	if(Input.is_action_just_pressed('ui_melee') && entity.canAttack):
 		entity.canAttack = false 

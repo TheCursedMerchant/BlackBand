@@ -29,7 +29,7 @@ func handle_input(event):
 		entity.set_state(entity.jumpState)
 	
 	if(Input.is_action_just_pressed('ui_down')):
-		entity.get_child(6).swap(entity.partyIndex, true)
+		entity.party.swap(entity.party.currentIndex, true)
 		
 	if(Input.is_action_just_pressed('ui_melee') && entity.canAttack):
 		entity.canAttack = false 

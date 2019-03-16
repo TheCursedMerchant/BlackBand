@@ -18,10 +18,6 @@ onready var global = get_node("/root/global")
 var camera = null
 var mainGUI = null
 
-#Signals
-signal playerDamaged 
-signal enemyDamaged
-
 #Damage Variables
 var knockback = Vector2(0, 0) 
 var knockbackDir = 1
@@ -46,11 +42,4 @@ func takeDamage(dam):
 	if(currentHealth <= 0):
 		queue_free()
 	print(currentHealth)
-	if(type == 'PLAYER'):
-		emit_signal('playerDamaged')
-		print("PLAYER HURT")
-		#print(currentHealth)
-		print(health)
-	else:
-		emit_signal("enemyDamaged")
 		

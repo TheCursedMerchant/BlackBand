@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Test Blocks/TestBlock_1x1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Player Objects/Player.tscn" type="PackedScene" id=2]
+
+[node name="Root" type="Node2D"]
+editor/display_folded = true
+
+[node name="TestBlock_1x1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 24.375, 172.208 )
+
+[node name="TestBlock_1x2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 40.3971, 172.208 )
+
+[node name="TestBlock_1x3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 56.1688, 172.208 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 41.1706, 129.06 )
+
