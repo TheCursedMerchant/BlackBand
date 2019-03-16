@@ -14,6 +14,7 @@ var motion = Vector2(0, 0)
 var facingDir = dir.left
 var type = 'entity'
 onready var currentHealth = health
+onready var global = get_node("/root/global")
 var camera = null
 
 #Signals

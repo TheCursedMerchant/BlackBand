@@ -19,7 +19,7 @@ func update(delta):
 		entity.motion.x = max(entity.motion.x - entity.acceleration, -entity.maxSpeed) 
 	
 	#Apply motion change  
-	entity.motion = entity.move_and_slide(entity.motion, dir.up)
+	entity.move_and_slide(entity.motion)
 	
 	#Character swapping 
 	if(Input.is_action_just_pressed('ui_down')):

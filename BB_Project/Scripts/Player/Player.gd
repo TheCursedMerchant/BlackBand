@@ -57,6 +57,7 @@ func _physics_process(delta):
 	is_grounded()
 	currentState.update(delta)
 	anim_player.play(currentState.get_name())
+	print(motion)
 
 #Defer input to our state
 func _input(event):
@@ -69,7 +70,7 @@ func set_state(newState):
 	previousState = currentState 
 	currentState = newState
 	currentState.enter()
-	#print(motion)
+	print(currentState.get_name())
 	
 #Check if player is on the ground 
 func is_grounded():
@@ -88,9 +89,12 @@ func initializePlayer():
 	attackState = $States/Attack 
 	deathState = $States/Death
 	
+	#Initialize health and motion 
+	currentHealth = global.playerCurrentHealth
+	
 	#Debug function 
 func takeDamage(dam):
 	#Apply Damage and check for death 
-	currentHealth -= dam 
+	health -= dam 
 	emit_signal('playerDamaged')
 	

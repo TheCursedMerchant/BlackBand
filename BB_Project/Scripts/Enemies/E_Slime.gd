@@ -37,7 +37,6 @@ func set_state(newState):
 	previousState = currentState
 	currentState = newState
 	currentState.enter()
-	print(currentState.get_name())
 	#print(currentState.get_name())
 	#print(motion)
 	

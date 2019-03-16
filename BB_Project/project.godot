@@ -23,6 +23,7 @@ config/icon="res://icon.png"
 
 dir="*res://Scripts/engine/directions.gd"
 controls="*res://Scripts/engine/control_mapper.gd"
+global="*res://Scripts/engine/global.gd"
 
 [debug]
 
