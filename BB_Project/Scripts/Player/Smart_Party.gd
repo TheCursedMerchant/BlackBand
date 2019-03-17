@@ -39,7 +39,6 @@ func swap(index, forward):
 				else:
 					newIndex = index + 1
 					
-			owner.anim_player.visible = false
 			currentIndex = newIndex
 			owner.anim_player = owner.anim_players.get_child(currentIndex)
 			#Add next character to the scene 
