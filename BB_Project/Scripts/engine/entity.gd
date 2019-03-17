@@ -11,7 +11,7 @@ export var jumpSpeed = 10
  
 #State Variables 
 var motion = Vector2(0, 0)
-var facingDir = dir.left
+var facingDir = dir.right
 var type = 'entity'
 onready var currentHealth = health
 onready var global = get_node("/root/global")

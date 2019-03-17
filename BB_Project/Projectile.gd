@@ -46,9 +46,11 @@ func _on_Projectile_body_entered(body):
 					if(body.position.x < self.position.x):
 						body.knockbackDir = -1
 						body.anim_player.flip_h = false
+						body.floor_checker.position.x = body.maxSpeed/2
 					else:
 						body.knockbackDir = 1
 						body.anim_player.flip_h = true
+						body.floor_checker.position.x = -body.maxSpeed/2
 						
 					body.knockback = Vector2(h_knockback * body.knockbackDir, v_knockback)
 					

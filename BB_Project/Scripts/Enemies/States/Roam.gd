@@ -12,9 +12,11 @@ func enter():
 	if(decision > 5):
 		entity.anim_player.flip_h = false
 		entity.facingDir = dir.right
+		entity.floor_checker.position.x = entity.maxSpeed/2
 	else:
 		entity.anim_player.flip_h = true
 		entity.facingDir = dir.left
+		entity.floor_checker.position.x = -entity.maxSpeed/2
 	
 	#Timer Logic
 	timer = Timer.new()
@@ -26,7 +28,8 @@ func enter():
 	
 func update(delta):
 	#Move 	
-	entity.motion = entity.move(entity.motion, entity.acceleration, entity.maxSpeed, entity.facingDir)
+	if(entity.check_ground()):
+		entity.motion = entity.move(entity.motion, entity.acceleration, entity.maxSpeed, entity.facingDir)
 	
 	#Check if entity is on the ground
 	if(!entity.grounded):

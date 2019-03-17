@@ -13,13 +13,8 @@
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "Fall",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ) ],
 "loop": false,
-"name": "Death",
+"name": "Roam",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ) ],
@@ -29,7 +24,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 2 ) ],
 "loop": false,
-"name": "Roam",
+"name": "Death",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "Fall",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
@@ -54,6 +54,10 @@ animation = "Roam"
 shape = SubResource( 2 )
 
 [node name="ground_ray" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 9 )
+
+[node name="floor_checker" type="RayCast2D" parent="."]
 enabled = true
 cast_to = Vector2( 0, 9 )
 
