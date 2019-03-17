@@ -4,8 +4,8 @@
 extends 'res://Scripts/engine/entity.gd'
 
 #Signals
-signal playerDamaged
-signal playerSwapped
+signal damaged
+signal swapped
 
 #Party Properties 
 var partyIndex = 0
@@ -50,9 +50,6 @@ func _ready():
 	if(camera != null):
 		if(camera.player == null):
 			camera.player = self
-		#Set me as the healthbar's player 
-		if(mainGUI.player == null):
-			mainGUI.player = self
 		
 	initializePlayer()
 	#Enter idle state
@@ -116,4 +113,5 @@ func takeDamage(dam):
 			global.zulieHealth = currentHealth
 		1: 
 			global.astroHealth = currentHealth 
+	emit_signal('damaged')
 

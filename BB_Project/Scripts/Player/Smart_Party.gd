@@ -5,14 +5,10 @@ var cooldown = 1
 var timer = null
 var canSwap = true 
 var currentIndex = 0
-
-signal playerSwapped
+onready var partyOwner = get_parent()
 
 #Initialize the party
-func _ready():
-	#Reference to parent
-	var owner = get_parent()
-	
+func _ready():	
 	#Create party
 	party.append(Zulie.new())
 	party.append(Astro.new())
@@ -28,7 +24,6 @@ func on_timeout_complete():
 
 func swap(index, forward):
 	if(canSwap):
-		owner.emit_signal("playerSwapped")
 		canSwap = false 
 		var newIndex 
 		#Check which index to switch too

@@ -6,6 +6,7 @@ var party = []
 var cooldown = 1 
 var timer = null
 var canSwap = true 
+onready var party_owner = get_parent()
 
 #Initialize the party
 func _ready():
