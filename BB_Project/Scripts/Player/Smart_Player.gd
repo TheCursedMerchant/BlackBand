@@ -79,7 +79,7 @@ func set_state(newState):
 	previousState = currentState 
 	currentState = newState
 	currentState.enter()
-	print(currentState.get_name())
+	#print(currentState.get_name())
 	
 #Check if player is on the ground 
 func is_grounded():

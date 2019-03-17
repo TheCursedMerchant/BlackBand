@@ -1,22 +1,22 @@
 [gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Scripts/Player/Player-Alt.gd" type="Script" id=1]
-[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_walk_cycle2.png" type="Texture" id=2]
-[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_walk_cycle3.png" type="Texture" id=3]
-[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_walk_cycle4.png" type="Texture" id=4]
-[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_walk_cycle5.png" type="Texture" id=5]
-[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_walk_cycle6.png" type="Texture" id=6]
-[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_walk_cycle7.png" type="Texture" id=7]
-[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_walk_cycle8.png" type="Texture" id=8]
-[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_walk_cycle9.png" type="Texture" id=9]
-[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_walk_cycle1.png" type="Texture" id=10]
-[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_jump1.png" type="Texture" id=11]
-[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_jump2.png" type="Texture" id=12]
-[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_jump3.png" type="Texture" id=13]
-[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_jump4.png" type="Texture" id=14]
-[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_melee_attack1.png" type="Texture" id=15]
-[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_melee_attack3.png" type="Texture" id=16]
-[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_melee_attack4.png" type="Texture" id=17]
+[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_jump3.png" type="Texture" id=2]
+[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_jump4.png" type="Texture" id=3]
+[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_jump1.png" type="Texture" id=4]
+[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_walk_cycle1.png" type="Texture" id=5]
+[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_jump2.png" type="Texture" id=6]
+[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_melee_attack1.png" type="Texture" id=7]
+[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_melee_attack3.png" type="Texture" id=8]
+[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_melee_attack4.png" type="Texture" id=9]
+[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_walk_cycle2.png" type="Texture" id=10]
+[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_walk_cycle3.png" type="Texture" id=11]
+[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_walk_cycle4.png" type="Texture" id=12]
+[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_walk_cycle5.png" type="Texture" id=13]
+[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_walk_cycle6.png" type="Texture" id=14]
+[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_walk_cycle7.png" type="Texture" id=15]
+[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_walk_cycle8.png" type="Texture" id=16]
+[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_walk_cycle9.png" type="Texture" id=17]
 [ext_resource path="res://Scripts/shooter.gd" type="Script" id=18]
 [ext_resource path="res://Scenes/Player Objects/projectile_scene.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scripts/Player/States/move_states/Idle.gd" type="Script" id=20]
@@ -29,165 +29,114 @@
 [ext_resource path="res://Scripts/attacker.gd" type="Script" id=27]
 
 [sub_resource type="StreamTexture" id=1]
-
-flags = 0
 load_path = "res://.import/fixed_dummy_melee_attack2.png-bf162d932c2a8c02eac9902c86c9d9f2.stex"
 
 [sub_resource type="SpriteFrames" id=2]
-
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "Move",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "Jump",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 14 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "Fall",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ), SubResource( 1 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Damage",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), SubResource( 1 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": false,
 "name": "Attack",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 11 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
 "loop": true,
-"name": "Damage",
-"speed": 5.0
+"name": "Move",
+"speed": 15.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=3]
-
-custom_solver_bias = 0.0
 radius = 4.0
-height = 20.0
 
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
 ]]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
 collision/safe_margin = 0.001
 script = ExtResource( 1 )
-_sections_unfolded = [ "collision" ]
-health = 3
-gravity = 10
-acceleration = 20
 maxSpeed = 240
 jumpHeight = 250
-jumpSpeed = 10
-meleeDamage = 10
-h_meleeKnockback = 40
-v_meleeKnockback = -20
 attackType = "melee"
 
-[node name="Player_Anim" type="AnimatedSprite" parent="." index="0"]
-
+[node name="Player_Anim" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "Idle"
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Hitbox" type="CollisionShape2D" parent="." index="1"]
-
+[node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 2 )
 shape = SubResource( 3 )
-_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="front_ray" type="RayCast2D" parent="." index="2"]
-
+[node name="front_ray" type="RayCast2D" parent="."]
 position = Vector2( 3, 0 )
 enabled = true
-exclude_parent = true
 cast_to = Vector2( 0, 17 )
-collision_mask = 1
-_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="back_ray" type="RayCast2D" parent="." index="3"]
-
+[node name="back_ray" type="RayCast2D" parent="."]
 position = Vector2( -3, 0 )
 enabled = true
-exclude_parent = true
 cast_to = Vector2( 0, 17 )
-collision_mask = 1
-_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="shoot-point" type="Area2D" parent="." index="4"]
-
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
+[node name="shoot-point" type="Area2D" parent="."]
 script = ExtResource( 18 )
-_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 projectile_scene = ExtResource( 19 )
-cooldown = 0.5
-projectile_speed = 400
 
-[node name="States" type="Node" parent="." index="5"]
+[node name="States" type="Node" parent="."]
 
-[node name="Idle" type="Node" parent="States" index="0"]
-
+[node name="Idle" type="Node" parent="States"]
 script = ExtResource( 20 )
 
-[node name="Move" type="Node" parent="States" index="1"]
-
+[node name="Move" type="Node" parent="States"]
 script = ExtResource( 21 )
 
-[node name="Jump" type="Node" parent="States" index="2"]
-
+[node name="Jump" type="Node" parent="States"]
 script = ExtResource( 22 )
 
-[node name="Fall" type="Node" parent="States" index="3"]
-
+[node name="Fall" type="Node" parent="States"]
 script = ExtResource( 23 )
 
-[node name="Damage" type="Node" parent="States" index="4"]
-
+[node name="Damage" type="Node" parent="States"]
 script = ExtResource( 24 )
 
-[node name="Attack" type="Node" parent="States" index="5"]
-
+[node name="Attack" type="Node" parent="States"]
 script = ExtResource( 25 )
 
-[node name="Party" type="Node" parent="." index="6"]
-
+[node name="Party" type="Node" parent="."]
 script = ExtResource( 26 )
 
-[node name="melee-point" type="Position2D" parent="." index="7"]
-
+[node name="melee-point" type="Position2D" parent="."]
 script = ExtResource( 27 )
-x_offset = 15
 
 [connection signal="animation_finished" from="Player_Anim" to="States/Attack" method="_on_Player_Anim_animation_finished"]
-
-

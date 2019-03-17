@@ -6,12 +6,18 @@ onready var player = get_node('Player')
 
 #Fill this with all spawnLocations in the current room 
 onready var spawnLocations = get_tree().get_nodes_in_group('SPAWN')
+onready var mainCamera = get_node('MainCamera')
+onready var mainGUI = get_node('MainCamera/HUD/Main_GUI')
+
+signal playerSpawned
 
 func _ready():
 	set_process_input(true) 
 	#Spawn the player 
 	if(get_node('Player') == null):
 		spawnPlayer(global.spawnLocation)
+	mainCamera.player = player
+	mainGUI.player = player
 	
 func _input(event):
 	if(event.is_action_pressed('ui_cancel')):
@@ -39,6 +45,7 @@ func spawnPlayer(location):
 			newPlayer.position.x = spawner.global_position.x
 			newPlayer.position.y = spawner.global_position.y
 			add_child(newPlayer)
+			emit_signal('playerSpawned')
 	
 	
 	

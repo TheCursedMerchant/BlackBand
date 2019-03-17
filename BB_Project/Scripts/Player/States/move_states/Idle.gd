@@ -1,6 +1,5 @@
 extends '../../../State.gd'
 		
-		
 #Return state name
 func get_name():
 	return "Idle"

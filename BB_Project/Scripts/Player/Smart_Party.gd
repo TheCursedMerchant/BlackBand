@@ -51,6 +51,10 @@ func swap(index, forward):
 			loadCharacterInfo(party[currentIndex])
 			global.partyIndex = currentIndex
 			owner.anim_player.visible = true
+			if(owner.facingDir == dir.right):
+				owner.anim_player.flip_h = false
+			else:
+				owner.anim_player.flip_h = true
 			timer.start()
 			
 func loadCharacterInfo(character):
@@ -90,9 +94,9 @@ class Astro:
 	var currentHealth = global.astroHealth
 	var attackType = 'melee'
 	var gravity = 10
-	var acceleration = 15
-	var maxSpeed = 200
-	var jumpHeight = 300
+	var acceleration = 20
+	var maxSpeed = 240
+	var jumpHeight = 250
 	var jumpSpeed = 10
 	var meleeDamage = 10
 	var h_meleeKnockback = 40
