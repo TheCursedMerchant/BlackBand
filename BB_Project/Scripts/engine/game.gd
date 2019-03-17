@@ -9,8 +9,6 @@ onready var spawnLocations = get_tree().get_nodes_in_group('SPAWN')
 onready var mainCamera = get_node('MainCamera')
 onready var mainGUI = get_node('MainCamera/HUD/Main_GUI')
 
-signal playerSpawned
-
 func _ready():
 	set_process_input(true) 
 	#Spawn the player 
@@ -45,7 +43,6 @@ func spawnPlayer(location):
 			newPlayer.position.x = spawner.global_position.x
 			newPlayer.position.y = spawner.global_position.y
 			add_child(newPlayer)
-			emit_signal('playerSpawned')
 	
 	
 	

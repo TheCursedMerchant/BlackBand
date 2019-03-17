@@ -116,5 +116,4 @@ func takeDamage(dam):
 			global.zulieHealth = currentHealth
 		1: 
 			global.astroHealth = currentHealth 
-	emit_signal('playerDamaged')
 
