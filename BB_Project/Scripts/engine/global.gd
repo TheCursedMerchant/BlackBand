@@ -3,6 +3,7 @@
 extends Node
 
 var current_scene = null
+var spawnLocation : String
 
 #Global player variables 
 var playerCurrentHealth = 5 

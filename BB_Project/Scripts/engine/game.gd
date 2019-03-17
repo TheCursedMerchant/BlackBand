@@ -1,11 +1,16 @@
 extends Node
 
 #This is our singleton game object script 
-onready var player = get_node('Player')
+onready var player = load('res://Scenes/Player Objects/Player.tscn')
+
+#Fill this with all spawnLocations in the current room 
+onready var spawnLocations = get_tree().get_nodes_in_group('SPAWN')
 
 func _ready():
 	set_process_input(true) 
-	pass
+	#Spawn the player 
+	if(get_node('Player') == null):
+		spawnPlayer(global.spawnLocation)
 	
 func _input(event):
 	if(event.is_action_pressed('ui_cancel')):
@@ -23,6 +28,15 @@ func quit():
 
 func restart():
 	global.goto_scene((get_tree().get_current_scene().get_filename()))
+	
+func spawnPlayer(location):
+	#Based on location spawn a player at corresponding location 
+	for spawner in spawnLocations:
+		if(spawner.location == location):
+			var newPlayer = player.instance(0)
+			newPlayer.position.x = spawner.global_position.x
+			newPlayer.position.y = spawner.global_position.y
+			add_child(newPlayer)
 	
 	
 	
