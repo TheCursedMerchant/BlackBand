@@ -36,7 +36,6 @@ var currentState
 onready var grounded = is_grounded()
 onready var anim_players = $Anim_Players
 onready var anim_player = $Anim_Players/Zulie_Anim_Player
-onready var swap_Anim = $Anim_Players/Swap_Anim
 onready var party = $Party
 
 func _ready():
@@ -95,6 +94,7 @@ func initializePlayer():
 	damageState = $States/Damage
 	attackState = $States/Attack 
 	deathState = $States/Death
+	swapState = $States/Swap
 
 	#Player animation 
 	anim_player = anim_players.get_child(global.partyIndex)
@@ -116,10 +116,3 @@ func takeDamage(dam):
 			global.astroHealth = currentHealth 
 	emit_signal('damaged')
 
-func _on_Swap_Anim_animation_finished(): 
-	swap_Anim.stop()
-	swap_Anim.frame = 0
-	swap_Anim.visible = false 
-	anim_player.visible = false
-	party.swap(party.currentIndex, true)
-	emit_signal('swapped')

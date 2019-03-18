@@ -23,9 +23,8 @@ func update(delta):
 	
 	#Character swapping 
 	if(Input.is_action_just_pressed('ui_down')):
-		entity.swap_Anim.visible = true
-		entity.swap_Anim.play('Swap')
-	
+		entity.set_state(entity.swapState)
+		
 	#Check if I hit the ground 
 	if(entity.grounded):
 		if(Input.is_action_pressed('ui_right') || Input.is_action_pressed('ui_left')):

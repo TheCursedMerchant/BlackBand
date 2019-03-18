@@ -1,9 +1,6 @@
 extends Node
 
 var party = []
-var cooldown = 1 
-var timer = null
-var canSwap = true 
 var currentIndex = 0
 onready var partyOwner = get_parent()
 
@@ -13,43 +10,36 @@ func _ready():
 	party.append(Zulie.new())
 	party.append(Astro.new())
 	
-	timer = Timer.new()
-	timer.set_one_shot(true)
-	timer.set_wait_time(cooldown)
-	timer.connect("timeout", self, "on_timeout_complete")
-	add_child(timer)
-	
-func on_timeout_complete():
-	canSwap = true 
-
 func swap(index, forward):
-	if(canSwap):
-		canSwap = false 
-		var newIndex 
-		#Check which index to switch too
-		if(party.size() >= 2):
-			if(forward):
-				if(index + 1 < party.size()):
-					newIndex = index + 1
-				else:
-					newIndex = index - 1
+	var newIndex 
+	#Check which index to switch too
+	if(party.size() >= 2):
+		if(forward):
+			if(index + 1 < party.size()):
+				newIndex = index + 1
 			else:
-				if(index - 1 >= 0):
-					newIndex = index - 1  
-				else:
-					newIndex = index + 1
-					
-			currentIndex = newIndex
-			owner.anim_player = owner.anim_players.get_child(currentIndex)
-			#Add next character to the scene 
-			loadCharacterInfo(party[currentIndex])
-			global.partyIndex = currentIndex
-			owner.anim_player.visible = true
-			if(owner.facingDir == dir.right):
-				owner.anim_player.flip_h = false
+				newIndex = index - 1
+		else:
+			if(index - 1 >= 0):
+				newIndex = index - 1  
 			else:
-				owner.anim_player.flip_h = true
-			timer.start()
+				newIndex = index + 1 		
+			
+		#Assign currentIndex to the newIndex 	
+		currentIndex = newIndex
+		
+		#Load character info 
+		loadCharacterInfo(party[currentIndex])
+		
+		#Update partyIndex in global and partyOwner 
+		partyOwner.partyIndex = currentIndex
+		global.partyIndex = currentIndex
+		
+		#Update facing direction 
+		if(owner.facingDir == dir.right):
+			owner.anim_player.flip_h = false
+		else:
+			owner.anim_player.flip_h = true
 			
 func loadCharacterInfo(character):
 	owner.partyIndex = character.partyIndex

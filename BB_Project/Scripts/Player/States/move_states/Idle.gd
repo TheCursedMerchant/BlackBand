@@ -28,9 +28,7 @@ func handle_input(event):
 		entity.set_state(entity.jumpState)
 	
 	if(Input.is_action_just_pressed('ui_down')):
-		entity.swap_Anim.visible = true
-		entity.swap_Anim.play('Swap')
-		
+		entity.set_state(entity.swapState)
 		
 	if(Input.is_action_just_pressed('ui_melee') && entity.canAttack):
 		entity.canAttack = false 
