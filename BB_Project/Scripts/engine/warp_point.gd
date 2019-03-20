@@ -1,8 +1,8 @@
 extends Area2D
 
 var global = null
-export var nextLocation = 'left'
-export var scene = 'res://Scenes/Levels/Demo-1-2.tscn'
+export var nextLocation = 'door'
+export var scene = 'res://Scenes/Levels/Demo-1-2BAD.tscn'
 
 func _ready():
 	global = get_node("/root/global")

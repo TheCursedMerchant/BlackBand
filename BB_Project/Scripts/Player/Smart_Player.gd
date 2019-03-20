@@ -8,7 +8,7 @@ signal damaged
 signal swapped
 
 #Party Properties 
-var partyIndex = 0
+onready var partyIndex = global.partyIndex
 var initial = true
 var canAttack = true 
 
@@ -99,9 +99,17 @@ func initializePlayer():
 	#Player animation 
 	anim_player = anim_players.get_child(global.partyIndex)
 	anim_player.visible = true
+	facingDir = global.playerCurrentFacingDir
+	if(facingDir == dir.right):
+		anim_player.flip_h = false 
+	else:
+		anim_player.flip_h = true 
 	
 	#Initialize health and motion 
 	currentHealth = global.playerCurrentHealth
+	
+	#Load character info
+	party.loadCharacterInfo(party.party[partyIndex])
 	
 	#Debug function 
 func takeDamage(dam):

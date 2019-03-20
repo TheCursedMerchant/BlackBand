@@ -1,7 +1,7 @@
 extends Node
 
 var party = []
-var currentIndex = 0
+var currentIndex = global.partyIndex
 onready var partyOwner = get_parent()
 
 #Initialize the party

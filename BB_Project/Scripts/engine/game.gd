@@ -14,8 +14,6 @@ func _ready():
 	#Spawn the player 
 	if(get_node('Player') == null):
 		spawnPlayer(global.spawnLocation)
-	connectPlayer()
-	mainCamera.player = player
 	
 func _input(event):
 	if(event.is_action_pressed('ui_cancel')):
@@ -44,10 +42,13 @@ func spawnPlayer(location):
 			newPlayer.position.y = spawner.global_position.y
 			add_child(newPlayer)
 			mainGUI.update_gui(newPlayer)
+			connectPlayer()
+			mainCamera.player = player
 			
 func connectPlayer():
-	player.connect('damaged', self, 'on_Player_damaged')
-	player.connect('swapped', self, 'on_Player_swapped')
+	if(player != null):
+		player.connect('damaged', self, 'on_Player_damaged')
+		player.connect('swapped', self, 'on_Player_swapped')
 	
 #Event Handlers
 func on_Player_damaged():
