@@ -27,10 +27,7 @@ func set_speed(var s):
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
-
-func _on_Projectile_area_entered(area):
-	queue_free()
-
+		
 func _on_Projectile_body_entered(body):
 	if(body != creator):
 		match body.get("type"):
@@ -55,6 +52,9 @@ func _on_Projectile_body_entered(body):
 					body.knockback = Vector2(h_knockback * body.knockbackDir, v_knockback)
 					
 					body.set_state(body.damageState)
+					speed_x = 0
+					currentAnim = 'destroy'
+					
 			"PLAYER":
 				if(body.currentState != body.damageState):
 					
@@ -72,9 +72,11 @@ func _on_Projectile_body_entered(body):
 						
 					body.knockback = Vector2(h_knockback * knockbackDir, v_knockback)
 					body.set_state(body.damageState)
-		speed_x = 0
-		currentAnim = 'destroy'
-
+					speed_x = 0
+					currentAnim = 'destroy'
+			"SOLID":
+				speed_x = 0
+				currentAnim = 'destroy'
 
 func _on_Sprite_animation_finished():
 	queue_free()

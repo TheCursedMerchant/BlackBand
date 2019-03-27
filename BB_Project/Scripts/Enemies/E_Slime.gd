@@ -11,9 +11,12 @@ var fallState
 var roamState
 var waitState
 var deathState
+var chaseState 
 
 #State variables
 onready var grounded = is_grounded()
+var target = null
+export var attackRange = 15
 
 #Initialize Slime Enemy 
 func _ready():
@@ -42,7 +45,7 @@ func set_state(newState):
 	previousState = currentState
 	currentState = newState
 	currentState.enter()
-	#print(currentState.get_name())
+	print(currentState.get_name())
 	#print(motion)
 	
 func initializeEnemy():
@@ -52,7 +55,7 @@ func initializeEnemy():
 	fallState = $States/Fall
 	waitState = $States/Wait
 	deathState = $States/Death
-	
+	chaseState = $States/Chase
 	
 #Check if enemy is on the ground 
 func is_grounded():

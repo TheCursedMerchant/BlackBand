@@ -41,4 +41,7 @@ func on_timeout_complete():
 func exit():
 	timer.stop()
 
-
+func _on_DetectionBox_body_entered(body):
+	if(body.get("type") == "PLAYER"):
+		entity.target = body
+		entity.set_state(entity.chaseState)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/Enemies/E_Slime.gd" type="Script" id=1]
 [ext_resource path="res://Art Assets/Enemies/Slime/slime-enemy.png" type="Texture" id=2]
@@ -9,14 +9,10 @@
 [ext_resource path="res://Scripts/Enemies/States/Fall.gd" type="Script" id=7]
 [ext_resource path="res://Scripts/Enemies/States/Wait.gd" type="Script" id=8]
 [ext_resource path="res://Scripts/Enemies/States/Death.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/Enemies/States/Chase.gd" type="Script" id=10]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": false,
-"name": "Roam",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "Wait",
@@ -24,12 +20,17 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 2 ) ],
 "loop": false,
-"name": "Death",
+"name": "Roam",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "Fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": false,
+"name": "Death",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
@@ -41,9 +42,13 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 8 )
 
+[sub_resource type="CircleShape2D" id=3]
+
 [node name="Slime" type="KinematicBody2D"]
 collision_layer = 3
 script = ExtResource( 1 )
+acceleration = 10
+maxSpeed = 60
 jumpHeight = 250
 
 [node name="Anim_Player" type="AnimatedSprite" parent="."]
@@ -78,3 +83,14 @@ script = ExtResource( 8 )
 [node name="Death" type="Node" parent="States"]
 script = ExtResource( 9 )
 
+[node name="Chase" type="Node" parent="States"]
+script = ExtResource( 10 )
+
+[node name="Detection-Box" type="Area2D" parent="."]
+editor/display_folded = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection-Box"]
+scale = Vector2( 6, 6 )
+shape = SubResource( 3 )
+
+[connection signal="body_entered" from="Detection-Box" to="States/Roam" method="_on_DetectionBox_body_entered"]
