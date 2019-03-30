@@ -4,6 +4,7 @@ func get_name():
 	return "Attack"
 	
 func enter():
+	entity.motion.y = 0
 	#Set attack on cooldown
 	entity.canAttack = false
 	
@@ -46,4 +47,3 @@ func _on_Dummy_Anim_Player_animation_finished():
 			entity.set_state(entity.moveState)
 		else:
 			entity.set_state(entity.idleState)
-	pass # Replace with function body.

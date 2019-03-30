@@ -14,13 +14,8 @@
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "Wait",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ) ],
 "loop": false,
-"name": "Roam",
+"name": "Death",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ) ],
@@ -29,14 +24,24 @@ animations = [ {
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ) ],
-"loop": false,
-"name": "Death",
+"loop": true,
+"name": "Wait",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "Damage",
 "speed": 20.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": false,
+"name": "Roam",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": false,
+"name": "Chase",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]

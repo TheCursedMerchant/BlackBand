@@ -22,6 +22,9 @@ func update(delta):
 		
 	if(Input.is_action_just_released('ui_up') || entity.motion.y <= -entity.jumpHeight):
 		entity.set_state(entity.fallState) 	
+		
+	if(Input.is_action_just_pressed('ui_attack') && entity.canAttack):
+		entity.set_state(entity.attackState)
 	
 	if(entity.is_on_wall()):
 		entity.motion.x = lerp(entity.motion.x, 0, entity.friction)

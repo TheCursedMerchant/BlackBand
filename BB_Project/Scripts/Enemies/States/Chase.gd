@@ -13,8 +13,10 @@ func update(delta):
 		#Face the target
 		if(directionToTarget < 0):
 			entity.facingDir = dir.left
+			entity.anim_player.flip_h = true
 		else:
 			entity.facingDir = dir.right
+			entity.anim_player.flip_h = false
 		#Check if in attack range 
 		if(abs(directionToTarget) <= entity.attackRange):
 			entity.set_state(entity.waitState)

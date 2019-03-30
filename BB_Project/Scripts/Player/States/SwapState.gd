@@ -20,4 +20,8 @@ func completeSwap():
 		entity.anim_player = entity.anim_players.get_child(entity.partyIndex)
 		entity.anim_player.flip_h = previousFlip
 		entity.anim_player.visible = true
-		entity.set_state(entity.previousState)
+		if(entity.previousState == entity.moveState && (Input.is_action_pressed("ui_right") || Input.is_action_pressed("ui_left"))):
+			entity.set_state(entity.moveState)
+		else:
+			entity.set_state(entity.idleState)
+		

@@ -28,6 +28,9 @@ func update(delta):
 	if(Input.is_action_just_pressed('ui_down')):
 		entity.set_state(entity.swapState)
 		
+	if(Input.is_action_just_pressed('ui_attack') && entity.canAttack):
+		entity.set_state(entity.attackState)
+		
 	#Check if I hit the ground 
 	if(entity.grounded):
 		if(Input.is_action_pressed('ui_right') || Input.is_action_pressed('ui_left')):
