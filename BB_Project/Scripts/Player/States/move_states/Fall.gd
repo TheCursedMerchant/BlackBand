@@ -25,7 +25,7 @@ func update(delta):
 	entity.move_and_slide(entity.motion)
 	
 	#Character swapping 
-	if(Input.is_action_just_pressed('ui_down')):
+	if(Input.is_action_just_pressed('ui_right_select')):
 		entity.set_state(entity.swapState)
 		
 	if(Input.is_action_just_pressed('ui_attack') && entity.canAttack):

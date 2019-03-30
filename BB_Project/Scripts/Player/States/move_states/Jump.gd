@@ -17,7 +17,7 @@ func update(delta):
 		entity.motion.x = max(entity.motion.x - entity.acceleration, -entity.maxSpeed) 
 		
 	#Character swapping 
-	if(Input.is_action_just_pressed('ui_down')):
+	if(Input.is_action_just_pressed('ui_right_select')):
 		entity.set_state(entity.swapState)
 		
 	if(Input.is_action_just_released('ui_up') || entity.motion.y <= -entity.jumpHeight):

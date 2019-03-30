@@ -211,6 +211,7 @@ script = ExtResource( 9 )
 script = ExtResource( 10 )
 
 [node name="Anim_Players" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Zulie_Anim_Player" type="AnimatedSprite" parent="Anim_Players"]
 visible = false

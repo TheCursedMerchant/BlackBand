@@ -25,10 +25,10 @@ func handle_input(event):
 		entity.set_state(entity.idleState)
 	
 	#Jumping 
-	if(Input.is_action_pressed('ui_up')):
+	if(Input.is_action_pressed('ui_jump')):
 		entity.set_state(entity.jumpState)
 	
-	if(Input.is_action_just_pressed('ui_down')):
+	if(Input.is_action_just_pressed('ui_right_select')):
 		entity.set_state(entity.swapState)
 		
 	if(Input.is_action_just_pressed('ui_attack') && entity.canAttack): 

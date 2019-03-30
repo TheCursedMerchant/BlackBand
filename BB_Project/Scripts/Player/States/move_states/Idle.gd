@@ -21,10 +21,10 @@ func handle_input(event):
 		entity.anim_player.flip_h = true
 		entity.facingDir = dir.left
 		entity.set_state(entity.moveState)
-	elif(Input.is_action_pressed('ui_up')):
+	elif(Input.is_action_pressed('ui_jump')):
 		entity.set_state(entity.jumpState)
 	
-	if(Input.is_action_just_pressed('ui_down')):
+	if(Input.is_action_just_pressed('ui_right_select')):
 		entity.set_state(entity.swapState)
 		
 	if(Input.is_action_just_pressed('ui_attack') && entity.canAttack):
