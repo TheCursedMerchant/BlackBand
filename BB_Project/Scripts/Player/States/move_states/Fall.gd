@@ -16,8 +16,11 @@ func update(delta):
 	elif(Input.is_action_pressed('ui_left')):
 		entity.anim_player.flip_h = true
 		entity.facingDir = dir.left	
-		entity.motion.x = max(entity.motion.x - entity.acceleration, -entity.maxSpeed) 
-	
+		entity.motion.x = max(entity.motion.x - entity.acceleration, -entity.maxSpeed)
+		
+	if(entity.is_on_wall()):
+		entity.motion.x = lerp(entity.motion.x, 0, entity.friction)
+		
 	#Apply motion change  
 	entity.move_and_slide(entity.motion)
 	

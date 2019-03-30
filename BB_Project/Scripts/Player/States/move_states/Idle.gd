@@ -3,14 +3,11 @@ extends '../../../State.gd'
 #Return state name
 func get_name():
 	return "Idle"
-
-#This stops storing motion before jumping 
-func enter():
-	entity.motion = Vector2()
-	entity.anim_player.position.x = 0
 	
 #Check if entity is falling 
 func update(delta):
+	entity.motion.x = lerp(entity.motion.x, 0, entity.friction)
+	entity.move_and_slide(entity.motion, dir.up)
 	if(!entity.grounded):
 		entity.set_state(entity.fallState)
 	
