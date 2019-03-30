@@ -4,11 +4,18 @@ func get_name():
 	return "Attack"
 	
 func enter():
+	#Set attack on cooldown
 	entity.canAttack = false
+	
+	#Change attack based on type 
 	if(entity.attackType == 'melee'):
 		entity.get_node('melee-point').attack()
 	elif(entity.attackType == 'ranged'):
 		entity.get_node('shoot-point').shoot()
+		
+func update(delta): 
+	entity.motion.x = lerp(entity.motion.x, 0, entity.friction)
+	entity.move_and_slide(entity.motion, dir.up)
 	
 func exit():
 	entity.motion = Vector2()

@@ -8,6 +8,8 @@ export var acceleration = 20
 export var maxSpeed = 200
 export var jumpHeight = 300
 export var jumpSpeed = 10
+export var friction = .1
+export var jumpMoveModifier = 2
  
 #State Variables 
 var motion = Vector2(0, 0)

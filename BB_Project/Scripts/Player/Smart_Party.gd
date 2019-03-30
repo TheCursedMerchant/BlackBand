@@ -36,25 +36,25 @@ func swap(index, forward):
 		global.partyIndex = currentIndex
 		
 		#Update facing direction 
-		if(owner.facingDir == dir.right):
-			owner.anim_player.flip_h = false
+		if(partyOwner.facingDir == dir.right):
+			partyOwner.anim_player.flip_h = false
 		else:
-			owner.anim_player.flip_h = true
+			partyOwner.anim_player.flip_h = true
 			
 func loadCharacterInfo(character):
-	owner.partyIndex = character.partyIndex
-	owner.health = character.health
-	owner.currentHealth = character.currentHealth
-	owner.attackType = character.attackType
-	owner.gravity = character.gravity
-	owner.acceleration = character.acceleration
-	owner.maxSpeed = character.maxSpeed
-	owner.jumpHeight = character.jumpHeight
-	owner.jumpSpeed = character.jumpSpeed
-	owner.meleeDamage = character.meleeDamage
-	owner.h_meleeKnockback = character.h_meleeKnockback
-	owner.v_meleeKnockback = character.v_meleeKnockback
-		
+	partyOwner.partyIndex = character.partyIndex
+	partyOwner.health = character.health
+	partyOwner.currentHealth = character.currentHealth
+	partyOwner.attackType = character.attackType
+	partyOwner.gravity = character.gravity
+	partyOwner.acceleration = character.acceleration
+	partyOwner.maxSpeed = character.maxSpeed
+	partyOwner.jumpHeight = character.jumpHeight
+	partyOwner.jumpSpeed = character.jumpSpeed
+	partyOwner.meleeDamage = character.meleeDamage
+	partyOwner.h_meleeKnockback = character.h_meleeKnockback
+	partyOwner.v_meleeKnockback = character.v_meleeKnockback
+	partyOwner.jumpMoveModifier = character.jumpMoveModifier
 		
 		
 #Character Stat sheets 		
@@ -66,11 +66,12 @@ class Zulie:
 	var gravity = 10
 	var acceleration = 15
 	var maxSpeed = 150
-	var jumpHeight = 150
-	var jumpSpeed = 10
+	var jumpHeight = 120
+	var jumpSpeed = 20
 	var meleeDamage = 0
 	var h_meleeKnockback = 0
 	var v_meleeKnockback = 0
+	var jumpMoveModifier = 2
 	
 class Astro:
 	var partyIndex = 1
@@ -79,13 +80,13 @@ class Astro:
 	var attackType = 'melee'
 	var gravity = 10
 	var acceleration = 20
-	var maxSpeed = 240
-	var jumpHeight = 250
-	var jumpSpeed = 10
+	var maxSpeed = 180
+	var jumpHeight = 210
+	var jumpSpeed = 40
 	var meleeDamage = 10
 	var h_meleeKnockback = 40
 	var v_meleeKnockback = -20
-	
+	var jumpMoveModifier = 3
 	
 		
 		
