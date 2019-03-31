@@ -87,3 +87,8 @@ func _on_Projectile_body_entered(body):
 func _on_Sprite_animation_finished():
 	if(currentAnim == 'destroy'):
 		queue_free()
+
+
+func _on_Projectile_area_entered(area):
+	speed_x = 0
+	currentAnim = 'destroy'

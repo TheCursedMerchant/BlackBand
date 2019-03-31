@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/engine/game.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/engine/main_camera.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Scenes/Helper Objects/Spawn.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Art Assets/Tilesets/Test_Tiles.res" type="TileSet" id=5]
 [ext_resource path="res://Scenes/Interactables/Gate.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Obstacles/Wooden-Platform-2x1.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Obstacles/Wooden-Platform.tscn" type="PackedScene" id=8]
 
 [node name="Root" type="Node"]
 script = ExtResource( 1 )
@@ -36,4 +38,10 @@ __meta__ = {
 
 [node name="Gate" parent="." instance=ExtResource( 6 )]
 position = Vector2( 183, 127.868 )
+
+[node name="Wooden-Platform-2x1" parent="." instance=ExtResource( 7 )]
+position = Vector2( 72.2071, 110.409 )
+
+[node name="Wooden-Platform" parent="." instance=ExtResource( 8 )]
+position = Vector2( 111.19, 122.309 )
 

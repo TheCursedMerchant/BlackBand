@@ -35,7 +35,7 @@ func _physics_process(delta):
 		emit_signal("gateStopped")
 			
 func _on_Pulley_area_entered(area):
-	if(area.get('type') == 'fireball' && stop == true):
+	if(area.get('type') == 'fireball' && stop == true && open == false):
 		stop = false 
 		open = true
 		timer.start()
