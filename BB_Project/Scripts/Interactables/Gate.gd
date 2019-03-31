@@ -30,7 +30,6 @@ func _physics_process(delta):
 		motion = move_and_slide(motion, dir.up)
 		
 	if(abs(motion.y) >= travelDistance):
-		print("Stopped!")
 		stop = true
 		motion.y = 0
 		emit_signal("gateStopped")
@@ -42,7 +41,6 @@ func _on_Pulley_area_entered(area):
 		timer.start()
 		
 func on_timeout_complete():
-	print("Timer Complete!")
 	stop = false 
 	open = !open
 	

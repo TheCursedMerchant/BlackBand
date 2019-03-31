@@ -29,6 +29,9 @@ func exit():
 	entity.currentDamage = 0
 	
 func on_timeout_complete():
-	entity.set_state(entity.chaseState)
+	if(entity.get("type") == 'ENEMY'):
+		entity.set_state(entity.chaseState)
+	else:
+		entity.set_state(entity.previousState)
 	
 

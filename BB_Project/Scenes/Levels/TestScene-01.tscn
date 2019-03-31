@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/GUI/Main_GUI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Helper Objects/Spawn.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Art Assets/Tilesets/Test_Tiles.res" type="TileSet" id=5]
-[ext_resource path="res://Scenes/Levels/Gate.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Interactables/Gate.tscn" type="PackedScene" id=6]
 
 [node name="Root" type="Node"]
 script = ExtResource( 1 )

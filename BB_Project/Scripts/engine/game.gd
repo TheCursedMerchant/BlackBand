@@ -9,6 +9,8 @@ onready var spawnLocations = get_tree().get_nodes_in_group('SPAWN')
 onready var mainCamera = get_node('MainCamera')
 onready var mainGUI = get_node('MainCamera/HUD/Main_GUI')
 
+var currentInteractable = null 
+
 func _ready():
 	set_process_input(true) 
 	#Spawn the player 
@@ -24,6 +26,10 @@ func _input(event):
 		player.currentDamage = 1; 
 		player.knockback = Vector2(-20, -25)
 		player.set_state(player.damageState)
+	
+	if(event.is_action_pressed("ui_up")):
+		if(currentInteractable != null):
+			currentInteractable.action()
 	
 func quit():
 	#TODO: Quit the game 
