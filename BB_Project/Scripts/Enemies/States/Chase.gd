@@ -14,9 +14,11 @@ func update(delta):
 		if(directionToTarget < 0):
 			entity.facingDir = dir.left
 			entity.anim_player.flip_h = true
+			entity.floor_checker.position.x = -entity.maxSpeed/2
 		else:
 			entity.facingDir = dir.right
 			entity.anim_player.flip_h = false
+			entity.floor_checker.position.x = entity.maxSpeed/2
 		#Check if in attack range 
 		if(abs(directionToTarget) <= entity.attackRange):
 			entity.set_state(entity.waitState)

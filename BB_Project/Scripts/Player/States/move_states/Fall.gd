@@ -8,7 +8,7 @@ func update(delta):
 	
 	#Apply gravity 
 	entity.motion.y += entity.gravity
-	
+	 
 	if(Input.is_action_pressed('ui_right')):
 		entity.anim_player.flip_h = false
 		entity.facingDir = dir.right		
