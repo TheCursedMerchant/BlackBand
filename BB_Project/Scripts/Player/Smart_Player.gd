@@ -11,6 +11,7 @@ signal swapped
 onready var partyIndex = global.partyIndex
 var initial = true
 var canAttack = true 
+var canSwap = true 
 
 #Damage Properties 
 export var meleeDamage = 10 
@@ -58,7 +59,6 @@ func _ready():
 	else:
 		set_state(currentState)
 		
-	
 #Defer physics process to our state
 func _physics_process(delta):
 	is_grounded()
@@ -76,6 +76,8 @@ func set_state(newState):
 	previousState = currentState 
 	currentState = newState
 	currentState.enter()
+	if(previousState == swapState):
+		canSwap = true
 	#print(currentState.get_name())
 	
 #Check if player is on the ground 

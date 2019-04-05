@@ -90,5 +90,6 @@ func _on_Sprite_animation_finished():
 
 
 func _on_Projectile_area_entered(area):
-	speed_x = 0
-	currentAnim = 'destroy'
+	if(area.get("type") == 'SOLID'):
+		speed_x = 0
+		currentAnim = 'destroy'

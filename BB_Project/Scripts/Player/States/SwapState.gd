@@ -4,6 +4,7 @@ func get_name():
 	return 'Swap'
 	
 func enter():
+	entity.canSwap = false 
 	entity.party.swap(entity.party.currentIndex, true)
 	entity.emit_signal('swapped')
 	
@@ -18,6 +19,7 @@ func completeSwap():
 		var previousFlip = entity.anim_player.flip_h
 		entity.anim_player.visible = false 
 		entity.anim_player = entity.anim_players.get_child(entity.partyIndex)
+		entity.anim_player.frame = 0
 		entity.anim_player.flip_h = previousFlip
 		entity.anim_player.visible = true
 		if(entity.previousState == entity.moveState && (Input.is_action_pressed("ui_right") || Input.is_action_pressed("ui_left"))):

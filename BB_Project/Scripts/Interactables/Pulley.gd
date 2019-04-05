@@ -1,6 +1,6 @@
 extends Area2D
 
-var type = 'FIRE_SWITCH'
+var type = 'SOLID'
 
 func _on_Gate_gateStopped():
 	$AnimatedSprite.play('default')

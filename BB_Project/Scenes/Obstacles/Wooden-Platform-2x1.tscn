@@ -3,7 +3,7 @@
 [ext_resource path="res://Art Assets/Placeholder/one-way-platform-2x1.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16.9681, 3.02694 )
+extents = Vector2( 17.7335, 3.20813 )
 
 [node name="Wooden-Platform-2x1" type="StaticBody2D"]
 
@@ -14,4 +14,5 @@ texture = ExtResource( 1 )
 position = Vector2( 0, 1 )
 shape = SubResource( 1 )
 one_way_collision = true
+one_way_collision_margin = 1.5
 
