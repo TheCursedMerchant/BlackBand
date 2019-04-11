@@ -52,3 +52,6 @@ func shoot():
 		
 		#Sets projectile position relative to the global position not the parent position 
 		projectile.position = self.global_position
+		
+		currentCharge = 0
+		

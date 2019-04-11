@@ -12,6 +12,15 @@ func update(delta):
 	#Check if on floor 
 	if(!entity.grounded):
 		entity.set_state(entity.fallState)
+		
+	if(Input.is_action_pressed('ui_attack') && entity.canAttack):
+		#Charge
+		if(entity.attackType == 'ranged'):
+			if(entity.shooter.currentCharge < entity.shooter.chargeMax): 
+				entity.shooter.currentCharge += entity.shooter.chargeRate
+				print(entity.shooter.currentCharge)
+		else:
+			entity.set_state(entity.attackState)
 	
 func handle_input(event):
 	#Move based on direction 
@@ -30,8 +39,8 @@ func handle_input(event):
 	
 	if(Input.is_action_just_pressed('ui_right_select')):
 		entity.set_state(entity.swapState)
-		
-	if(Input.is_action_just_pressed('ui_attack') && entity.canAttack): 
+				
+	if(Input.is_action_just_released('ui_attack') && entity.canAttack && entity.attackType == 'ranged'):
 		entity.set_state(entity.attackState)
 		
 		

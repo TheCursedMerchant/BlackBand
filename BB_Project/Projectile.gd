@@ -62,9 +62,6 @@ func _on_Projectile_body_entered(body):
 					speed_x = 0
 					currentAnim = 'destroy'
 					
-					if(creator.get('type') == "PLAYER"):					
-						creator.shooter.currentCharge = 0
-					
 			"PLAYER":
 				if(body.currentState != body.damageState):
 					

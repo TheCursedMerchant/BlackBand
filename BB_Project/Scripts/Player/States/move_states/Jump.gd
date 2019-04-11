@@ -23,7 +23,16 @@ func update(delta):
 	if(Input.is_action_just_released('ui_up') || entity.motion.y <= -entity.jumpHeight):
 		entity.set_state(entity.fallState) 	
 		
-	if(Input.is_action_just_pressed('ui_attack') && entity.canAttack):
+	if(Input.is_action_pressed('ui_attack') && entity.canAttack):
+		#Charge
+		if(entity.attackType == 'ranged'):
+			if(entity.shooter.currentCharge < entity.shooter.chargeMax): 
+				entity.shooter.currentCharge += entity.shooter.chargeRate
+				print(entity.shooter.currentCharge)
+		else:
+			entity.set_state(entity.attackState)
+			
+	if(Input.is_action_just_released('ui_attack') && entity.canAttack && entity.attackType == 'ranged'):
 		entity.set_state(entity.attackState)
 	
 	if(entity.is_on_wall()):
