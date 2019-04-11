@@ -6,6 +6,7 @@
 extents = Vector2( 17.7335, 3.20813 )
 
 [node name="Wooden-Platform-2x1" type="StaticBody2D"]
+collision_layer = 4
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )

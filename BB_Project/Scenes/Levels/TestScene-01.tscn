@@ -43,5 +43,5 @@ position = Vector2( 183, 127.868 )
 position = Vector2( 72.2071, 110.409 )
 
 [node name="Wooden-Platform" parent="." instance=ExtResource( 8 )]
-position = Vector2( 111.19, 122.309 )
+position = Vector2( 118.782, 124.353 )
 

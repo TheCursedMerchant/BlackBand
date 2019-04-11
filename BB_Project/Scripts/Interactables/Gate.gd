@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends StaticBody2D
 
 export var moveSpeed = .5
 export var travelDistance = 150
@@ -27,7 +27,7 @@ func _physics_process(delta):
 		else:
 			motion.y = lerp(motion.y, travelDistance, moveSpeed)
 			
-		motion = move_and_slide(motion, dir.up)
+		position += motion * delta
 		
 	if(abs(motion.y) >= travelDistance):
 		stop = true

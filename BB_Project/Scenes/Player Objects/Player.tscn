@@ -175,11 +175,13 @@ shape = SubResource( 1 )
 position = Vector2( 0, 12 )
 enabled = true
 cast_to = Vector2( 0, 6 )
+collision_mask = 5
 
 [node name="back_ray" type="RayCast2D" parent="."]
 position = Vector2( 0, 12 )
 enabled = true
 cast_to = Vector2( 0, 6 )
+collision_mask = 5
 
 [node name="Party" type="Node" parent="."]
 script = ExtResource( 2 )

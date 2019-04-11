@@ -29,14 +29,13 @@ radius = 8.3516
 
 [node name="GatePulley" type="Node2D"]
 
-[node name="Gate" type="KinematicBody2D" parent="."]
+[node name="Gate" type="StaticBody2D" parent="."]
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Gate"]
 texture = ExtResource( 2 )
 
 [node name="hitbox" type="CollisionShape2D" parent="Gate"]
-visible = false
 position = Vector2( 1, 0 )
 shape = SubResource( 1 )
 
