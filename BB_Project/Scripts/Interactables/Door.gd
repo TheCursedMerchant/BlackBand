@@ -30,6 +30,7 @@ func action():
 	change_rooms(player, scene)
 
 func _on_Door_body_exited(body):
-	arrow.visible = false
-	game.currentInteractable = null 
-	arrow.stop()
+	if(arrow != null && game != null):
+		arrow.visible = false
+		game.currentInteractable = null 
+		arrow.stop()

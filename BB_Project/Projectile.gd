@@ -10,6 +10,7 @@ var creator = null
 var speed_x = 1
 var speed_y = 0
 var hit = false 
+var shakeAmplifier = 1
 
 var type = 'fireball'
 
@@ -38,7 +39,7 @@ func _on_Projectile_body_entered(body):
 			"ENEMY":
 				
 				#Shake screen
-				body.camera.shake(0.2, 15, 8)
+				body.camera.shake(0.2 * (shakeAmplifier/5) , 15 * shakeAmplifier, 8 * shakeAmplifier)
 				
 				if(body.currentState != body.damageState):
 					body.currentDamage += damage
@@ -60,6 +61,9 @@ func _on_Projectile_body_entered(body):
 					body.set_state(body.damageState)
 					speed_x = 0
 					currentAnim = 'destroy'
+					
+					if(creator.get('type') == "PLAYER"):					
+						creator.shooter.currentCharge = 0
 					
 			"PLAYER":
 				if(body.currentState != body.damageState):
@@ -90,6 +94,6 @@ func _on_Sprite_animation_finished():
 
 
 func _on_Projectile_area_entered(area):
-	if(area.get("type") == 'SOLID'):
+	if(area.get("type") == 'SOLID' && area != creator):
 		speed_x = 0
 		currentAnim = 'destroy'

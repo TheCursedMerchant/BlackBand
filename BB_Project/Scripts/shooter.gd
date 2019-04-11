@@ -5,9 +5,14 @@
 extends Area2D
 
 #Projectile Options 
-export var projectile_scene = preload("res://Scenes/Player Objects/fireball-1.tscn") 
+export var projectile_scene = preload("res://Scenes/Player Objects/fireball-1.tscn")
+export var charged_projectile = preload("res://Scenes/Player Objects/fireball-charged.tscn") 
 export var cooldown = .5
 export var projectile_speed = 400
+export var chargeMax = 100 
+export var chargeRate = 1 
+
+var currentCharge = 0
 
 #Logic Variables 
 var timer = null
@@ -28,7 +33,13 @@ func shoot():
 		var creator = get_parent()
 		timer.start()
 		#Add the projectile to the scene 
-		var projectile = projectile_scene.instance(0)
+		var projectile = null
+		if(currentCharge < chargeMax):
+			projectile = projectile_scene.instance(0)
+		else:
+			projectile = charged_projectile.instance(0)
+			projectile.shakeAmplifier = currentCharge / 10
+			
 		projectile.creator = get_parent()
 		get_parent().get_parent().add_child(projectile)
 		

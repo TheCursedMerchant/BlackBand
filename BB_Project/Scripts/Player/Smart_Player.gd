@@ -38,6 +38,7 @@ onready var grounded = is_grounded()
 onready var anim_players = $Anim_Players
 onready var anim_player = $Anim_Players/Zulie_Anim_Player
 onready var party = $Party
+onready var shooter = $"shoot-point"
 
 func _ready():
 	#Set type

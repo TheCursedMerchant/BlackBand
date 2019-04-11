@@ -10,6 +10,12 @@ func update(delta):
 	entity.move_and_slide(entity.motion, dir.up)
 	if(!entity.grounded):
 		entity.set_state(entity.fallState)
+		
+	if(Input.is_action_pressed('ui_attack') && entity.canAttack):
+		#Charge
+		if(entity.shooter.currentCharge < entity.shooter.chargeMax): 
+			entity.shooter.currentCharge += entity.shooter.chargeRate
+			print(entity.shooter.currentCharge)
 	
 #Idle's job is to wait for movement 
 func handle_input(event):
@@ -26,8 +32,11 @@ func handle_input(event):
 	
 	if(Input.is_action_just_pressed('ui_right_select') && entity.canSwap):
 		entity.set_state(entity.swapState)
-		
-	if(Input.is_action_just_pressed('ui_attack') && entity.canAttack):
+			
+	if(Input.is_action_just_released('ui_attack') && entity.canAttack):
 		entity.set_state(entity.attackState)
 		
+	
+		
+	
 		
