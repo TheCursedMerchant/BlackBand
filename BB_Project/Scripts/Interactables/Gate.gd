@@ -45,3 +45,7 @@ func on_timeout_complete():
 	open = !open
 	
 
+
+
+func _on_Pulley_02_area_entered(area):
+	pass # Replace with function body.

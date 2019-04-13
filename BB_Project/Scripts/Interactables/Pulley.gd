@@ -9,3 +9,4 @@ func _on_Gate_gateStopped():
 func _on_Pulley_area_entered(area):
 	if(area.get('type') == 'fireball'):
 		$AnimatedSprite.play('spin')
+

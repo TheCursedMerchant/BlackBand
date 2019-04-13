@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/engine/game.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/engine/main_camera.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/GUI/Main_GUI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Helper Objects/Spawn.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Art Assets/Tilesets/Test_Tiles.res" type="TileSet" id=5]
-[ext_resource path="res://Scenes/Interactables/Gate.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Obstacles/Wooden-Platform-2x1.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Obstacles/Wooden-Platform.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Obstacles/Wooden-Platform-2x1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Obstacles/Wooden-Platform.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Interactables/Gate.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Interactables/Pulley.tscn" type="PackedScene" id=9]
 
 [node name="Root" type="Node"]
 script = ExtResource( 1 )
@@ -22,6 +23,8 @@ __meta__ = {
 [node name="HUD" type="CanvasLayer" parent="MainCamera"]
 
 [node name="Main_GUI" parent="MainCamera/HUD" instance=ExtResource( 3 )]
+margin_left = 0.0994568
+margin_right = 0.0994568
 
 [node name="Spawn" parent="." instance=ExtResource( 4 )]
 position = Vector2( 31.8495, 141.611 )
@@ -36,12 +39,31 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Gate" parent="." instance=ExtResource( 6 )]
-position = Vector2( 183, 127.868 )
-
-[node name="Wooden-Platform-2x1" parent="." instance=ExtResource( 7 )]
+[node name="Wooden-Platform-2x1" parent="." instance=ExtResource( 6 )]
 position = Vector2( 72.2071, 110.409 )
 
-[node name="Wooden-Platform" parent="." instance=ExtResource( 8 )]
+[node name="Wooden-Platform" parent="." instance=ExtResource( 7 )]
 position = Vector2( 118.782, 124.353 )
 
+[node name="Pulley_01" type="Node" parent="."]
+
+[node name="Gate" parent="Pulley_01" instance=ExtResource( 8 )]
+position = Vector2( 183, 127.868 )
+
+[node name="Pulley" parent="Pulley_01" instance=ExtResource( 9 )]
+position = Vector2( 61.8567, 99.0738 )
+
+[node name="Pulley_02" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="Gate" parent="Pulley_02" instance=ExtResource( 8 )]
+position = Vector2( 263.102, 127.885 )
+
+[node name="Pulley" parent="Pulley_02" instance=ExtResource( 9 )]
+editor/display_folded = false
+position = Vector2( 263.994, 93.7205 )
+
+[connection signal="gateStopped" from="Pulley_01/Gate" to="Pulley_01/Pulley" method="_on_Gate_gateStopped"]
+[connection signal="area_entered" from="Pulley_01/Pulley" to="Pulley_01/Gate" method="_on_Pulley_area_entered"]
+[connection signal="gateStopped" from="Pulley_02/Gate" to="Pulley_02/Pulley" method="_on_Gate_gateStopped"]
+[connection signal="area_entered" from="Pulley_02/Pulley" to="Pulley_02/Gate" method="_on_Pulley_area_entered"]
