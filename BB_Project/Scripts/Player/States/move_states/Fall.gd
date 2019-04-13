@@ -37,12 +37,10 @@ func update(delta):
 		else:
 			entity.set_state(entity.attackState)
 			
-	if(Input.is_action_just_released('ui_attack') && entity.canAttack && entity.attackType == 'ranged'):
-		entity.set_state(entity.attackState)
-		
 	#Check if I hit the ground 
 	if(entity.grounded):
 		if(Input.is_action_pressed('ui_right') || Input.is_action_pressed('ui_left')):
 			entity.set_state(entity.moveState)
 		else:
 			entity.set_state(entity.idleState)
+			

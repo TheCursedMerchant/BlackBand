@@ -39,6 +39,7 @@ onready var anim_players = $Anim_Players
 onready var anim_player = $Anim_Players/Zulie_Anim_Player
 onready var party = $Party
 onready var shooter = $"shoot-point"
+onready var frontRay = $front_ray
 
 func _ready():
 	#Set type
@@ -68,6 +69,9 @@ func _physics_process(delta):
 
 #Defer input to our state
 func _input(event):
+	if(Input.is_action_just_released('ui_attack') && canAttack && attackType == 'ranged'):
+		set_state(attackState)
+		return
 	currentState.handle_input(event)
 
 #Handle exiting and entering new state
@@ -77,14 +81,13 @@ func set_state(newState):
 	previousState = currentState 
 	currentState = newState
 	currentState.enter()
-	if(previousState == swapState):
-		canSwap = true
 	#print(currentState.get_name())
 	
 #Check if player is on the ground 
 func is_grounded():
 	if($front_ray.is_colliding() || $back_ray.is_colliding()):
-		grounded = true
+		if((frontRay.get_collider().get('type') == 'ONEWAY' && motion.y > 0) || (frontRay.get_collider().get('type') != 'ONEWAY')):
+			grounded = true
 	else:
 		grounded = false
 		

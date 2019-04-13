@@ -4,6 +4,9 @@ func get_name():
 	return "Attack"
 	
 func enter():
+	print('Current Party Index: ' + str(entity.partyIndex))
+	print('Current State: ' + entity.currentState.get_name())
+	
 	entity.motion.y = 0
 	#Set attack on cooldown
 	entity.canAttack = false

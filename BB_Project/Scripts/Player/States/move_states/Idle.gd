@@ -4,16 +4,24 @@ extends '../../../State.gd'
 func get_name():
 	return "Idle"
 	
-#Check if entity is falling 
 func update(delta):
+	
 	entity.motion.x = lerp(entity.motion.x, 0, entity.friction)
 	entity.move_and_slide(entity.motion, dir.up)
+	
+	#Check if entity is falling 
 	if(!entity.grounded):
 		entity.set_state(entity.fallState)
 		
 	if(Input.is_action_pressed('ui_attack') && entity.canAttack):
 		#Charge
 		if(entity.attackType == 'ranged'):
+			#Animation control 
+			if(!entity.shooter.chargeStarted):
+				entity.shooter.chargeStarted = true
+				entity.shooter.currentAnimation = 'start'
+			
+			#Charge logic 
 			if(entity.shooter.currentCharge < entity.shooter.chargeMax): 
 				entity.shooter.currentCharge += entity.shooter.chargeRate
 				print(entity.shooter.currentCharge)
@@ -30,14 +38,13 @@ func handle_input(event):
 		entity.anim_player.flip_h = true
 		entity.facingDir = dir.left
 		entity.set_state(entity.moveState)
-	elif(Input.is_action_pressed('ui_jump')):
+	elif(Input.is_action_just_pressed('ui_jump')):
 		entity.set_state(entity.jumpState)
 	
 	if(Input.is_action_just_pressed('ui_right_select') && entity.canSwap):
 		entity.set_state(entity.swapState)
 			
-	if(Input.is_action_just_released('ui_attack') && entity.canAttack && entity.attackType == 'ranged'):
-		entity.set_state(entity.attackState)
+	
 		
 	
 		

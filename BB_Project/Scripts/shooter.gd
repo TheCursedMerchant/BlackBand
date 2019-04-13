@@ -13,10 +13,17 @@ export var chargeMax = 100
 export var chargeRate = 1 
 
 var currentCharge = 0
+var currentAnimation = 'default'
+var chargeStarted = false 
+
+onready var animPlayer = $anim_player
 
 #Logic Variables 
 var timer = null
 
+func _process(delta):
+	animPlayer.play(currentAnimation)
+	
 func _ready():
 	timer = Timer.new()
 	timer.set_one_shot(true)
@@ -30,6 +37,11 @@ func on_timeout_complete():
 		
 #---------------------- Shooting ---------------------------------------------
 func shoot():
+	
+		#Animation control
+		chargeStarted = false 
+		currentAnimation = 'default'
+		
 		var creator = get_parent()
 		timer.start()
 		#Add the projectile to the scene 
@@ -55,3 +67,6 @@ func shoot():
 		
 		currentCharge = 0
 		
+func _on_anim_player_animation_finished():
+	if(currentAnimation == 'start'):
+		currentAnimation = 'charge'

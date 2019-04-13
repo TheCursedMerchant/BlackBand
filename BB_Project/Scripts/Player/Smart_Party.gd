@@ -11,23 +11,19 @@ func _ready():
 	party.append(Astro.new())
 	
 func swap(index, forward):
-	var newIndex 
 	#Check which index to switch too
 	if(party.size() >= 2):
 		if(forward):
 			if(index + 1 < party.size()):
-				newIndex = index + 1
+				currentIndex = index + 1
 			else:
-				newIndex = index - 1
+				currentIndex = index - 1
 		else:
 			if(index - 1 >= 0):
-				newIndex = index - 1  
+				currentIndex = index - 1  
 			else:
-				newIndex = index + 1 		
-			
-		#Assign currentIndex to the newIndex 	
-		currentIndex = newIndex
-		
+				currentIndex = index + 1 		
+					
 		#Load character info 
 		loadCharacterInfo(party[currentIndex])
 		
