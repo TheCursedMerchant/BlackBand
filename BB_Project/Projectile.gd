@@ -6,7 +6,7 @@ export var h_knockback = 20
 export var v_knockback = 0 
 
 var shakeAmplifier = 1
-var knockbackDir
+var knockbackDir = dir.right
 var creator = null
 var speed_x = 1
 var speed_y = 0
@@ -35,50 +35,14 @@ func _on_Projectile_body_entered(body):
 		hit = true
 		match body.get("type"):
 			"ENEMY":
-				
-				#Shake screen
-				body.camera.shake(0.2 * (shakeAmplifier) , 15 * shakeAmplifier, 8 * shakeAmplifier)
-				
-				if(body.currentState != body.damageState):
-					body.currentDamage += damage
-				
-					#Check which direction we we're hit from 
-					if(body.position.x < self.position.x):
-						body.knockbackDir = -1
-						body.anim_player.flip_h = false
-						body.facingDir = dir.right
-						body.floor_checker.position.x = body.maxSpeed/2
-					else:
-						body.knockbackDir = 1
-						body.anim_player.flip_h = true
-						body.facingDir = dir.left
-						body.floor_checker.position.x = -body.maxSpeed/2
-						
-					body.knockback = Vector2(h_knockback * body.knockbackDir, v_knockback)
-					
-					body.set_state(body.damageState)
-					speed_x = 0
-					currentAnim = 'destroy'
+				damageEnemy(body)
+				speed_x = 0
+				currentAnim = 'destroy'
 					
 			"PLAYER":
-				if(body.currentState != body.damageState):
-					
-					#Shake screen
-					body.camera.shake(0.2, 15, 8)
-					
-					body.currentDamage += damage
-					#Check which direction we we're hit from 
-					if(body.position.x < self.position.x):
-						body.knockbackDir = 1
-						body.anim_player.flip_h = false
-					else:
-						body.knockbackDir = -1
-						body.anim_player.flip_h = true
-						
-					body.knockback = Vector2(h_knockback * knockbackDir, v_knockback)
-					body.set_state(body.damageState)
-					speed_x = 0
-					currentAnim = 'destroy'
+				damagePlayer(body)
+				speed_x = 0
+				currentAnim = 'destroy'
 			"SOLID":
 				speed_x = 0
 				currentAnim = 'destroy'
@@ -94,11 +58,10 @@ func _on_Projectile_area_entered(area):
 		
 func damageEnemy(body):
 	#Shake screen
-		body.camera.shake(0.2 * (shakeAmplifier/5) , 15 * shakeAmplifier, 8 * shakeAmplifier)
+		body.camera.shake(0.2 * shakeAmplifier , 15 * shakeAmplifier, 8 * shakeAmplifier)
 			
 		if(body.currentState != body.damageState):
 			body.currentDamage += damage
-		
 			#Check which direction we we're hit from 
 			if(body.position.x < self.position.x):
 				body.knockbackDir = -1
@@ -112,7 +75,21 @@ func damageEnemy(body):
 				body.floor_checker.position.x = -body.maxSpeed/2
 				
 			body.knockback = Vector2(h_knockback * body.knockbackDir, v_knockback)
-			
 			body.set_state(body.damageState)
-			speed_x = 0
-			currentAnim = 'destroy'
+
+func damagePlayer(body):
+	if(body.currentState != body.damageState):
+					
+		#Shake screen
+		body.camera.shake(0.2, 15, 8)
+		body.currentDamage += damage
+		#Check which direction we we're hit from 
+		if(body.position.x < self.position.x):
+			body.knockbackDir = 1
+			body.anim_player.flip_h = false
+		else:
+			body.knockbackDir = -1
+			body.anim_player.flip_h = true
+			
+		body.knockback = Vector2(h_knockback * body.knockbackDir, v_knockback)
+		body.set_state(body.damageState)

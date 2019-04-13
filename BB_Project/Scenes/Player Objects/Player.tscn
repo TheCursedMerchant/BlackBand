@@ -189,7 +189,7 @@ animations = [ {
 [node name="Player" type="KinematicBody2D"]
 collision/safe_margin = 0.1
 script = ExtResource( 1 )
-health = 5
+health = 100
 acceleration = 15
 maxSpeed = 150
 jumpHeight = 150

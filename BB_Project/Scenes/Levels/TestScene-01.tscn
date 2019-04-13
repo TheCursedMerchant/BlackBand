@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/engine/game.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/engine/main_camera.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scenes/Obstacles/Wooden-Platform.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Interactables/Gate.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Interactables/Pulley.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Player Objects/fireball-1.tscn" type="PackedScene" id=10]
 
 [node name="Root" type="Node"]
 script = ExtResource( 1 )
@@ -46,6 +47,7 @@ position = Vector2( 72.2071, 110.409 )
 position = Vector2( 118.782, 124.353 )
 
 [node name="Pulley_01" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Gate" parent="Pulley_01" instance=ExtResource( 8 )]
 position = Vector2( 183, 127.868 )
@@ -56,6 +58,7 @@ openDirection = -1
 position = Vector2( 61.8567, 99.0738 )
 
 [node name="Pulley_02" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Gate" parent="Pulley_02" instance=ExtResource( 8 )]
 position = Vector2( 263.102, 127.885 )
@@ -65,6 +68,10 @@ openDirection = -1
 [node name="Pulley" parent="Pulley_02" instance=ExtResource( 9 )]
 editor/display_folded = false
 position = Vector2( 263.994, 93.7205 )
+
+[node name="Projectile" parent="." instance=ExtResource( 10 )]
+position = Vector2( -24.8714, 140.938 )
+damage = 20
 
 [connection signal="gateStopped" from="Pulley_01/Gate" to="Pulley_01/Pulley" method="_on_Gate_gateStopped"]
 [connection signal="area_entered" from="Pulley_01/Pulley" to="Pulley_01/Gate" method="_on_Pulley_area_entered"]

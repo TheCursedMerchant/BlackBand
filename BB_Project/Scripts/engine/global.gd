@@ -6,11 +6,11 @@ var current_scene = null
 var spawnLocation : String = 'default'
 
 #Global player variables 
-var playerCurrentHealth = 5 
+var playerCurrentHealth = 100
 var playerCurrentState = null
 var partyIndex = 0 
-var zulieHealth = 5
-var astroHealth = 5
+var zulieHealth = 100
+var astroHealth = 100
 var playerCurrentFacingDir = dir.right
 
 func _ready():
