@@ -49,15 +49,18 @@ position = Vector2( 118.782, 124.353 )
 
 [node name="Gate" parent="Pulley_01" instance=ExtResource( 8 )]
 position = Vector2( 183, 127.868 )
+rotation = 4.71239
+openDirection = -1
 
 [node name="Pulley" parent="Pulley_01" instance=ExtResource( 9 )]
 position = Vector2( 61.8567, 99.0738 )
 
 [node name="Pulley_02" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Gate" parent="Pulley_02" instance=ExtResource( 8 )]
 position = Vector2( 263.102, 127.885 )
+vertical = true
+openDirection = -1
 
 [node name="Pulley" parent="Pulley_02" instance=ExtResource( 9 )]
 editor/display_folded = false

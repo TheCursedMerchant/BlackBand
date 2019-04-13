@@ -2,12 +2,14 @@ extends StaticBody2D
 
 export var moveSpeed = .5
 export var travelDistance = 150
+export var vertical = false
+export var cooldown : float = 2.0
+export var openDirection = 1
 
 var motion = Vector2()
 var open = false 
 var stop = true  
 var timer = null
-export var cooldown : float = 2.0
 var type = 'SOLID'
 
 signal gateStopped
@@ -23,15 +25,21 @@ func _physics_process(delta):
 	
 	if(!stop):
 		if(open):
-			motion.y = lerp(motion.y, -travelDistance, moveSpeed)
+			if(vertical):
+				motion.y = lerp(motion.y, travelDistance * openDirection, moveSpeed)
+			else:
+				motion.x = lerp(motion.x, travelDistance * openDirection, moveSpeed)
 		else:
-			motion.y = lerp(motion.y, travelDistance, moveSpeed)
+			if(vertical):
+				motion.y = lerp(motion.y, travelDistance * -openDirection, moveSpeed)
+			else:
+				motion.x = lerp(motion.x, travelDistance * -openDirection, moveSpeed)
 			
 		position += motion * delta
 		
-	if(abs(motion.y) >= travelDistance):
+	if(abs(motion.y) >= travelDistance || abs(motion.x) >= travelDistance):
 		stop = true
-		motion.y = 0
+		motion = Vector2()
 		emit_signal("gateStopped")
 			
 func _on_Pulley_area_entered(area):
