@@ -11,6 +11,7 @@ var open = false
 var stop = true  
 var timer = null
 var type = 'SOLID'
+var moveType = 'MOVING'
 
 signal gateStopped
 

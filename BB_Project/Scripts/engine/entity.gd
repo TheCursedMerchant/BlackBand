@@ -25,6 +25,7 @@ var knockback = Vector2(0, 0)
 var knockbackDir = 1
 var currentDamage = 0
 var damageTime = .2
+var floor_velocity = Vector2()
 
 #All entities can move 
 func move(motion, acceleration, maxSpeed, moveDir):
@@ -33,6 +34,9 @@ func move(motion, acceleration, maxSpeed, moveDir):
 		motion.x = min(motion.x + acceleration, maxSpeed)
 	elif(moveDir == dir.left):
 		motion.x = max(motion.x - acceleration, -maxSpeed)
+		
+	#Apply floor velocity
+	motion += floor_velocity
 	
 	#Apply and store that motion
 	return move_and_slide(motion, dir.up)

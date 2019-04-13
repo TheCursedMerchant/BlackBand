@@ -11,6 +11,7 @@ export var cooldown = .5
 export var projectile_speed = 400
 export var chargeMax = 100 
 export var chargeRate = 1 
+export var shakeMod = 50
 
 var currentCharge = 0
 var currentAnimation = 'default'
@@ -50,7 +51,7 @@ func shoot():
 			projectile = projectile_scene.instance(0)
 		else:
 			projectile = charged_projectile.instance(0)
-			projectile.shakeAmplifier = currentCharge / 10
+			projectile.shakeAmplifier = currentCharge / shakeMod
 			
 		projectile.creator = get_parent()
 		get_parent().get_parent().add_child(projectile)

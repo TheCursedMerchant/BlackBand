@@ -255,6 +255,7 @@ animation = "Idle"
 
 [node name="shoot-point" type="Area2D" parent="."]
 script = ExtResource( 68 )
+shakeMod = 40
 
 [node name="anim_player" type="AnimatedSprite" parent="shoot-point"]
 frames = SubResource( 4 )
