@@ -35,17 +35,12 @@ func _on_Projectile_body_entered(body):
 		hit = true
 		match body.get("type"):
 			"ENEMY":
-				damageEnemy(body)
-				speed_x = 0
-				currentAnim = 'destroy'
-					
+				damageEnemy(body)	
 			"PLAYER":
 				damagePlayer(body)
-				speed_x = 0
-				currentAnim = 'destroy'
-			"SOLID":
-				speed_x = 0
-				currentAnim = 'destroy'
+			
+		speed_x = 0
+		currentAnim = 'destroy'
 				
 func _on_Sprite_animation_finished():
 	if(currentAnim == 'destroy'):
