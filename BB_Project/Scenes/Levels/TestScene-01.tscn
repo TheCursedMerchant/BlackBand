@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/engine/game.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/engine/main_camera.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scenes/Interactables/Gate.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Interactables/Pulley.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Player Objects/fireball-1.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Interactables/Pot.tscn" type="PackedScene" id=11]
 
 [node name="Root" type="Node"]
 script = ExtResource( 1 )
@@ -72,6 +73,9 @@ position = Vector2( 263.994, 93.7205 )
 [node name="Projectile" parent="." instance=ExtResource( 10 )]
 position = Vector2( -24.8714, 140.938 )
 damage = 20
+
+[node name="Pot" parent="." instance=ExtResource( 11 )]
+position = Vector2( 88.0151, 152.041 )
 
 [connection signal="gateStopped" from="Pulley_01/Gate" to="Pulley_01/Pulley" method="_on_Gate_gateStopped"]
 [connection signal="area_entered" from="Pulley_01/Pulley" to="Pulley_01/Gate" method="_on_Pulley_area_entered"]

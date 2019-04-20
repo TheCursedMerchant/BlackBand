@@ -20,12 +20,10 @@ func _process(delta):
 func _physics_process(delta):
 	var motion = Vector2(speed_x, speed_y) * speed
 	position += motion * delta
-
-func get_speed():
-	return speed
-	
-func set_speed(var s):
-	speed = s
+		
+func stop_destroy():
+	speed_x = 0
+	currentAnim = 'destroy'
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
@@ -38,18 +36,23 @@ func _on_Projectile_body_entered(body):
 				damageEnemy(body)	
 			"PLAYER":
 				damagePlayer(body)
-			
-		speed_x = 0
-		currentAnim = 'destroy'
+		
+		stop_destroy()
+		
 				
 func _on_Sprite_animation_finished():
 	if(currentAnim == 'destroy'):
 		queue_free()
 
 func _on_Projectile_area_entered(area):
-	if(area.get("type") == 'SOLID' && area != creator):
-		speed_x = 0
-		currentAnim = 'destroy'
+	if(area != creator && !hit):
+		hit = true
+		match area.get("type"):
+			"SOLID":
+				stop_destroy()
+			"BREAKABLE":
+				area.destroy()
+				stop_destroy()
 		
 func damageEnemy(body):
 	#Shake screen
