@@ -23,9 +23,9 @@ func _input(event):
 	elif(event.is_action_pressed('ui_restart')):
 		restart()
 	elif(event.is_action_pressed('ui_damage')):
-		player.currentDamage = 1; 
+		player.currentDamage = 50; 
 		player.knockback = Vector2(-20, -25)
-		player.set_state(player.damageState)
+		player.stateManager.set_state(player.stateManager.states[player.stateManager.findState("Damage")])
 	
 	if(event.is_action_pressed("ui_up")):
 		if(currentInteractable != null):

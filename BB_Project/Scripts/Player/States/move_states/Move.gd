@@ -7,38 +7,37 @@ func get_name():
 #Move the player 
 func update(delta):	
 	#Move 	
-	entity.motion = entity.move(entity.motion, entity.acceleration, entity.maxSpeed, entity.facingDir)
+	target.motion = target.move(target.motion, target.acceleration, target.maxSpeed, target.facingDir)
 	
 	#Check if on floor 
-	if(!entity.grounded):
-		entity.set_state(entity.fallState)
+	if(!target.grounded):
+		manager.set_state(manager.states[manager.findState("Fall")])
 		
-	if(Input.is_action_pressed('ui_attack') && entity.canAttack):
+	if(Input.is_action_pressed('ui_attack') && target.canAttack):
 		#Charge
-		if(entity.attackType == 'ranged'):
-			if(entity.shooter.currentCharge < entity.shooter.chargeMax): 
-				entity.shooter.currentCharge += entity.shooter.chargeRate
-				print(entity.shooter.currentCharge)
+		if(target.attackType == 'ranged'):
+			if(target.shooter.currentCharge < target.shooter.chargeMax): 
+				target.shooter.currentCharge += target.shooter.chargeRate
 		else:
-			entity.set_state(entity.attackState)
+			manager.set_state(manager.states[manager.findState("Attack")])
 	
 func handle_input(event):
 	#Move based on direction 
 	if(Input.is_action_pressed("ui_right")):
-		entity.anim_player.flip_h  = false
-		entity.facingDir = dir.right
+		target.anim_player.flip_h  = false
+		target.facingDir = dir.right
 	elif(Input.is_action_pressed("ui_left")):
-		entity.anim_player.flip_h  = true
-		entity.facingDir = dir.left
+		target.anim_player.flip_h  = true
+		target.facingDir = dir.left
 	else:
-		entity.set_state(entity.idleState)
+		manager.set_state(manager.states[manager.findState("Idle")])
 	
 	#Jumping 
 	if(Input.is_action_just_pressed('ui_jump')):
-		entity.set_state(entity.jumpState)
+		manager.set_state(manager.states[manager.findState("Jump")])
 	
 	if(Input.is_action_just_pressed('ui_right_select')):
-		entity.set_state(entity.swapState)
+		manager.set_state(manager.states[manager.findState("Swap")])
 		
 		
 		

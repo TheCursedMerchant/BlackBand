@@ -8,30 +8,29 @@ func get_name():
 func enter():
 	timer = Timer.new()
 	timer.set_one_shot(true)
-	timer.set_wait_time(entity.damageTime)
+	timer.set_wait_time(target.damageTime)
 	timer.connect("timeout", self, "on_timeout_complete")
 	add_child(timer)
 	timer.start()
-	entity.takeDamage(entity.currentDamage)
+	target.takeDamage(target.currentDamage)
 	
 func update(delta):
 	#Apply knockback 
-	entity.motion = entity.knockback 
-	entity.move_and_slide(entity.motion, dir.up) 
+	target.motion = target.knockback 
+	target.move_and_slide(target.motion, dir.up) 
 	
-	if(entity.currentHealth <= 0):
-		entity.set_state(entity.deathState)
+	if(target.currentHealth <= 0):
+		manager.set_state(manager.states[manager.findState("Death")])
 	
 #Reduce stored damage
 func exit():
-	entity.motion = Vector2(0, 0) 
-	print(entity.currentHealth)
-	entity.currentDamage = 0
+	target.motion = Vector2(0, 0) 
+	target.currentDamage = 0
 	
 func on_timeout_complete():
-	if(entity.get("type") == 'ENEMY'):
-		entity.set_state(entity.chaseState)
+	if(target.get("type") == 'ENEMY'):
+		manager.set_state(manager.states[manager.findState("Chase")])
 	else:
-		entity.set_state(entity.previousState)
+		manager.set_state(manager.previousState)
 	
 

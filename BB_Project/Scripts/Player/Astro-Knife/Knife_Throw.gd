@@ -1,8 +1,5 @@
 extends "res://Scripts/State.gd"
 
-onready var manager = get_parent()
-onready var target = get_parent().get_parent()
-
 func get_name():
 	return "Throw"
 	

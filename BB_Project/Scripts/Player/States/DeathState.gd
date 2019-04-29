@@ -6,7 +6,7 @@ func get_name():
 	
 func enter():
 	#For now just quit the game
-	if(entity.type == 'PLAYER'):
-		global.playerCurrentHealth = entity.health
+	if(target.type == 'PLAYER'):
+		global.playerCurrentHealth = target.health
 		global.goto_scene('res://Scenes/Menus/Game Over Menu.tscn')
 	

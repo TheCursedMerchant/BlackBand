@@ -19,20 +19,6 @@ export var h_meleeKnockback = 40
 export var v_meleeKnockback = -20
 export var attackType = 'ranged'
 
-#Player States 
-var idleState
-var moveState
-var jumpState
-var fallState 
-var swapState
-var damageState
-var attackState 
-var deathState
-
-#Store our current State
-var previousState 
-var currentState
-
 #Flag if checks for if out player is grounded 
 onready var grounded = is_grounded()
 onready var anim_players = $Anim_Players
@@ -41,6 +27,7 @@ onready var party = $Party
 onready var shooter = $"shoot-point"
 onready var frontRay = $front_ray
 onready var knifePosition = $"Knife-Position"
+onready var stateManager = $States
 
 func _ready():
 	#Set type
@@ -49,40 +36,16 @@ func _ready():
 	#Set my camera 
 	camera = get_node('../MainCamera')
 	mainGUI = get_node("../MainCamera/HUD/Main_GUI")
-	
 	#Set the main camera 
 	if(camera != null):
 		if(camera.player == null):
 			camera.player = self
-		
 	initializePlayer()
-	#Enter idle state
-	if(currentState == null):
-		set_state(idleState)
-	else:
-		set_state(currentState)
 		
 #Defer physics process to our state
 func _physics_process(delta):
 	is_grounded()
-	currentState.update(delta)
-	anim_player.play(currentState.get_name())
-
-#Defer input to our state
-func _input(event):
-	if(Input.is_action_just_released('ui_attack') && canAttack && attackType == 'ranged'):
-		set_state(attackState)
-		return
-	currentState.handle_input(event)
-
-#Handle exiting and entering new state
-func set_state(newState):
-	if(currentState != null && currentState.has_method('exit')):
-		currentState.exit()
-	previousState = currentState 
-	currentState = newState
-	currentState.enter()
-	#print(currentState.get_name())
+	anim_player.play(stateManager.currentState.get_name())
 	
 #Check if player is on the ground 
 func is_grounded():
@@ -92,17 +55,12 @@ func is_grounded():
 	else:
 		grounded = false
 		
+func _input(event):
+	if(Input.is_action_just_released("ui_attack") && attackType == "ranged"):
+		stateManager.set_state(stateManager.states[stateManager.findState("Attack")])
+		return
+		
 func initializePlayer():
-	#Static States
-	idleState = $States/Idle
-	moveState = $States/Move
-	jumpState = $States/Jump
-	fallState = $States/Fall
-	damageState = $States/Damage
-	attackState = $States/Attack 
-	deathState = $States/Death
-	swapState = $States/Swap
-
 	#Player animation 
 	anim_player = anim_players.get_child(global.partyIndex)
 	anim_player.visible = true

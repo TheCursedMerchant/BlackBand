@@ -6,43 +6,42 @@ func get_name():
 	
 func update(delta):
 	
-	entity.motion.x = lerp(entity.motion.x, 0, entity.friction)
-	entity.move_and_slide(entity.motion, dir.up)
+	target.motion.x = lerp(target.motion.x, 0, target.friction)
+	target.move_and_slide(target.motion, dir.up)
 	
 	#Check if entity is falling 
-	if(!entity.grounded):
-		entity.set_state(entity.fallState)
+	if(!target.grounded):
+		manager.set_state(manager.states[manager.findState("Fall")])
 		
-	if(Input.is_action_pressed('ui_attack') && entity.canAttack):
+	if(Input.is_action_pressed('ui_attack') && target.canAttack):
 		#Charge
-		if(entity.attackType == 'ranged'):
+		if(target.attackType == 'ranged'):
 			#Animation control 
-			if(!entity.shooter.chargeStarted):
-				entity.shooter.chargeStarted = true
-				entity.shooter.currentAnimation = 'start'
+			if(!target.shooter.chargeStarted):
+				target.shooter.chargeStarted = true
+				target.shooter.currentAnimation = 'start'
 			
 			#Charge logic 
-			if(entity.shooter.currentCharge < entity.shooter.chargeMax): 
-				entity.shooter.currentCharge += entity.shooter.chargeRate
-				print(entity.shooter.currentCharge)
+			if(target.shooter.currentCharge < target.shooter.chargeMax): 
+				target.shooter.currentCharge += target.shooter.chargeRate
 		else:
-			entity.set_state(entity.attackState)
+			manager.set_state(manager.states[manager.findState("Attack")])
 	
 #Idle's job is to wait for movement 
 func handle_input(event):
 	if Input.is_action_pressed('ui_right'):
-		entity.anim_player.flip_h = false
-		entity.facingDir = dir.right
-		entity.set_state(entity.moveState)
+		target.anim_player.flip_h = false
+		target.facingDir = dir.right
+		manager.set_state(manager.states[manager.findState("Move")])
 	elif Input.is_action_pressed('ui_left'):
-		entity.anim_player.flip_h = true
-		entity.facingDir = dir.left
-		entity.set_state(entity.moveState)
+		target.anim_player.flip_h = true
+		target.facingDir = dir.left
+		manager.set_state(manager.states[manager.findState("Move")])
 	elif(Input.is_action_just_pressed('ui_jump')):
-		entity.set_state(entity.jumpState)
+		manager.set_state(manager.states[manager.findState("Jump")])
 	
-	if(Input.is_action_just_pressed('ui_right_select') && entity.canSwap):
-		entity.set_state(entity.swapState)
+	if(Input.is_action_just_pressed('ui_right_select') && target.canSwap):
+		manager.set_state(manager.states[manager.findState("Swap")])
 			
 	
 		

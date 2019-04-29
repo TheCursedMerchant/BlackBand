@@ -4,7 +4,8 @@ extends Node
 
 #Entity object the state will apply to 
 #Assumes States Node Structure 
-onready var entity = get_parent().get_parent()
+onready var manager = get_parent()
+onready var target = get_parent().get_parent()
 
 #Return the name of our state 
 func get_name():
