@@ -4,7 +4,6 @@
 [ext_resource path="res://Fonts/ManaspaceReg.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="Theme" id=1]
-
 Button/colors/font_color = Color( 0, 0, 0, 1 )
 Button/colors/font_color_disabled = Color( 0, 0, 0, 1 )
 Button/colors/font_color_hover = Color( 0, 0, 0, 1 )
@@ -395,45 +394,23 @@ WindowDialog/fonts/title_font = null
 WindowDialog/icons/close = null
 WindowDialog/icons/close_highlight = null
 WindowDialog/styles/panel = null
-_sections_unfolded = [ "ColorPicker", "ColorPicker/icons", "ColorPickerButton", "ColorPickerButton/colors", "ColorPickerButton/fonts", "RichTextLabel/colors" ]
 
 [sub_resource type="DynamicFont" id=2]
-
 size = 9
-use_mipmaps = false
-use_filter = false
 font_data = ExtResource( 2 )
-_sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Test" type="Sprite" index="0"]
-
+[node name="Test" type="Sprite"]
 position = Vector2( 54.0209, 43.3566 )
 texture = ExtResource( 1 )
 
-[node name="Label" type="Label" parent="." index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Label" type="Label" parent="."]
 margin_left = -12.0
 margin_top = -24.0
 margin_right = 24.0
 margin_bottom = -10.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 theme = SubResource( 1 )
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.691406, 0.6698, 0.6698, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "100"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Material", "Theme", "Visibility", "custom_colors", "custom_fonts", "custom_styles" ]
-
 

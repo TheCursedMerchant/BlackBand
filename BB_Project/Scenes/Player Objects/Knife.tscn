@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scripts/Player/Astro-Knife/Knife.gd" type="Script" id=1]
+[ext_resource path="res://Art Assets/Characters/Astro/astro-knife.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/fsm_manager.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Player/Astro-Knife/Knife_Idle.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Player/Astro-Knife/Knife_Throw.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Player/Astro-Knife/Knife_Aim.gd" type="Script" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 1.03845, 4.0146 )
+
+[node name="Knife" type="Area2D"]
+script = ExtResource( 1 )
+
+[node name="AnimPlayer" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 2 )
+shape = SubResource( 2 )
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 3 )
+statePaths = [ NodePath("Idle"), NodePath("Throw"), NodePath("Aim") ]
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource( 4 )
+
+[node name="Throw" type="Node" parent="StateMachine"]
+script = ExtResource( 5 )
+
+[node name="Aim" type="Node" parent="StateMachine"]
+script = ExtResource( 6 )
+

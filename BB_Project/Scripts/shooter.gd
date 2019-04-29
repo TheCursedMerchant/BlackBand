@@ -54,6 +54,8 @@ func shoot():
 			projectile.shakeAmplifier = currentCharge / shakeMod
 			
 		projectile.creator = get_parent()
+		
+		#Adds projectile to the scene 
 		get_parent().get_parent().add_child(projectile)
 		
 		#Setting projectile direction based on facing direction 

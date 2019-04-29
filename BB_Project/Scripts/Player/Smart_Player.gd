@@ -40,11 +40,12 @@ onready var anim_player = $Anim_Players/Zulie_Anim_Player
 onready var party = $Party
 onready var shooter = $"shoot-point"
 onready var frontRay = $front_ray
+onready var knifePosition = $"Knife-Position"
 
 func _ready():
 	#Set type
 	type = 'PLAYER'
-	
+	name = 'Zulie'
 	#Set my camera 
 	camera = get_node('../MainCamera')
 	mainGUI = get_node("../MainCamera/HUD/Main_GUI")
@@ -117,7 +118,6 @@ func initializePlayer():
 	#Load character info
 	party.loadCharacterInfo(party.party[partyIndex])
 	
-	#Debug function 
 func takeDamage(dam):
 	#Apply Damage and check for death 
 	party.party[partyIndex].currentHealth -= dam 
@@ -129,4 +129,3 @@ func takeDamage(dam):
 		1: 
 			global.astroHealth = currentHealth 
 	emit_signal('damaged')
-

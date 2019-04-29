@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/minor-intro_sample.wav-1f044c9a37eaa67d9d96adb16a441d81.sample"
+
+[deps]
+
+source_file="res://Audio/Music/minor-intro_sample.wav"
+dest_files=[ "res://.import/minor-intro_sample.wav-1f044c9a37eaa67d9d96adb16a441d81.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

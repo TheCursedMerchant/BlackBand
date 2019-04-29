@@ -27,17 +27,11 @@ func swap(index, forward):
 		#Load character info 
 		loadCharacterInfo(party[currentIndex])
 		
-		#Update partyIndex in global and partyOwner 
-		partyOwner.partyIndex = currentIndex
-		global.partyIndex = currentIndex
+		#Handle post characyer load info 
+		updateCharacter()
 		
-		#Update facing direction 
-		if(partyOwner.facingDir == dir.right):
-			partyOwner.anim_player.flip_h = false
-		else:
-			partyOwner.anim_player.flip_h = true
-			
 func loadCharacterInfo(character):
+	partyOwner.name = character.name
 	partyOwner.partyIndex = character.partyIndex
 	partyOwner.health = character.health
 	partyOwner.currentHealth = character.currentHealth
@@ -51,10 +45,25 @@ func loadCharacterInfo(character):
 	partyOwner.h_meleeKnockback = character.h_meleeKnockback
 	partyOwner.v_meleeKnockback = character.v_meleeKnockback
 	partyOwner.jumpMoveModifier = character.jumpMoveModifier
+	
+func updateCharacter():
+	#Update partyIndex in global and partyOwner 
+	partyOwner.partyIndex = currentIndex
+	global.partyIndex = currentIndex
+	#Update facing direction 
+	if(partyOwner.facingDir == dir.right):
+		partyOwner.anim_player.flip_h = false
+	else:
+		partyOwner.anim_player.flip_h = true
+	if(partyOwner.name == 'Astro'):
+		partyOwner.knifePosition.spawnKnife()
+	else:
+		partyOwner.knifePosition.despawnKnife()
 		
 		
 #Character Stat sheets 		
 class Zulie:
+	var name = "Zulie"
 	var partyIndex = 0
 	var health = 100
 	var currentHealth = global.zulieHealth
@@ -70,6 +79,7 @@ class Zulie:
 	var jumpMoveModifier = 2
 	
 class Astro:
+	var name = 'Astro'
 	var partyIndex = 1
 	var health = 100
 	var currentHealth = global.astroHealth
