@@ -8,15 +8,16 @@ func get_name():
 	
 func enter():
 	#Pick a random facing direction 
-	var decision = randi()%10 + 1
-	if(decision > 5):
-		entity.anim_player.flip_h = false
-		entity.facingDir = dir.right
-		entity.floor_checker.position.x = entity.maxSpeed/2
-	else:
-		entity.anim_player.flip_h = true
-		entity.facingDir = dir.left
-		entity.floor_checker.position.x = -entity.maxSpeed/2
+	if(target.anim_player != null):
+		var decision = randi()%10 + 1
+		if(decision > 5):
+			target.anim_player.flip_h = false
+			target.facingDir = dir.right
+			target.floor_checker.position.x = target.maxSpeed/2
+		else:
+			target.anim_player.flip_h = true
+			target.facingDir = dir.left
+			target.floor_checker.position.x = -target.maxSpeed/2
 	
 	#Timer Logic
 	timer = Timer.new()
@@ -28,20 +29,21 @@ func enter():
 	
 func update(delta):
 	#Move 	
-	if(entity.check_ground()):
-		entity.motion = entity.move(entity.motion, entity.acceleration, entity.maxSpeed, entity.facingDir)
+	if(target.check_ground()):
+		target.motion = target.move(target.motion, target.acceleration, target.maxSpeed, target.facingDir)
 	
 	#Check if entity is on the ground
-	if(!entity.grounded):
-		entity.set_state(entity.fallState)
+	if(!target.grounded):
+		manager.set_state(manager.states[manager.findState("Fall")])
 		
 func on_timeout_complete():
-	 entity.set_state(entity.waitState)
+	 manager.set_state(manager.states[manager.findState("Wait")])
 	
 func exit():
-	timer.stop()
+	if(timer != null):
+		timer.stop()
 
 func _on_DetectionBox_body_entered(body):
 	if(body.get("type") == "PLAYER"):
-		entity.target = body
-		entity.set_state(entity.chaseState)
+		target.chaseTarget = body
+		manager.set_state(manager.states[manager.findState("Chase")])

@@ -6,10 +6,10 @@ func get_name():
 func update(delta):
 	
 	#Apply gravity 
-	entity.motion.y += entity.gravity
+	target.motion.y += target.gravity
 	
 	#Apply motion change  
-	entity.motion = entity.move_and_slide(entity.motion, dir.up)
+	target.motion = target.move_and_slide(target.motion, dir.up)
 	
-	if(entity.grounded):
-		entity.set_state(entity.previousState)
+	if(target.grounded):
+		manager.set_state(manager.previousState)

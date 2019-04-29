@@ -23,11 +23,9 @@ func _on_SwordBox_body_entered(body):
 	if(body.get("type") != creatorType):
 		match body.get("type"):
 			"ENEMY":
-				
 				#Shake screen
 				body.camera.shake(0.2, 15, 8)
-				
-				if(body.currentState != body.damageState):
+				if(body.stateManager.currentState != body.stateManager.states[body.stateManager.findState("Damage")]):
 					body.currentDamage += damage
 					#Check which direction we we're hit from 
 					if(body.position.x < self.position.x):
@@ -39,12 +37,11 @@ func _on_SwordBox_body_entered(body):
 						
 					body.knockback = Vector2(h_knockback * body.knockbackDir, v_knockback)
 						
-					body.set_state(body.damageState)
+					body.stateManager.set_state(body.stateManager.states[body.stateManager.findState("Damage")])
 			"PLAYER":
 				#Shake screen
 				body.camera.shake(0.4, 18, 10)
-				
-				if(body.currentState != body.damageState):
+				if(body.stateManager.currentState != body.stateManager.states[body.stateManager.findState("Damage")]):
 					body.currentDamage += damage
 					#Check which direction we we're hit from 
 					if(body.position.x < self.position.x):
@@ -56,6 +53,6 @@ func _on_SwordBox_body_entered(body):
 						
 					body.knockback = Vector2(h_knockback * knockbackDir, v_knockback)
 					
-					body.set_state(body.damageState)
+					body.stateManager.set_state(body.stateManager.states[body.stateManager.findState("Damage")])
 		queue_free()
 	

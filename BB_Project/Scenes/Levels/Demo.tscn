@@ -42,7 +42,7 @@ location = "default"
 
 [node name="Slime" parent="." instance=ExtResource( 7 )]
 position = Vector2( 180, 150 )
-health = 10
+health = 20
 
 [node name="Door" parent="." instance=ExtResource( 8 )]
 position = Vector2( 320, 80 )

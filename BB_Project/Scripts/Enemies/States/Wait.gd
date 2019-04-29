@@ -7,7 +7,7 @@ func get_name():
 	return 'Wait'
 	
 func enter():
-	entity.motion = Vector2()
+	target.motion = Vector2()
 	
 	#Timer Logic
 	timer = Timer.new()
@@ -20,11 +20,11 @@ func enter():
 	
 func update(delta):
 	#Check if entity is on the ground 
-	if(!entity.grounded):
-		entity.set_state(entity.fallState)
+	if(!target.grounded):
+		manager.set_state(manager.states[manager.findState("Fall")])
 		
 func on_timeout_complete():
-	entity.set_state(entity.roamState)
+	manager.set_state(manager.states[manager.findState("Roam")])
 	
 func exit():
 	timer.stop()

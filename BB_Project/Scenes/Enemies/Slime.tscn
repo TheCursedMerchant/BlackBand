@@ -1,46 +1,47 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/Enemies/E_Slime.gd" type="Script" id=1]
-[ext_resource path="res://Art Assets/Enemies/Slime/slime-enemy.png" type="Texture" id=2]
-[ext_resource path="res://Art Assets/Enemies/Slime/slime-enemy-damaged2.png" type="Texture" id=3]
-[ext_resource path="res://Art Assets/Enemies/Slime/slime-enemy-damaged3.png" type="Texture" id=4]
-[ext_resource path="res://Scripts/Enemies/States/Roam.gd" type="Script" id=5]
-[ext_resource path="res://Scripts/Player/States/DamageState.gd" type="Script" id=6]
-[ext_resource path="res://Scripts/Enemies/States/Fall.gd" type="Script" id=7]
-[ext_resource path="res://Scripts/Enemies/States/Wait.gd" type="Script" id=8]
-[ext_resource path="res://Scripts/Enemies/States/Death.gd" type="Script" id=9]
-[ext_resource path="res://Scripts/Enemies/States/Chase.gd" type="Script" id=10]
+[ext_resource path="res://Art Assets/Enemies/Slime/slime-enemy-damaged2.png" type="Texture" id=2]
+[ext_resource path="res://Art Assets/Enemies/Slime/slime-enemy-damaged3.png" type="Texture" id=3]
+[ext_resource path="res://Art Assets/Enemies/Slime/slime-enemy.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/fsm_manager.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Enemies/States/Roam.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Player/States/DamageState.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/Enemies/States/Fall.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/Enemies/States/Wait.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/Enemies/States/Death.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/Enemies/States/Chase.gd" type="Script" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "Fall",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "Damage",
 "speed": 20.0
 }, {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": false,
-"name": "Death",
+"name": "Roam",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": false,
 "name": "Chase",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 4 ) ],
+"loop": false,
+"name": "Death",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "Wait",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ) ],
-"loop": false,
-"name": "Roam",
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Fall",
 "speed": 5.0
 } ]
 
@@ -72,24 +73,26 @@ enabled = true
 cast_to = Vector2( 0, 9 )
 
 [node name="States" type="Node" parent="."]
+script = ExtResource( 5 )
+statePaths = [ NodePath("Roam"), NodePath("Damage"), NodePath("Fall"), NodePath("Wait"), NodePath("Death"), NodePath("Chase") ]
 
 [node name="Roam" type="Node" parent="States"]
-script = ExtResource( 5 )
-
-[node name="Damage" type="Node" parent="States"]
 script = ExtResource( 6 )
 
-[node name="Fall" type="Node" parent="States"]
+[node name="Damage" type="Node" parent="States"]
 script = ExtResource( 7 )
 
-[node name="Wait" type="Node" parent="States"]
+[node name="Fall" type="Node" parent="States"]
 script = ExtResource( 8 )
 
-[node name="Death" type="Node" parent="States"]
+[node name="Wait" type="Node" parent="States"]
 script = ExtResource( 9 )
 
-[node name="Chase" type="Node" parent="States"]
+[node name="Death" type="Node" parent="States"]
 script = ExtResource( 10 )
+
+[node name="Chase" type="Node" parent="States"]
+script = ExtResource( 11 )
 
 [node name="Detection-Box" type="Area2D" parent="."]
 editor/display_folded = true

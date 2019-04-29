@@ -7,28 +7,27 @@ func update(delta):
 	var directionToTarget = null 
 	
 	#Chase the player
-	if(entity.target != null):
-		directionToTarget = (entity.target.position.x - entity.position.x)
-		print(directionToTarget)
+	if(target.chaseTarget != null):
+		directionToTarget = (target.chaseTarget.position.x - target.position.x)
 		#Face the target
 		if(directionToTarget < 0):
-			entity.facingDir = dir.left
-			entity.anim_player.flip_h = true
-			entity.floor_checker.position.x = -entity.maxSpeed/2
+			target.facingDir = dir.left
+			target.anim_player.flip_h = true
+			target.floor_checker.position.x = -target.maxSpeed/2
 		else:
-			entity.facingDir = dir.right
-			entity.anim_player.flip_h = false
-			entity.floor_checker.position.x = entity.maxSpeed/2
+			target.facingDir = dir.right
+			target.anim_player.flip_h = false
+			target.floor_checker.position.x = target.maxSpeed/2
 		#Check if in attack range 
-		if(abs(directionToTarget) <= entity.attackRange):
-			entity.set_state(entity.waitState)
+		if(abs(directionToTarget) <= target.attackRange):
+			manager.set_state(manager.states[manager.findState("Wait")])
 		
 	#Move 	
-	if(entity.check_ground()):
-		entity.motion = entity.move(entity.motion, entity.acceleration, entity.maxSpeed, entity.facingDir)
+	if(target.check_ground()):
+		target.motion = target.move(target.motion, target.acceleration, target.maxSpeed, target.facingDir)
 	
 	#Check if entity is on the ground
-	if(!entity.grounded):
-		entity.set_state(entity.fallState)
+	if(!target.grounded):
+		manager.set_state(manager.states[manager.findState("Fall")])
 		
 	
