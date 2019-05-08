@@ -4,6 +4,11 @@ extends '../../../State.gd'
 func get_name():
 	return "Fall"
 	
+func handle_input(event):
+	#Character Actions
+	if(Input.is_action_just_pressed('ui_right_select')):
+		manager.set_state(manager.states[manager.findState("Swap")])
+	
 func update(delta):
 	
 	#Apply gravity 
@@ -23,10 +28,6 @@ func update(delta):
 		
 	#Apply motion change  
 	target.move_and_slide(target.motion)
-	
-	#Character swapping 
-	if(Input.is_action_just_pressed('ui_right_select')):
-		manager.set_state(manager.states[manager.findState("Swap")])
 		
 	if(Input.is_action_pressed('ui_attack') && target.canAttack):
 		#Charge

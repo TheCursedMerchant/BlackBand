@@ -16,7 +16,7 @@ func _ready():
 	#Spawn the player 
 	if(get_node('Player') == null):
 		spawnPlayer(global.spawnLocation)
-	
+
 func _input(event):
 	if(event.is_action_pressed('ui_cancel')):
 		quit()
@@ -30,14 +30,14 @@ func _input(event):
 	if(event.is_action_pressed("ui_up")):
 		if(currentInteractable != null):
 			currentInteractable.action()
-	
+
 func quit():
-	#TODO: Quit the game 
+	#Quit the game 
 	get_tree().quit() 
 
 func restart():
 	global.goto_scene((get_tree().get_current_scene().get_filename()))
-	
+
 func spawnPlayer(location):
 	#Based on location spawn a player at corresponding location 
 	for spawner in spawnLocations:
@@ -50,18 +50,15 @@ func spawnPlayer(location):
 			mainGUI.update_gui(newPlayer)
 			connectPlayer()
 			mainCamera.player = player
-			
+
 func connectPlayer():
 	if(player != null):
 		player.connect('damaged', self, 'on_Player_damaged')
 		player.connect('swapped', self, 'on_Player_swapped')
-	
+
 #Event Handlers
 func on_Player_damaged():
 	mainGUI.update_gui(player)
-	
+
 func on_Player_swapped():
 	mainGUI.update_gui(player)
-	
-	
-	

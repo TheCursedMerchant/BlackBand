@@ -30,14 +30,20 @@ func _physics_process(delta):
 #Listens for inputs that can interrupt any other state 
 func _input(event):
 	currentState.handle_input(event)
+	
+func _unhandled_input(event):
+	if(currentState.has_method("unhandled_input")):
+		currentState.unhandled_input(event)
 
 #Handle exiting and entering new state
 func set_state(newState):
-	if(currentState != null && currentState.has_method('exit')):
-		currentState.exit()
-	previousState = currentState 
-	currentState = newState
-	currentState.enter()
+	if(currentState != newState):
+		if(currentState != null && currentState.has_method('exit')):
+			currentState.exit()
+		previousState = currentState 
+		currentState = newState
+		currentState.enter()
+		print(currentState.get_name())
 	
 func initializeStates(statePaths):
 	for state in statePaths:
@@ -52,7 +58,6 @@ func findState(stateName):
 				return index
 			else:
 				index += 1
-	return -1
 
 		
 

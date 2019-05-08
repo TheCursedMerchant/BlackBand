@@ -35,7 +35,7 @@ func set_state(newState):
 	currentState.enter()
 	
 func _on_Sword_body_entered(body):
-	print('HIT!')
+	#print('HIT!')
 	if(body != creator):
 		match body.get("type"):
 			"ENEMY":

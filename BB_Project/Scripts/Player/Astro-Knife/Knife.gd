@@ -1,12 +1,36 @@
 extends Area2D
 
 #Custom Properties 
-export var throwDistance = 100
+export var throwDistance = Vector2(100, 100) 
 export var throwSpeed = 20
+export var moveSpeed = 20
+export var followPercent = .1
 
 #Code dependent properties 
 var facingDir = dir.right
 var followTarget
+var user 
+var grabPoint
 
+onready var animPlayer = $AnimPlayer
+onready var stateManager = $StateMachine
+onready var colShape = $CollisionShape2D
 
+#Go to my target position if I was given one 
+func _ready():
+	if(followTarget != null):
+		position = followTarget.global_position
+
+func _on_Knife_area_entered(area):
+	if(stateManager.currentState.get_name() == "Throw" && area.get("type") == "SOLID"):
+#		print("HIT AREA!")
+		stateManager.set_state(stateManager.states[stateManager.findState("Stick")])
+
+func _on_Knife_body_entered(body):
+	if(stateManager.currentState.get_name() == "Throw" && body != user):
+#		print("HIT BODY!")
+		stateManager.set_state(stateManager.states[stateManager.findState("Stick")])
+	elif(stateManager.currentState.get_name() == "Stop" && body == user):
+		stateManager.set_state(stateManager.states[stateManager.findState("Idle")])
+		
 

@@ -1,43 +1,73 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/Player/Astro-Knife/Knife.gd" type="Script" id=1]
-[ext_resource path="res://Art Assets/Characters/Astro/astro-knife.png" type="Texture" id=2]
-[ext_resource path="res://Scripts/fsm_manager.gd" type="Script" id=3]
-[ext_resource path="res://Scripts/Player/Astro-Knife/Knife_Idle.gd" type="Script" id=4]
-[ext_resource path="res://Scripts/Player/Astro-Knife/Knife_Throw.gd" type="Script" id=5]
-[ext_resource path="res://Scripts/Player/Astro-Knife/Knife_Aim.gd" type="Script" id=6]
+[ext_resource path="res://Art Assets/Characters/Astro/astro-knife-complete2.png" type="Texture" id=2]
+[ext_resource path="res://Art Assets/Characters/Astro/astro-knife-complete3.png" type="Texture" id=3]
+[ext_resource path="res://Art Assets/Characters/Astro/astro-knife-complete1.png" type="Texture" id=4]
+[ext_resource path="res://Art Assets/Characters/Astro/astro-knife.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/fsm_manager.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Player/Astro-Knife/Knife_Idle.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/Player/Astro-Knife/Knife_Throw.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/Player/Astro-Knife/Knife_Aim.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/Player/Astro-Knife/Knife_Stop.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/Player/Astro-Knife/Knife_Stick.gd" type="Script" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": false,
-"name": "default",
+"name": "Throw",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "Spin",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": false,
+"name": "Idle",
 "speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 1.03845, 4.0146 )
+extents = Vector2( 1.03845, 5.48393 )
 
 [node name="Knife" type="Area2D"]
 script = ExtResource( 1 )
+throwDistance = Vector2( 500, 500 )
+throwSpeed = 40
 
 [node name="AnimPlayer" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+animation = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 2 )
 shape = SubResource( 2 )
 
 [node name="StateMachine" type="Node" parent="."]
-script = ExtResource( 3 )
-statePaths = [ NodePath("Idle"), NodePath("Throw"), NodePath("Aim") ]
+script = ExtResource( 6 )
+statePaths = [ NodePath("Idle"), NodePath("Throw"), NodePath("Aim"), NodePath("Stop"), NodePath("Stick") ]
 
 [node name="Idle" type="Node" parent="StateMachine"]
-script = ExtResource( 4 )
+script = ExtResource( 7 )
+active = false
 
 [node name="Throw" type="Node" parent="StateMachine"]
-script = ExtResource( 5 )
+script = ExtResource( 8 )
+active = true
 
 [node name="Aim" type="Node" parent="StateMachine"]
-script = ExtResource( 6 )
+script = ExtResource( 9 )
+active = false
 
+[node name="Stop" type="Node" parent="StateMachine"]
+script = ExtResource( 10 )
+active = true
+
+[node name="Stick" type="Node" parent="StateMachine"]
+script = ExtResource( 11 )
+active = true
+
+[connection signal="area_entered" from="." to="." method="_on_Knife_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_Knife_body_entered"]

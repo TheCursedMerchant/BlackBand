@@ -4,12 +4,12 @@ func get_name():
 	return "Attack"
 	
 func enter(): 
-	print('State Entered!')
-	entity.get_node('../Hitbox').disabled = false 
+	#print('State Entered!')
+	target.get_node('../Hitbox').disabled = false 
 	
 func update(delta):
 	if(!get_node("../../Sword-Anim").is_playing()):
-		entity.set_state(entity.idleState)
+		target.set_state(target.idleState)
 
 func exit():
-	entity.active = false 
+	target.active = false 

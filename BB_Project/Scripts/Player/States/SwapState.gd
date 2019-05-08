@@ -4,7 +4,7 @@ func get_name():
 	return 'Swap'
 	
 func enter():
-	print('Current State: ' + manager.currentState.get_name())
+	#('Current State: ' + manager.currentState.get_name())
 	target.canSwap = false 
 	target.canAttack = false 
 	target.party.swap(target.party.currentIndex, true)

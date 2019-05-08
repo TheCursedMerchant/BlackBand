@@ -6,7 +6,7 @@ var move = false
 #Return state name
 func get_name():
 	return "Jump"
-		
+
 func handle_input(event):
 	#Character swapping 
 	if(Input.is_action_just_pressed('ui_right_select') && target.canSwap):
@@ -20,8 +20,7 @@ func handle_input(event):
 		move = true
 		target.anim_player.flip_h  = true
 		target.facingDir = dir.left
-	
-		
+
 func update(delta):
 	target.motion.y = max(target.motion.y - target.jumpSpeed, -target.jumpHeight)
 		

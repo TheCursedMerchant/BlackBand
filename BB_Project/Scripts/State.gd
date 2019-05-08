@@ -7,6 +7,8 @@ extends Node
 onready var manager = get_parent()
 onready var target = get_parent().get_parent()
 
+export var active : bool  
+
 #Return the name of our state 
 func get_name():
 	return
@@ -22,6 +24,10 @@ func exit():
 #Handle Input
 func handle_input(event):
 	return
+	
+#Optional unhandled input 
+func unhandled_input(event):
+	pass
 
 #Called every frame
 func update(delta):

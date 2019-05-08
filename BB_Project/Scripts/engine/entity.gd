@@ -30,10 +30,31 @@ var floor_velocity = Vector2()
 #All entities can move 
 func move(motion, acceleration, maxSpeed, moveDir):
 	#Move in the correct direction 
-	if(moveDir == dir.right):
-		motion.x = min(motion.x + acceleration, maxSpeed)
-	elif(moveDir == dir.left):
-		motion.x = max(motion.x - acceleration, -maxSpeed)
+	match moveDir:
+		dir.up:
+			motion.y = max(motion.y - acceleration, -maxSpeed)
+		dir.down:
+			motion.y = max(motion.y + acceleration, maxSpeed)
+		dir.left:
+			motion.x = max(motion.x - acceleration, -maxSpeed)
+		dir.right:
+			motion.x = min(motion.x + acceleration, maxSpeed)
+		dir.u_left:
+			motion.y = max(motion.y - acceleration, -maxSpeed)
+			motion.x = max(motion.x - acceleration, -maxSpeed)
+		dir.d_left:
+			motion.y = max(motion.y + acceleration, maxSpeed)
+			motion.x = max(motion.x - acceleration, -maxSpeed)
+		dir.u_right:
+			motion.y = max(motion.y - acceleration, -maxSpeed)
+			motion.x = min(motion.x + acceleration, maxSpeed)
+		dir.d_right:
+			motion.y = max(motion.y + acceleration, maxSpeed)
+			motion.x = min(motion.x + acceleration, maxSpeed)
+#	if(moveDir == dir.right):
+#		motion.x = min(motion.x + acceleration, maxSpeed)
+#	elif(moveDir == dir.left):
+#		motion.x = max(motion.x - acceleration, -maxSpeed)
 		
 	#Apply floor velocity
 	motion += floor_velocity
@@ -47,5 +68,5 @@ func takeDamage(dam):
 	currentHealth -= dam 
 	if(currentHealth <= 0):
 		queue_free()
-	print(currentHealth)
+#	print(currentHealth)
 		

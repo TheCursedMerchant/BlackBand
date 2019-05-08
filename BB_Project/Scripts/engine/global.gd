@@ -12,6 +12,7 @@ var partyIndex = 0
 var zulieHealth = 100
 var astroHealth = 100
 var playerCurrentFacingDir = dir.right
+var currentCharacter = ""
 
 func _ready():
 	var root = get_tree().get_root()
