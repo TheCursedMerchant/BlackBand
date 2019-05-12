@@ -24,10 +24,13 @@ func handle_input(event):
 		Input.is_action_pressed("ui_up") || Input.is_action_pressed("ui_down"))):
 		target.facingDir = normalize(inputAxis)
 	else:
-		target.facingDir = dir.right
+		target.facingDir = target.user.facingDir
+		
+	target.stickRay.set_cast_to(target.facingDir * target.stickLength)
+	#target.stickRay.position += target.facingDir
 	
 	#On release throw the knife 
-	if(Input.is_action_just_released("special_01")):
+	if(!Input.is_action_pressed("special_01")):
 		manager.set_state(manager.states[manager.findState("Throw")])
 	
 #Custom normalization (yes I know it isn't true normalized but it works for me so shut up)

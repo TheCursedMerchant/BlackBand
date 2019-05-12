@@ -13,6 +13,7 @@ var initial = true
 var canAttack = true 
 var canSwap = true 
 var canThrow = true 
+var grabTarget = null 
 
 #Statistics Properties 
 export var meleeDamage = 10 
@@ -71,7 +72,7 @@ func _input(event):
 				if(knife.stateManager.currentState.get_name() == "Stick"):
 					 stateManager.set_state(stateManager.states[stateManager.findState("Dash")])
 					 return
-				elif(canThrow && !knife.stateManager.currentState.active):
+				elif(canThrow && knife.stateManager.currentState.get_name() == "Aim"):
 					stateManager.set_state(stateManager.states[stateManager.findState("Aim")])
 					return
 

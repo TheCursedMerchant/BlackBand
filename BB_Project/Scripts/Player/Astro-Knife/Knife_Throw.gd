@@ -65,6 +65,11 @@ func update(delta):
 	else:
 		target.position += motion * delta
 		
+	if(target.stickRay.is_colliding()):
+		if(target.stickRay.get_collider().get("type") != "PLAYER"):
+			manager.set_state(manager.states[manager.findState("Stick")])
+			
+		
 func exit():
 	motion = ZERO_MOTION
 	

@@ -30,7 +30,8 @@ func update(delta):
 func handle_input(event):
 	if(Input.is_action_just_released("special_01")):
 		target.canThrow = false 
-		target.stateManager.set_state(target.stateManager.states[target.stateManager.findState("Idle")])
+		target.anim_player.play("Throw")
+		
 		
 	if(knife != null):
 		if((Input.is_action_just_pressed("ui_right") || Input.is_action_just_pressed("ui_left") || 
@@ -55,5 +56,6 @@ func spawnCircle():
 func despawnCircle():
 	target.knifeCircle.queue_free()
 	
-	
-
+func _on_Astro_Anim_Player_animation_finished():
+	if(target.anim_player.animation == "Throw"):
+		target.stateManager.set_state(target.stateManager.states[target.stateManager.findState("Idle")])

@@ -11,4 +11,4 @@ func unhandled_input(event):
 		target.animPlayer.play("Idle")
 		target.animPlayer.flip_h = false
 		target.animPlayer.flip_v = false
-		manager.set_state(manager.states[manager.findState("Idle")])
+		manager.set_state(manager.states[manager.findState("Return")])

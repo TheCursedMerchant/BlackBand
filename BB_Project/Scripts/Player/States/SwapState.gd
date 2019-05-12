@@ -10,6 +10,11 @@ func enter():
 	target.party.swap(target.party.currentIndex, true)
 	target.emit_signal('swapped')
 	
+	if(target.knife != null && target.knife.grabPoint != null && 
+	target.knife.weakGrabRef != null && target.knife.weakGrabRef.get_ref()):
+		target.knife.grabPoint.queue_free()
+		
+	
 func _on_Zulie_Anim_Player_animation_finished():
 	completeSwap()
 

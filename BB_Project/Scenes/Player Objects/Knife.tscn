@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/Player/Astro-Knife/Knife.gd" type="Script" id=1]
 [ext_resource path="res://Art Assets/Characters/Astro/astro-knife-complete2.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Scripts/Player/Astro-Knife/Knife_Aim.gd" type="Script" id=9]
 [ext_resource path="res://Scripts/Player/Astro-Knife/Knife_Stop.gd" type="Script" id=10]
 [ext_resource path="res://Scripts/Player/Astro-Knife/Knife_Stick.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/Player/Astro-Knife/Knife_Return.gd" type="Script" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -19,15 +20,15 @@ animations = [ {
 "name": "Throw",
 "speed": 0.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "Spin",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": false,
 "name": "Idle",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "Spin",
+"speed": 10.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -38,6 +39,10 @@ script = ExtResource( 1 )
 throwDistance = Vector2( 500, 500 )
 throwSpeed = 40
 
+[node name="stickRay" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 5 )
+
 [node name="AnimPlayer" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "Idle"
@@ -47,7 +52,7 @@ shape = SubResource( 2 )
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 6 )
-statePaths = [ NodePath("Idle"), NodePath("Throw"), NodePath("Aim"), NodePath("Stop"), NodePath("Stick") ]
+statePaths = [ NodePath("Idle"), NodePath("Throw"), NodePath("Aim"), NodePath("Stop"), NodePath("Stick"), NodePath("Return") ]
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource( 7 )
@@ -68,6 +73,9 @@ active = true
 [node name="Stick" type="Node" parent="StateMachine"]
 script = ExtResource( 11 )
 active = true
+
+[node name="Return" type="Node" parent="StateMachine"]
+script = ExtResource( 12 )
 
 [connection signal="area_entered" from="." to="." method="_on_Knife_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_Knife_body_entered"]

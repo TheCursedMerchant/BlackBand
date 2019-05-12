@@ -28,7 +28,7 @@ Transition="*res://Scenes/Helper Objects/Transition.tscn"
 
 [debug]
 
-settings/fps/force_fps=60
+settings/fps/force_fps=120
 settings/stdout/print_fps=true
 
 [display]
