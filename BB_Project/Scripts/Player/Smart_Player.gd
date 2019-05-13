@@ -22,6 +22,7 @@ export var v_meleeKnockback = -20
 export var attackType = 'ranged'
 export var dashSpeed = 40
 export var maxDashSpeed = 360
+export var minKnifeDistance = 40 
 
 #Flag if checks for if out player is grounded 
 onready var grounded = is_grounded()
@@ -69,7 +70,8 @@ func _input(event):
 			return
 		if(knife != null):
 			if(Input.is_action_just_pressed('special_01') && currentCharacter == 'Astro'):
-				if(knife.stateManager.currentState.get_name() == "Stick"):
+				if(knife.stateManager.currentState.get_name() == "Stick" &&
+					global_position.distance_to(knife.global_position) > minKnifeDistance):
 					 stateManager.set_state(stateManager.states[stateManager.findState("Dash")])
 					 return
 #				elif(canThrow && knife.stateManager.currentState.get_name() == "Idle"):
