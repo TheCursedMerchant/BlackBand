@@ -11,8 +11,6 @@ func get_name():
 func enter():
 	animPlayer = target.animPlayer
 	colShape = target.colShape
-#	print("Knife entered: " + get_name() + " state")
-#	print("Throw Distance length: " + str(target.throwDistance.length()))
 	target.animPlayer.play("Throw")
 	match target.facingDir:
 		dir.up:
@@ -64,10 +62,12 @@ func update(delta):
 		manager.set_state(manager.states[manager.findState("Stop")])
 	else:
 		target.position += motion * delta
+		if(target.stickRay.is_colliding()):
+			if(target.stickRay.get_collider().get("type") != "PLAYER"):
+				manager.set_state(manager.states[manager.findState("Stick")])
 		
-	if(target.stickRay.is_colliding()):
-		if(target.stickRay.get_collider().get("type") != "PLAYER"):
-			manager.set_state(manager.states[manager.findState("Stick")])
+		
+	
 			
 		
 func exit():

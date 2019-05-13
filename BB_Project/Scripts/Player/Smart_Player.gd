@@ -72,9 +72,9 @@ func _input(event):
 				if(knife.stateManager.currentState.get_name() == "Stick"):
 					 stateManager.set_state(stateManager.states[stateManager.findState("Dash")])
 					 return
-				elif(canThrow && knife.stateManager.currentState.get_name() == "Aim"):
-					stateManager.set_state(stateManager.states[stateManager.findState("Aim")])
-					return
+#				elif(canThrow && knife.stateManager.currentState.get_name() == "Idle"):
+#					stateManager.set_state(stateManager.states[stateManager.findState("Aim")])
+#					return
 
 func initializePlayer():
 	#Player animation 

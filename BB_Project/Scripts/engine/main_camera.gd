@@ -9,12 +9,13 @@ var _previous_x = 0.0
 var _previous_y = 0.0
 var _last_offset = Vector2(0, 0)
 
+export var followPercent = .1 
 var player = null 
 
 func _physics_process(delta):
 	if(player != null):
-		position.x = player.global_position.x 
-		position.y = player.global_position.y 
+		position.x += (player.global_position.x - global_position.x) * followPercent
+		position.y += (player.global_position.y - global_position.y) * followPercent
 
 # Shake with decreasing intensity while there's time remaining.
 func _process(delta):

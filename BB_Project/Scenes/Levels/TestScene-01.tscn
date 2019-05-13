@@ -7,11 +7,9 @@
 [ext_resource path="res://Art Assets/Tilesets/Test_Tiles.res" type="TileSet" id=5]
 
 [node name="Root" type="Node"]
-editor/display_folded = true
 script = ExtResource( 1 )
 
 [node name="MainCamera" type="Camera2D" parent="."]
-editor/display_folded = true
 current = true
 script = ExtResource( 2 )
 __meta__ = {
@@ -19,7 +17,6 @@ __meta__ = {
 }
 
 [node name="HUD" type="CanvasLayer" parent="MainCamera"]
-editor/display_folded = true
 
 [node name="Main_GUI" parent="MainCamera/HUD" instance=ExtResource( 3 )]
 margin_left = 0.0994568

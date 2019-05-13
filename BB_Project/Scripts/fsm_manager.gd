@@ -60,6 +60,5 @@ func findState(stateName):
 			else:
 				index += 1
 
-		
 
 
