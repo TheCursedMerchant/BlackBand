@@ -8,6 +8,9 @@ func enter():
 	#Set attack on cooldown
 	target.canAttack = false
 	
+	if(target.currentCharacter == "Astro"):
+		target.knife.animPlayer.visible = false 
+	
 	#Change attack based on type 
 	if(target.attackType == 'melee'):
 		target.get_node('melee-point').attack()
@@ -37,6 +40,7 @@ func _on_Zulie_Anim_Player_animation_finished():
 
 func _on_Dummy_Anim_Player_animation_finished():
 	if(target.anim_player.animation == 'Attack'):
+		target.knife.animPlayer.visible = true
 		if Input.is_action_pressed('ui_right'):
 			target.anim_player.flip_h = false
 			target.facingDir = dir.right
