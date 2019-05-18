@@ -1,3 +1,3 @@
 extends Position2D
 
-export var location = 'left'
+export var location = 'default'

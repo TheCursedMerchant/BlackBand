@@ -24,7 +24,6 @@ margin_right = 0.0994568
 
 [node name="Spawn" parent="." instance=ExtResource( 4 )]
 position = Vector2( 31.8495, 141.611 )
-location = "default"
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 5 )
