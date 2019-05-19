@@ -2,6 +2,7 @@
 #This Script will hold all global values for the persisting game information 
 extends Node
 
+var player = null 
 var current_scene = null
 var spawnLocation : String = 'default'
 
@@ -23,6 +24,9 @@ func goto_scene(path):
 	
 func _deferred_go_to_scene(path):
 	
+	if(player != null):
+		player.despawn()
+		
 	#Delete the current scene
 	current_scene.free()
 	

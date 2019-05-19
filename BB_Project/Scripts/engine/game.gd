@@ -47,9 +47,12 @@ func spawnPlayer(location):
 			newPlayer.position.x = spawner.global_position.x
 			newPlayer.position.y = spawner.global_position.y
 			add_child(newPlayer)
+			if(newPlayer.currentCharacter == "Astro"):
+				newPlayer.knifePosition.spawnKnife()
 			mainGUI.update_gui(newPlayer)
 			connectPlayer()
 			mainCamera.player = player
+			global.player = player
 
 func connectPlayer():
 	if(player != null):

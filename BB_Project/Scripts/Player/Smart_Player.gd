@@ -111,3 +111,11 @@ func createKnifeRay():
 	get_tree().get_root().add_child(newRay)
 	knifeRay = newRay
 	
+func despawn():
+	#Make sure to remove the knife first 
+	if(currentCharacter == "Astro"):
+		if(knife != null):
+			knife.queue_free()
+		
+	#Then free myself T.T
+	queue_free()

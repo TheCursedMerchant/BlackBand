@@ -23,6 +23,7 @@ scene = "res://Scenes/Levels/Demo_Left.tscn"
 
 [node name="Spawn2" parent="WarpPoint" instance=ExtResource( 4 )]
 position = Vector2( 40, 0 )
+location = "left"
 
 [node name="WarpPoint3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 303.606, 127.781 )
@@ -42,7 +43,6 @@ position = Vector2( -40, 0 )
 location = "right"
 
 [node name="MainCamera" type="Camera2D" parent="."]
-editor/display_folded = true
 current = true
 script = ExtResource( 5 )
 
