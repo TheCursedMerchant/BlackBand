@@ -13,6 +13,8 @@ func enter():
 func handle_input(event):
 	if(Input.is_action_just_pressed("special_01")):
 		manager.set_state(manager.states[manager.findState("Idle")])
+	elif(Input.is_action_just_pressed('ui_jump')):
+		manager.set_state(manager.states[manager.findState("Jump")])
 		
 func update(delta):
 	if(collide == null && target.grabTarget != null):

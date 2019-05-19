@@ -35,7 +35,7 @@ func update(delta):
 		target.facingDir = dir.left
 		target.motion.x = max(target.motion.x - target.acceleration, -target.maxSpeed) 
 			
-	if(Input.is_action_just_released('ui_up') || target.motion.y <= -target.jumpHeight):
+	if(Input.is_action_just_released('ui_up') || target.motion.y <= -target.jumpHeight || target.is_on_ceiling()):
 		manager.set_state(manager.states[manager.findState("Fall")])	
 		
 	if(Input.is_action_pressed('ui_attack') && target.canAttack):

@@ -92,10 +92,10 @@ class Astro:
 	var currentHealth = global.astroHealth
 	var attackType = 'melee'
 	var gravity = 10
-	var acceleration = 20
+	var acceleration = 25
 	var maxSpeed = 180
-	var jumpHeight = 210
-	var jumpSpeed = 40
+	var jumpHeight = 240
+	var jumpSpeed = 60
 	var meleeDamage = 10
 	var h_meleeKnockback = 40
 	var v_meleeKnockback = -20

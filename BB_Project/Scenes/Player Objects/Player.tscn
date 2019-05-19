@@ -227,6 +227,7 @@ maxSpeed = 150
 jumpHeight = 150
 jumpSpeed = 1
 dashSpeed = 500
+minKnifeDistance = 30
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 visible = false
@@ -251,7 +252,6 @@ collision_mask = 5
 script = ExtResource( 2 )
 
 [node name="States" type="Node" parent="."]
-editor/display_folded = true
 script = ExtResource( 3 )
 statePaths = [ NodePath("Idle"), NodePath("Move"), NodePath("Jump"), NodePath("Fall"), NodePath("Attack"), NodePath("Damage"), NodePath("Death"), NodePath("Swap"), NodePath("Aim"), NodePath("Dash"), NodePath("Hang") ]
 
