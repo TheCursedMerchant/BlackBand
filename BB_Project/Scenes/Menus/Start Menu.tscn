@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/engine/start-menu.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/ManaspaceReg.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Audio/Music/caverns.wav" type="AudioStream" id=3]
+[ext_resource path="res://caverns.wav" type="AudioStream" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 12

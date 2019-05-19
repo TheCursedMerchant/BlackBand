@@ -34,6 +34,7 @@ func _ready():
 	
 #--------- Shooting Cooldown ---------------------------------
 func on_timeout_complete():
+	print("SHOOT TIMEOUT!")
 	get_parent().canAttack = true
 		
 #---------------------- Shooting ---------------------------------------------

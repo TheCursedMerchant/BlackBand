@@ -65,7 +65,7 @@ func is_grounded():
 
 func _input(event):
 	if(!stateManager.currentState.active):
-		if(Input.is_action_just_released("ui_attack") && attackType == "ranged"):
+		if(Input.is_action_just_released("ui_attack") && attackType == "ranged" && canAttack):
 			stateManager.set_state(stateManager.states[stateManager.findState("Attack")])
 			return
 		if(knife != null):

@@ -20,7 +20,6 @@ func update(delta):
 			if(!target.shooter.chargeStarted):
 				target.shooter.chargeStarted = true
 				target.shooter.currentAnimation = 'start'
-			
 			#Charge logic 
 			if(target.shooter.currentCharge < target.shooter.chargeMax): 
 				target.shooter.currentCharge += target.shooter.chargeRate
