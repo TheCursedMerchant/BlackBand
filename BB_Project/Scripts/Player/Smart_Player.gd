@@ -14,6 +14,8 @@ var canAttack = true
 var canSwap = true 
 var canThrow = true 
 var grabTarget = null 
+var comboCount = 1 
+var attackAnims = ["Attack_1", "Attack_2", "Attack_3"]
 
 #Statistics Properties 
 export var meleeDamage = 10 
@@ -53,7 +55,10 @@ func _ready():
 #Defer physics process to our state
 func _physics_process(delta):
 	is_grounded()
-	anim_player.play(stateManager.currentState.get_name())
+	if(stateManager.currentState.get_name() == "Attack" && currentCharacter == "Astro"):
+		anim_player.play(stateManager.currentState.get_name() + "_" + str(comboCount))
+	else:
+		anim_player.play(stateManager.currentState.get_name())
 
 #Check if player is on the ground 
 func is_grounded():
@@ -119,3 +124,17 @@ func despawn():
 		
 	#Then free myself T.T
 	queue_free()
+	
+#Return true if we are in an attack animation 
+func isAttackAnimation(currentAnimation):
+	for anim in attackAnims:
+		if(anim == currentAnimation):
+			return true
+	return false
+	
+	
+	
+	
+	
+	
+	

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/astro_attack_one3.png-afab2f03e8fd66dc50a36c7b2d7f10c9.stex"
+path="res://.import/astro_attack_one9.png-58cac6277dcbb581a202c0f7a4137f8a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Assets/Characters/Astro/Astro-Attack/astro_attack_one3.png"
-dest_files=[ "res://.import/astro_attack_one3.png-afab2f03e8fd66dc50a36c7b2d7f10c9.stex" ]
+source_file="res://Art Assets/Characters/Astro/Astro-Attack/astro_attack_one9.png"
+dest_files=[ "res://.import/astro_attack_one9.png-58cac6277dcbb581a202c0f7a4137f8a.stex" ]
 
 [params]
 
