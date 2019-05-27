@@ -1,6 +1,6 @@
 extends Position2D
 
-var timer = null
+var timer = Timer.new()
 var cooldown = .4
 var swordBox = preload('res://Scenes/Player Objects/Sword-Box.tscn')
 var direction = 1
@@ -8,7 +8,6 @@ var direction = 1
 export var x_offset = 15
 
 func _ready():
-	timer = Timer.new()
 	timer.set_one_shot(true)
 	timer.set_wait_time(cooldown)
 	timer.connect("timeout", self, "on_attack_complete")
@@ -22,7 +21,7 @@ func attack():
 		timer.start()
 		#Add the projectile to the scene 
 		var hitBox = swordBox.instance(0)
-		hitBox.creatorType = creator.get("type")
+		hitBox.creator = creator
 		hitBox.damage = creator.meleeDamage
 		hitBox.h_knockback = creator.h_meleeKnockback
 		hitBox.v_knockback = creator.v_meleeKnockback

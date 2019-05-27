@@ -4,7 +4,7 @@ var damage
 var h_knockback 
 var v_knockback
 var knockbackDir
-var creatorType
+var creator
 var timer = null 
 var lifeTime = .1
 
@@ -20,12 +20,12 @@ func on_timeout_complete():
 	queue_free() 
 
 func _on_SwordBox_body_entered(body):
-	if(body.get("type") != creatorType):
+	if(body.get("type") != creator.get("type")):
 		match body.get("type"):
 			"ENEMY":
 				#Shake screen
 				body.camera.shake(0.2, 15, 8)
-				if(body.stateManager.currentState != body.stateManager.states[body.stateManager.findState("Damage")]):
+				if(body.stateManager.currentState != body.stateManager.states[body.stateManager.findState("Exhaust")]):
 					body.currentDamage += damage
 					#Check which direction we we're hit from 
 					if(body.position.x < self.position.x):
@@ -38,6 +38,15 @@ func _on_SwordBox_body_entered(body):
 					body.knockback = Vector2(h_knockback * body.knockbackDir, v_knockback)
 						
 					body.stateManager.set_state(body.stateManager.states[body.stateManager.findState("Damage")])
+				else:
+					if(body.position.x < self.position.x):
+						body.knockbackDir = -1
+					else:
+						body.knockbackDir = 1
+				
+					creator.knockback = Vector2(h_knockback * body.knockbackDir, 0) * 2
+					creator.stateManager.set_state(creator.stateManager.states[creator.stateManager.findState("Knockback")])
+					
 			"PLAYER":
 				#Shake screen
 				body.camera.shake(0.4, 18, 10)

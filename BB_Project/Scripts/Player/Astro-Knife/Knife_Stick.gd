@@ -8,6 +8,10 @@ func get_name():
 func enter():
 	spawnGrabPoint(target.global_position)
 	
+func update(delta):
+	if(target.stickParent.get("motion") != null):
+		target.global_position = target.stickParent.global_position
+	
 func exit():
 	if(target.grabPoint != null && target.weakGrabRef.get_ref()):
 		target.grabPoint.queue_free()
@@ -17,7 +21,7 @@ func exit():
 	
 func spawnGrabPoint(loc):
 	target.grabPoint = grabScene.instance(0)
-	get_tree().get_root().add_child(target.grabPoint)
+	add_child(target.grabPoint)
 	target.weakGrabRef = weakref(target.grabPoint)
 	target.grabPoint.global_position = loc
 	target.grabPoint.connect("body_entered", self, "_on_body_entered")

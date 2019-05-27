@@ -6,6 +6,9 @@ onready var floor_checker = $floor_checker
 #State variables
 onready var grounded = is_grounded()
 export var attackRange = 15
+export var exhaustTime = .5
+export var resistance = 100
+
 var chaseTarget = null
 
 onready var stateManager = $States

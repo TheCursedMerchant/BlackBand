@@ -7,6 +7,11 @@ func get_name():
 	
 func enter():	
 	target.motion.y = 0
+	
+	if(target.facingDir == dir.right):
+		target.motion.x += target.acceleration * 2
+	else:
+		target.motion.x -= target.acceleration * 2
 	#Set attack on cooldown
 	target.canAttack = false
 	

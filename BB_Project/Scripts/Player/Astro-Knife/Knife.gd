@@ -14,6 +14,7 @@ var followTarget
 var user 
 var weakGrabRef = null 
 var distanceToUser = 0 
+var stickParent = null 
 
 onready var animPlayer = $AnimPlayer
 onready var stateManager = $StateMachine

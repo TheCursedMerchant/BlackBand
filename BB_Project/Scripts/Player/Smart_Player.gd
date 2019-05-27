@@ -5,6 +5,7 @@ extends 'res://Scripts/engine/entity.gd'
 #Signals
 signal damaged
 signal swapped
+signal manaDrain
 
 #Party Properties 
 onready var partyIndex = global.partyIndex
@@ -25,6 +26,8 @@ export var attackType = 'ranged'
 export var dashSpeed = 40
 export var maxDashSpeed = 360
 export var minKnifeDistance = 40 
+export var totalMana = 100
+export var currentMana = 50
 
 #Flag if checks for if out player is grounded 
 onready var grounded = is_grounded()
@@ -38,6 +41,7 @@ onready var knifeCircle = $"Knife-Circle"
 onready var stateManager = $States
 onready var knifeRay = $"Knife-Ray" 
 var knife = null 
+var throw_type = 1
 
 func _ready():
 	#Set type
@@ -55,10 +59,21 @@ func _ready():
 #Defer physics process to our state
 func _physics_process(delta):
 	is_grounded()
-	if(stateManager.currentState.get_name() == "Attack" && currentCharacter == "Astro"):
-		anim_player.play(stateManager.currentState.get_name() + "_" + str(comboCount))
-	else:
-		anim_player.play(stateManager.currentState.get_name())
+	match stateManager.currentState.get_name():
+		"Attack":
+			if(currentCharacter == "Astro"):
+				anim_player.play(stateManager.currentState.get_name() + "_" + str(comboCount))
+			else:
+				anim_player.play(stateManager.currentState.get_name())
+		"Throw":
+			anim_player.play(stateManager.currentState.get_name() + "_" + str(throw_type))
+
+		_:
+			anim_player.play(stateManager.currentState.get_name())
+#	if(stateManager.currentState.get_name() == "Attack" && currentCharacter == "Astro"):
+#		anim_player.play(stateManager.currentState.get_name() + "_" + str(comboCount))
+#	else:
+#		anim_player.play(stateManager.currentState.get_name())
 
 #Check if player is on the ground 
 func is_grounded():

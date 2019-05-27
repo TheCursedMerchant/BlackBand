@@ -24,7 +24,7 @@ var mainGUI = null
 var knockback = Vector2(0, 0) 
 var knockbackDir = 1
 var currentDamage = 0
-var damageTime = .2
+export var damageTime = .2
 var floor_velocity = Vector2()
 
 #All entities can move 
@@ -68,5 +68,5 @@ func takeDamage(dam):
 	currentHealth -= dam 
 	if(currentHealth <= 0):
 		queue_free()
-#	print(currentHealth)
+	print("Slime health: ", currentHealth)
 		

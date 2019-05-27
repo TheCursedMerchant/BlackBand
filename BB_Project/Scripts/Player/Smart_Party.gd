@@ -96,7 +96,7 @@ class Astro:
 	var maxSpeed = 180
 	var jumpHeight = 240
 	var jumpSpeed = 60
-	var meleeDamage = 10
+	var meleeDamage = 50
 	var h_meleeKnockback = 40
 	var v_meleeKnockback = -20
 	var jumpMoveModifier = 3

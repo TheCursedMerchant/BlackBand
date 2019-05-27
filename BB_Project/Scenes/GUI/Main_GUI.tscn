@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/engine/main-gui.gd" type="Script" id=1]
 [ext_resource path="res://Art Assets/GUI/health-slot.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Art Assets/GUI/mana-meter.png" type="Texture" id=5]
 [ext_resource path="res://Art Assets/GUI/portrait-slot.png" type="Texture" id=6]
 [ext_resource path="res://Art Assets/GUI/Zulie-Portrait.png" type="Texture" id=7]
+[ext_resource path="res://Art Assets/GUI/astro-portrait.png" type="Texture" id=8]
 
 [node name="Main_GUI" type="Control"]
 anchor_right = 1.0
@@ -41,7 +42,12 @@ texture_progress = ExtResource( 5 )
 texture = ExtResource( 6 )
 centered = false
 
-[node name="zulie-portrait" type="Sprite" parent="Meters/portrait-slot"]
+[node name="Zulie" type="Sprite" parent="Meters/portrait-slot"]
 texture = ExtResource( 7 )
 centered = false
+
+[node name="Astro" type="Sprite" parent="Meters/portrait-slot"]
+visible = false
+position = Vector2( 10.0136, 11.0528 )
+texture = ExtResource( 8 )
 

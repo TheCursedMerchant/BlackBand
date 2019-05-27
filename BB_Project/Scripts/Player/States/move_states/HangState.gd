@@ -24,6 +24,7 @@ func update(delta):
 		target.anim_player.frame = 1
 		
 		
+		
 func exit():
 	if(knife != null):
 		knife.stateManager.set_state(knife.stateManager.states[knife.stateManager.findState("Return")])

@@ -43,8 +43,8 @@ func set_state(newState):
 		previousState = currentState 
 		currentState = newState
 		currentState.enter()
-		if(target.get("type") == "PLAYER"):
-			print("Player entered the " + currentState.get_name() + " state.")
+		if(target.get("type") == "ENEMY"):
+			print("Enemy entered the " + currentState.get_name() + " state.")
 	
 func initializeStates(statePaths):
 	for state in statePaths:

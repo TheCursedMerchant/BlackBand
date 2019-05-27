@@ -4,12 +4,13 @@ const NO_DIR = Vector2(0,0)
 const X_TOLERANCE = .01 
 const Y_TOLERANCE = .01
 
+var user
+
 func get_name():
 	return "Aim"
 	
-#func enter():
-#	#Move to the center of the player
-#	print("Knife entered: " + get_name() + " state")
+func enter():
+	user = target.user
 	
 func update(delta):
 	target.position = target.followTarget.get_parent().position
@@ -32,6 +33,11 @@ func handle_input(event):
 	#On release throw the knife 
 	if(!Input.is_action_pressed("special_01")):
 		manager.set_state(manager.states[manager.findState("Throw")])
+		if(target.facingDir.y == -1):
+			user.throw_type = 2
+		else:
+			user.throw_type = 1
+		user.stateManager.set_state(user.stateManager.states[user.stateManager.findState("Throw")])
 	
 #Custom normalization (yes I know it isn't true normalized but it works for me so shut up)
 func normalize(vector : Vector2):

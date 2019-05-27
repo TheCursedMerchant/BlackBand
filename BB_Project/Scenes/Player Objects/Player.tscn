@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=2]
+[gd_scene load_steps=106 format=2]
 
 [ext_resource path="res://Scripts/Player/Smart_Player.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Player/Smart_Party.gd" type="Script" id=2]
@@ -14,207 +14,226 @@
 [ext_resource path="res://Scripts/Player/States/AimState.gd" type="Script" id=12]
 [ext_resource path="res://Scripts/Player/States/move_states/DashState.gd" type="Script" id=13]
 [ext_resource path="res://Scripts/Player/States/move_states/HangState.gd" type="Script" id=14]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_move2.png" type="Texture" id=15]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_move3.png" type="Texture" id=16]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_move4.png" type="Texture" id=17]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_move5.png" type="Texture" id=18]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_move6.png" type="Texture" id=19]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_move7.png" type="Texture" id=20]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle1.png" type="Texture" id=21]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle2.png" type="Texture" id=22]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle3.png" type="Texture" id=23]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle4.png" type="Texture" id=24]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle5.png" type="Texture" id=25]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle6.png" type="Texture" id=26]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle7.png" type="Texture" id=27]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle8.png" type="Texture" id=28]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_jump2.png" type="Texture" id=29]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_jump3.png" type="Texture" id=30]
-[ext_resource path="res://Art Assets/Swap_Animation2.png" type="Texture" id=31]
-[ext_resource path="res://Art Assets/Swap_Animation3.png" type="Texture" id=32]
-[ext_resource path="res://Art Assets/Swap_Animation4.png" type="Texture" id=33]
-[ext_resource path="res://Art Assets/Swap_Animation5.png" type="Texture" id=34]
-[ext_resource path="res://Art Assets/Swap_Animation6.png" type="Texture" id=35]
-[ext_resource path="res://Art Assets/Swap_Animation7.png" type="Texture" id=36]
-[ext_resource path="res://Art Assets/Swap_Animation8.png" type="Texture" id=37]
-[ext_resource path="res://Art Assets/Swap_Animation9.png" type="Texture" id=38]
-[ext_resource path="res://Art Assets/Swap_Animation10.png" type="Texture" id=39]
-[ext_resource path="res://Art Assets/Swap_Animation11.png" type="Texture" id=40]
-[ext_resource path="res://Art Assets/Swap_Animation12.png" type="Texture" id=41]
-[ext_resource path="res://Art Assets/Swap_Animation13.png" type="Texture" id=42]
-[ext_resource path="res://Art Assets/Swap_Animation14.png" type="Texture" id=43]
-[ext_resource path="res://Art Assets/Swap_Animation15.png" type="Texture" id=44]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_attack_one2.png" type="Texture" id=45]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_attack_one3.png" type="Texture" id=46]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_attack_one4.png" type="Texture" id=47]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_attack_one5.png" type="Texture" id=48]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_attack_one6.png" type="Texture" id=49]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_damage1.png" type="Texture" id=50]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_damage2.png" type="Texture" id=51]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie.png" type="Texture" id=52]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_jump4.png" type="Texture" id=53]
-[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_jump5.png" type="Texture" id=54]
-[ext_resource path="res://Art Assets/Characters/Astro/Astro-Attack/astro_attack_one9.png" type="Texture" id=55]
-[ext_resource path="res://Art Assets/Characters/Astro/Astro-Attack/astro_attack_one10.png" type="Texture" id=56]
-[ext_resource path="res://Art Assets/Characters/Astro/Astro-Attack/astro_attack_one11.png" type="Texture" id=57]
-[ext_resource path="res://Art Assets/Characters/Astro/Astro-Throw/astro-throw6.png" type="Texture" id=58]
-[ext_resource path="res://Art Assets/Characters/Astro/Astro-Throw/astro-throw7.png" type="Texture" id=59]
-[ext_resource path="res://Art Assets/Characters/Astro/Astro-Throw/astro-throw8.png" type="Texture" id=60]
-[ext_resource path="res://Art Assets/Characters/Astro/Astro-Throw/astro-throw2.png" type="Texture" id=61]
-[ext_resource path="res://Art Assets/Characters/Astro/Astro-Walk-Cycle/astro-move-anim2.png" type="Texture" id=62]
-[ext_resource path="res://Art Assets/Characters/Astro/Astro-Walk-Cycle/astro-move-anim3.png" type="Texture" id=63]
-[ext_resource path="res://Art Assets/Characters/Astro/Astro-Walk-Cycle/astro-move-anim4.png" type="Texture" id=64]
-[ext_resource path="res://Art Assets/Characters/Astro/Astro-Walk-Cycle/astro-move-anim5.png" type="Texture" id=65]
-[ext_resource path="res://Art Assets/Characters/Astro/Astro-Walk-Cycle/astro-move-anim6.png" type="Texture" id=66]
-[ext_resource path="res://Art Assets/Characters/Astro/Astro-Walk-Cycle/astro-move-anim7.png" type="Texture" id=67]
-[ext_resource path="res://Art Assets/Characters/Astro/Astro-Walk-Cycle/astro-move-anim8.png" type="Texture" id=68]
-[ext_resource path="res://Art Assets/Characters/Astro/Astro-Walk-Cycle/astro-move-anim9.png" type="Texture" id=69]
-[ext_resource path="res://Art Assets/Characters/Astro/Astro-Walk-Cycle/astro-move-anim10.png" type="Texture" id=70]
-[ext_resource path="res://Art Assets/Characters/Astro/Astro-Idle/astro-idle1.png" type="Texture" id=71]
-[ext_resource path="res://Art Assets/Characters/Astro/Astro-Jump/astro-jump2.png" type="Texture" id=72]
-[ext_resource path="res://Art Assets/Characters/Astro/Astro-Jump/astro-jump3.png" type="Texture" id=73]
-[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_jump1.png" type="Texture" id=74]
-[ext_resource path="res://Art Assets/Characters/Astro/astro-hang2.png" type="Texture" id=75]
-[ext_resource path="res://Art Assets/Characters/Astro/astro-hang3.png" type="Texture" id=76]
-[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_walk_cycle1.png" type="Texture" id=77]
-[ext_resource path="res://Art Assets/Characters/Astro/Astro-Jump/astro-jump4.png" type="Texture" id=78]
-[ext_resource path="res://Art Assets/Characters/Astro/Astro-Attack/astro_attack_one2.png" type="Texture" id=79]
-[ext_resource path="res://Art Assets/Characters/Astro/Astro-Attack/astro_attack_one3.png" type="Texture" id=80]
-[ext_resource path="res://Art Assets/Characters/Astro/Astro-Attack/astro_attack_one4.png" type="Texture" id=81]
-[ext_resource path="res://Art Assets/Characters/Astro/Astro-Attack/astro_attack_one5.png" type="Texture" id=82]
-[ext_resource path="res://Art Assets/Characters/Astro/Astro-Attack/astro_attack_one6.png" type="Texture" id=83]
-[ext_resource path="res://Art Assets/Characters/Astro/Astro-Attack/astro_attack_one7.png" type="Texture" id=84]
-[ext_resource path="res://Art Assets/Characters/Astro/Astro-Attack/astro_attack_one8.png" type="Texture" id=85]
-[ext_resource path="res://Scripts/shooter.gd" type="Script" id=86]
-[ext_resource path="res://Art Assets/Attacks/charge-fire1.png" type="Texture" id=87]
-[ext_resource path="res://Art Assets/Attacks/charge-fire2.png" type="Texture" id=88]
-[ext_resource path="res://Art Assets/Attacks/charge-fire3.png" type="Texture" id=89]
-[ext_resource path="res://Art Assets/Attacks/charge-fire4.png" type="Texture" id=90]
-[ext_resource path="res://Art Assets/Attacks/charge-fire5.png" type="Texture" id=91]
-[ext_resource path="res://Art Assets/Attacks/charge-fire6.png" type="Texture" id=92]
-[ext_resource path="res://Art Assets/Attacks/charge-fire7.png" type="Texture" id=93]
-[ext_resource path="res://Art Assets/Attacks/charge-fire8.png" type="Texture" id=94]
-[ext_resource path="res://Art Assets/Attacks/charge-fire9.png" type="Texture" id=95]
-[ext_resource path="res://Scripts/attacker.gd" type="Script" id=96]
-[ext_resource path="res://Scripts/Knife-Position.gd" type="Script" id=97]
+[ext_resource path="res://Scripts/Player/States/move_states/KnockbackState.gd" type="Script" id=15]
+[ext_resource path="res://Scripts/Player/States/ThrowState.gd" type="Script" id=16]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle1.png" type="Texture" id=17]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle2.png" type="Texture" id=18]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle3.png" type="Texture" id=19]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle4.png" type="Texture" id=20]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle5.png" type="Texture" id=21]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle6.png" type="Texture" id=22]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle7.png" type="Texture" id=23]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_Idle8.png" type="Texture" id=24]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_move2.png" type="Texture" id=25]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_move3.png" type="Texture" id=26]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_move4.png" type="Texture" id=27]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_move5.png" type="Texture" id=28]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_move6.png" type="Texture" id=29]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_move7.png" type="Texture" id=30]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_attack_one2.png" type="Texture" id=31]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_attack_one3.png" type="Texture" id=32]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_attack_one4.png" type="Texture" id=33]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_attack_one5.png" type="Texture" id=34]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_attack_one6.png" type="Texture" id=35]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_jump2.png" type="Texture" id=36]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_jump3.png" type="Texture" id=37]
+[ext_resource path="res://Art Assets/Swap_Animation2.png" type="Texture" id=38]
+[ext_resource path="res://Art Assets/Swap_Animation3.png" type="Texture" id=39]
+[ext_resource path="res://Art Assets/Swap_Animation4.png" type="Texture" id=40]
+[ext_resource path="res://Art Assets/Swap_Animation5.png" type="Texture" id=41]
+[ext_resource path="res://Art Assets/Swap_Animation6.png" type="Texture" id=42]
+[ext_resource path="res://Art Assets/Swap_Animation7.png" type="Texture" id=43]
+[ext_resource path="res://Art Assets/Swap_Animation8.png" type="Texture" id=44]
+[ext_resource path="res://Art Assets/Swap_Animation9.png" type="Texture" id=45]
+[ext_resource path="res://Art Assets/Swap_Animation10.png" type="Texture" id=46]
+[ext_resource path="res://Art Assets/Swap_Animation11.png" type="Texture" id=47]
+[ext_resource path="res://Art Assets/Swap_Animation12.png" type="Texture" id=48]
+[ext_resource path="res://Art Assets/Swap_Animation13.png" type="Texture" id=49]
+[ext_resource path="res://Art Assets/Swap_Animation14.png" type="Texture" id=50]
+[ext_resource path="res://Art Assets/Swap_Animation15.png" type="Texture" id=51]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_jump4.png" type="Texture" id=52]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_jump5.png" type="Texture" id=53]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_damage1.png" type="Texture" id=54]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie_damage2.png" type="Texture" id=55]
+[ext_resource path="res://Art Assets/Characters/Zulie/Zulie.png" type="Texture" id=56]
+[ext_resource path="res://Art Assets/Characters/Astro/Astro-Attack/astro_attack_one2.png" type="Texture" id=57]
+[ext_resource path="res://Art Assets/Characters/Astro/Astro-Attack/astro_attack_one3.png" type="Texture" id=58]
+[ext_resource path="res://Art Assets/Characters/Astro/Astro-Attack/astro_attack_one4.png" type="Texture" id=59]
+[ext_resource path="res://Art Assets/Characters/Astro/Astro-Attack/astro_attack_one5.png" type="Texture" id=60]
+[ext_resource path="res://Art Assets/Characters/Astro/Astro-Attack/astro_attack_one6.png" type="Texture" id=61]
+[ext_resource path="res://Art Assets/Characters/Astro/Astro-Attack/astro_attack_one7.png" type="Texture" id=62]
+[ext_resource path="res://Art Assets/Characters/Astro/Astro-Attack/astro_attack_one8.png" type="Texture" id=63]
+[ext_resource path="res://Art Assets/Characters/Astro/astro-hang2.png" type="Texture" id=64]
+[ext_resource path="res://Art Assets/Characters/Astro/astro-hang3.png" type="Texture" id=65]
+[ext_resource path="res://Art Assets/Characters/Astro/Astro-Jump/astro-jump3.png" type="Texture" id=66]
+[ext_resource path="res://Art Assets/Characters/Astro/Astro-Throw/astro-throw2.png" type="Texture" id=67]
+[ext_resource path="res://Art Assets/Characters/Astro/Astro-Idle/astro-idle1.png" type="Texture" id=68]
+[ext_resource path="res://Art Assets/Characters/Astro/Astro-Walk-Cycle/astro-move-anim2.png" type="Texture" id=69]
+[ext_resource path="res://Art Assets/Characters/Astro/Astro-Walk-Cycle/astro-move-anim3.png" type="Texture" id=70]
+[ext_resource path="res://Art Assets/Characters/Astro/Astro-Walk-Cycle/astro-move-anim4.png" type="Texture" id=71]
+[ext_resource path="res://Art Assets/Characters/Astro/Astro-Walk-Cycle/astro-move-anim5.png" type="Texture" id=72]
+[ext_resource path="res://Art Assets/Characters/Astro/Astro-Walk-Cycle/astro-move-anim6.png" type="Texture" id=73]
+[ext_resource path="res://Art Assets/Characters/Astro/Astro-Walk-Cycle/astro-move-anim7.png" type="Texture" id=74]
+[ext_resource path="res://Art Assets/Characters/Astro/Astro-Walk-Cycle/astro-move-anim8.png" type="Texture" id=75]
+[ext_resource path="res://Art Assets/Characters/Astro/Astro-Walk-Cycle/astro-move-anim9.png" type="Texture" id=76]
+[ext_resource path="res://Art Assets/Characters/Astro/Astro-Walk-Cycle/astro-move-anim10.png" type="Texture" id=77]
+[ext_resource path="res://Art Assets/Characters/Astro/Astro-Attack/astro_attack_one9.png" type="Texture" id=78]
+[ext_resource path="res://Art Assets/Characters/Astro/Astro-Attack/astro_attack_one10.png" type="Texture" id=79]
+[ext_resource path="res://Art Assets/Characters/Astro/Astro-Attack/astro_attack_one11.png" type="Texture" id=80]
+[ext_resource path="res://Art Assets/Characters/Astro/Astro-Jump/astro-jump2.png" type="Texture" id=81]
+[ext_resource path="res://Art Assets/Characters/Astro/Astro-Jump/astro-jump4.png" type="Texture" id=82]
+[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_jump1.png" type="Texture" id=83]
+[ext_resource path="res://Art Assets/Alternate Dummy Animations/fixed_dummy_alt_walk_cycle1.png" type="Texture" id=84]
+[ext_resource path="res://Art Assets/Characters/Astro/Astro-Throw/astro-throw3.png" type="Texture" id=85]
+[ext_resource path="res://Art Assets/Characters/Astro/Astro-Throw/astro-throw4.png" type="Texture" id=86]
+[ext_resource path="res://Art Assets/Characters/Astro/Astro-Throw/astro-throw6.png" type="Texture" id=87]
+[ext_resource path="res://Art Assets/Characters/Astro/Astro-Throw/astro-throw7.png" type="Texture" id=88]
+[ext_resource path="res://Art Assets/Characters/Astro/Astro-Throw/astro-throw8.png" type="Texture" id=89]
+[ext_resource path="res://Scripts/shooter.gd" type="Script" id=90]
+[ext_resource path="res://Art Assets/Attacks/charge-fire1.png" type="Texture" id=91]
+[ext_resource path="res://Art Assets/Attacks/charge-fire2.png" type="Texture" id=92]
+[ext_resource path="res://Art Assets/Attacks/charge-fire3.png" type="Texture" id=93]
+[ext_resource path="res://Art Assets/Attacks/charge-fire4.png" type="Texture" id=94]
+[ext_resource path="res://Art Assets/Attacks/charge-fire5.png" type="Texture" id=95]
+[ext_resource path="res://Art Assets/Attacks/charge-fire6.png" type="Texture" id=96]
+[ext_resource path="res://Art Assets/Attacks/charge-fire7.png" type="Texture" id=97]
+[ext_resource path="res://Art Assets/Attacks/charge-fire8.png" type="Texture" id=98]
+[ext_resource path="res://Art Assets/Attacks/charge-fire9.png" type="Texture" id=99]
+[ext_resource path="res://Scripts/attacker.gd" type="Script" id=100]
+[ext_resource path="res://Scripts/Knife-Position.gd" type="Script" id=101]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.0
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
-"loop": true,
-"name": "Move",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ) ],
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 29 ), ExtResource( 30 ) ],
-"loop": false,
-"name": "Jump",
-"speed": 5.0
+"frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ) ],
+"loop": true,
+"name": "Move",
+"speed": 12.0
 }, {
-"frames": [ ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ) ],
-"loop": false,
-"name": "Swap",
-"speed": 25.0
-}, {
-"frames": [ ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ) ],
+"frames": [ ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ],
 "loop": false,
 "name": "Attack",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 50 ), ExtResource( 51 ) ],
+"frames": [ ExtResource( 36 ), ExtResource( 37 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ) ],
+"loop": false,
+"name": "Swap",
+"speed": 25.0
+}, {
+"frames": [ ExtResource( 52 ), ExtResource( 53 ) ],
+"loop": false,
+"name": "Fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 54 ), ExtResource( 55 ) ],
 "loop": true,
 "name": "Damage",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 52 ) ],
+"frames": [ ExtResource( 56 ) ],
 "loop": true,
 "name": "Death",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 53 ), ExtResource( 54 ) ],
+"frames": [ ExtResource( 36 ) ],
 "loop": false,
-"name": "Fall",
+"name": "Knockback",
 "speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ) ],
-"loop": false,
-"name": "Attack_3",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ) ],
-"loop": false,
-"name": "Throw",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 61 ) ],
-"loop": false,
-"name": "Aim",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ) ],
-"loop": true,
-"name": "Move",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 71 ) ],
-"loop": false,
-"name": "Idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 72 ), ExtResource( 73 ) ],
-"loop": false,
-"name": "Jump",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ) ],
-"loop": false,
-"name": "Swap",
-"speed": 25.0
-}, {
-"frames": [ ExtResource( 74 ) ],
-"loop": false,
-"name": "Damage",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 75 ), ExtResource( 76 ) ],
-"loop": false,
-"name": "Hang",
-"speed": 0.0
-}, {
-"frames": [ ExtResource( 77 ) ],
-"loop": false,
-"name": "Death",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 72 ), ExtResource( 73 ), ExtResource( 78 ) ],
-"loop": false,
-"name": "Fall",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 73 ) ],
-"loop": false,
-"name": "Dash",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 79 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 82 ) ],
+"frames": [ ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ) ],
 "loop": false,
 "name": "Attack_1",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 83 ), ExtResource( 84 ), ExtResource( 85 ) ],
+"frames": [ ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ) ],
 "loop": false,
 "name": "Attack_2",
 "speed": 15.0
+}, {
+"frames": [ ExtResource( 64 ), ExtResource( 65 ) ],
+"loop": false,
+"name": "Hang",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 66 ) ],
+"loop": false,
+"name": "Dash",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 67 ) ],
+"loop": false,
+"name": "Aim",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 68 ) ],
+"loop": false,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 77 ) ],
+"loop": true,
+"name": "Move",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 78 ), ExtResource( 79 ), ExtResource( 80 ) ],
+"loop": false,
+"name": "Attack_3",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 81 ), ExtResource( 66 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ) ],
+"loop": false,
+"name": "Swap",
+"speed": 25.0
+}, {
+"frames": [ ExtResource( 81 ), ExtResource( 66 ), ExtResource( 82 ) ],
+"loop": false,
+"name": "Fall",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 83 ) ],
+"loop": false,
+"name": "Damage",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 84 ) ],
+"loop": false,
+"name": "Death",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 85 ), ExtResource( 86 ) ],
+"loop": false,
+"name": "Throw_2",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 87 ), ExtResource( 88 ), ExtResource( 89 ) ],
+"loop": false,
+"name": "Throw_1",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 80 ) ],
+"loop": false,
+"name": "Knockback",
+"speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=4]
@@ -224,12 +243,12 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 87 ), ExtResource( 88 ), ExtResource( 89 ) ],
+"frames": [ ExtResource( 91 ), ExtResource( 92 ), ExtResource( 93 ) ],
 "loop": false,
 "name": "start",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 90 ), ExtResource( 91 ), ExtResource( 92 ), ExtResource( 93 ), ExtResource( 94 ), ExtResource( 95 ) ],
+"frames": [ ExtResource( 94 ), ExtResource( 95 ), ExtResource( 96 ), ExtResource( 97 ), ExtResource( 98 ), ExtResource( 99 ) ],
 "loop": true,
 "name": "charge",
 "speed": 15.0
@@ -269,7 +288,7 @@ script = ExtResource( 2 )
 
 [node name="States" type="Node" parent="."]
 script = ExtResource( 3 )
-statePaths = [ NodePath("Idle"), NodePath("Move"), NodePath("Jump"), NodePath("Fall"), NodePath("Attack"), NodePath("Damage"), NodePath("Death"), NodePath("Swap"), NodePath("Aim"), NodePath("Dash"), NodePath("Hang") ]
+statePaths = [ NodePath("Idle"), NodePath("Move"), NodePath("Jump"), NodePath("Fall"), NodePath("Attack"), NodePath("Damage"), NodePath("Death"), NodePath("Swap"), NodePath("Aim"), NodePath("Dash"), NodePath("Hang"), NodePath("Knockback"), NodePath("Throw") ]
 
 [node name="Idle" type="Node" parent="States"]
 script = ExtResource( 4 )
@@ -313,6 +332,12 @@ active = true
 [node name="Hang" type="Node" parent="States"]
 script = ExtResource( 14 )
 
+[node name="Knockback" type="Node" parent="States"]
+script = ExtResource( 15 )
+
+[node name="Throw" type="Node" parent="States"]
+script = ExtResource( 16 )
+
 [node name="Anim_Players" type="Node2D" parent="."]
 
 [node name="Zulie_Anim_Player" type="AnimatedSprite" parent="Anim_Players"]
@@ -327,7 +352,7 @@ animation = "Idle"
 
 [node name="shoot-point" type="Area2D" parent="."]
 editor/display_folded = true
-script = ExtResource( 86 )
+script = ExtResource( 90 )
 shakeMod = 40
 
 [node name="anim_player" type="AnimatedSprite" parent="shoot-point"]
@@ -335,11 +360,11 @@ frames = SubResource( 4 )
 offset = Vector2( -2, 0 )
 
 [node name="melee-point" type="Position2D" parent="."]
-script = ExtResource( 96 )
+script = ExtResource( 100 )
 
 [node name="Knife-Position" type="Position2D" parent="."]
 position = Vector2( -11, -15 )
-script = ExtResource( 97 )
+script = ExtResource( 101 )
 
 [node name="Knife-Ray" type="RayCast2D" parent="."]
 enabled = true
@@ -350,4 +375,5 @@ cast_to = Vector2( 0, 0 )
 [connection signal="animation_finished" from="Anim_Players/Astro_Anim_Player" to="States/Aim" method="_on_Astro_Anim_Player_animation_finished"]
 [connection signal="animation_finished" from="Anim_Players/Astro_Anim_Player" to="States/Attack" method="_on_Dummy_Anim_Player_animation_finished"]
 [connection signal="animation_finished" from="Anim_Players/Astro_Anim_Player" to="States/Swap" method="_on_Dummy_Anim_Player_animation_finished"]
+[connection signal="animation_finished" from="Anim_Players/Astro_Anim_Player" to="States/Throw" method="_on_Astro_Anim_Player_animation_finished"]
 [connection signal="animation_finished" from="shoot-point/anim_player" to="shoot-point" method="_on_anim_player_animation_finished"]

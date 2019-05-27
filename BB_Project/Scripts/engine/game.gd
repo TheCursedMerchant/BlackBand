@@ -10,6 +10,8 @@ onready var mainCamera = get_node('MainCamera')
 onready var mainGUI = get_node('MainCamera/HUD/Main_GUI')
 
 var currentInteractable = null 
+var currentMana 
+var totalMana 
 
 func _ready():
 	set_process_input(true) 
@@ -23,13 +25,19 @@ func _input(event):
 	elif(event.is_action_pressed('ui_restart')):
 		restart()
 	elif(event.is_action_pressed('ui_damage')):
-		player.currentDamage = 50; 
+		player.currentDamage = 50
 		player.knockback = Vector2(-20, -25)
 		player.stateManager.set_state(player.stateManager.states[player.stateManager.findState("Damage")])
 	
 	if(event.is_action_pressed("ui_up")):
 		if(currentInteractable != null):
 			currentInteractable.action()
+			
+#func _process(delta):
+#	if( player != null && mainGUI != null ):
+#		currentMana = player.currentMana * 1.0 
+#		totalMana = player.totalMana * 1.0 
+#		mainGUI.manaBar.value = ( (currentMana / totalMana) * 100.00 )
 
 func quit():
 	#Quit the game 
@@ -65,3 +73,4 @@ func on_Player_damaged():
 
 func on_Player_swapped():
 	mainGUI.update_gui(player)
+	mainGUI.update_portrait(player.partyIndex)
